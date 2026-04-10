@@ -780,14 +780,14 @@ body.card-view #table-container {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 600;
   letter-spacing: 0.07em;
   text-transform: uppercase;
   color: #6b7280;
   background: rgba(107, 114, 128, 0.08);
   border: 1px solid rgba(107, 114, 128, 0.18);
-  padding: 4px 12px;
+  padding: 8px 18px;
   border-radius: 100px;
   margin-bottom: 20px;
   text-decoration: none;
