@@ -247,7 +247,7 @@ body.dark .tab-pill.active {
 }
 
 .hero__title {
-  font-size: clamp(38px, 6vw, 62px);
+  font-size: clamp(30px, 4.5vw, 50px);
   font-weight: 700;
   letter-spacing: -0.03em;
   color: var(--color-text-primary);
@@ -800,6 +800,15 @@ body.card-view #table-container {
 }
 
 /* min-height reserves space so subtitle/meta don't shift during typewriter */
+.page-hero__project-title {
+  font-size: clamp(30px, 4.5vw, 50px);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  color: var(--color-text-primary);
+  margin-bottom: 20px;
+}
+
 .page-hero__title {
   font-size: clamp(30px, 4.5vw, 50px);
   font-weight: 700;
@@ -1594,7 +1603,8 @@ body.dark .outcome-box      { background: rgba(0, 122, 255, 0.08); border-color:
 /* AGENT 2: TYPOGRAPHY + HIERARCHY OVERRIDES */
 
 /* ── 1. Page Hero Title — solid black ──────── */
-.page-hero__title {
+.page-hero__title,
+.page-hero__project-title {
   color: #000000;
   -webkit-text-fill-color: #000000;
   background: none;
@@ -3398,7 +3408,8 @@ body.dark .validation-banner__inner {
 
   #theme-toggle { bottom: 12px; right: 12px; width: 36px; height: 36px; }
 
-  .hero__title { font-size: 32px; }
+  .hero__title,
+  .page-hero__project-title { font-size: 26px; }
 
   .comparison-table td,
   .comparison-table th { font-size: 12px; padding: 6px 8px; }

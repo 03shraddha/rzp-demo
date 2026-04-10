@@ -189,12 +189,16 @@ function typewriterPageDocs() {
         title.insertBefore(document.createElement('br'), cursor);
         setTimeout(typeLine, 80);
       } else {
-        // all lines done — fade out cursor
+        // all lines done — fade out cursor, then reveal meta line
         setTimeout(() => {
           cursor.style.animation = 'none';
           cursor.style.opacity = '0';
           cursor.style.transition = 'opacity 0.3s';
-          setTimeout(() => cursor.remove(), 300);
+          setTimeout(() => {
+            cursor.remove();
+            const meta = document.querySelector('#page-docs .page-hero__meta');
+            if (meta) meta.classList.add('reveal--visible');
+          }, 300);
         }, 400);
       }
     }
@@ -221,12 +225,16 @@ function typewriterPagePayments() {
       i++;
       setTimeout(next, 40);
     } else {
-      // Done — fade out cursor
+      // Done — fade out cursor, then reveal meta line
       setTimeout(() => {
         cursor.style.animation = 'none';
         cursor.style.opacity = '0';
         cursor.style.transition = 'opacity 0.3s';
-        setTimeout(() => cursor.remove(), 300);
+        setTimeout(() => {
+          cursor.remove();
+          const meta = document.querySelector('#page-payments .page-hero__meta');
+          if (meta) meta.classList.add('reveal--visible');
+        }, 300);
       }, 400);
     }
   }
