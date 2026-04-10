@@ -783,3 +783,19 @@ function initCustomCursor() {
     if (e.target.closest(interactiveSelector)) ring.classList.remove('hovering');
   });
 }
+
+/* ── Custom Cursor ─────────────────────────────────────────── */
+(function () {
+  const cursor = document.getElementById('custom-cursor');
+  if (!cursor) return;
+
+  document.addEventListener('mousemove', (e) => {
+    cursor.style.left = e.clientX + 'px';
+    cursor.style.top  = e.clientY + 'px';
+    cursor.style.opacity = '1';
+  });
+
+  // Hide when mouse leaves the window
+  document.addEventListener('mouseleave', () => { cursor.style.opacity = '0'; });
+  document.addEventListener('mouseenter', () => { cursor.style.opacity = '1'; });
+})();

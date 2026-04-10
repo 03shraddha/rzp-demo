@@ -3415,3 +3415,22 @@ body.dark .validation-banner {
   .arch-step__items { grid-template-columns: 1fr; }
 }
 .comparison-table             { font-size: 17px; }
+
+/* ── Custom Cursor ──────────────────────────────────────────── */
+* { cursor: none !important; }
+
+#custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  background: #2563EB;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99999;
+  transform: translate(-50%, -50%);
+  transition: transform 0.08s ease, opacity 0.2s ease;
+  opacity: 0; /* hidden until first mouse move */
+  mix-blend-mode: normal;
+}
