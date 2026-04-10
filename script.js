@@ -513,7 +513,7 @@ const renderAll = (entries) => {
               ${toBullets(entry.solution)}
             </div>
             <div>
-              <div class="detail-label" data-full-text="proposed actions">proposed actions</div>
+              <div class="detail-label" data-full-text="ideas i'd try">ideas i'd try</div>
               <div class="detail-refs">${refsHTML}</div>
             </div>
           </div>
@@ -540,7 +540,7 @@ const renderAll = (entries) => {
         <div class="solution-label">ai opportunity</div>
         ${toBullets(entry.solution)}
         ${(entry.refs && entry.refs.length) ? `
-        <div class="solution-label" style="margin-top:14px">proposed actions</div>
+        <div class="solution-label" style="margin-top:14px">ideas i'd try</div>
         <div class="card-refs">${entry.refs.map(r => `<a href="${r.url}" target="_blank" rel="noopener noreferrer" class="ref-link">${r.label}</a>`).join('')}</div>
         ` : ''}
       </div>
