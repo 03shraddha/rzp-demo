@@ -90,6 +90,9 @@ body {
 .topbar {
   position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
   z-index: 100;
   background: var(--color-bg);
   border-bottom: 1px solid var(--color-border);
@@ -141,6 +144,9 @@ body {
 .tab-nav {
   position: fixed;
   top: 52px;
+  left: 0;
+  right: 0;
+  width: 100%;
   z-index: 99;
   background: var(--color-bg);
   border-bottom: 1px solid var(--color-border);
@@ -3056,3 +3062,32 @@ body.dark .validation-banner {
   background: linear-gradient(135deg, rgba(66, 133, 244, 0.06) 0%, rgba(52, 168, 83, 0.06) 100%);
   border-color: rgba(66, 133, 244, 0.15);
 }
+
+/* ============================================================
+   GLOBAL FONT SIZE OVERRIDES — readability pass
+   ============================================================ */
+.section-label                { font-size: 20px; }
+.page-hero__subtitle          { font-size: 22px; }
+.page-hero__meta              { font-size: 18px; }
+.tool-card__name              { font-size: 18px; }
+.tool-card__desc              { font-size: 17px; }
+.tool-card__detail            { font-size: 15px; }
+.reason-bullets li            { font-size: 19px; }
+.reason-title                 { font-size: clamp(28px, 4vw, 42px); }
+.faq-card__q                  { font-size: 20px; }
+.faq-card__a                  { font-size: 18px; }
+.arch-step__label             { font-size: 18px; }
+.arch-step__sub               { font-size: 15px; }
+.moment-step__label           { font-size: 18px; }
+.moment-step__sub             { font-size: 15px; }
+.pipeline-step__title         { font-size: 20px; }
+.pipeline-step__desc          { font-size: 18px; }
+.channel-card__name           { font-size: 22px; }
+.channel-card__via            { font-size: 16px; }
+.channel-card__desc           { font-size: 18px; }
+.reliability-chip__text       { font-size: 19px; }
+.outcome-box__flow            { font-size: 20px; }
+.outcome-box__sub             { font-size: 17px; }
+.stat-chip                    { font-size: 16px; }
+.google-note                  { font-size: 16px; }
+.comparison-table             { font-size: 17px; }
