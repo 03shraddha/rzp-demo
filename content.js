@@ -68,10 +68,10 @@ window.ENTRIES = [
     id: "entry-7",
     name: "Suyash Ratna",
     role: "Product Manager",
-    team: "",
+    team: "Offline Payments - Merchant Experience",
     company: "Razorpay",
-    problem: "",
-    solution: "",
+    problem: "offline payments team serves a full-stack builder audience - POS devices, checkout devices, hardware products, call center ops, field merchants - all with different contexts and no shared system\nTAT is high because knowledge lives in slack threads and DMs - no structured way to surface what's been done across projects\nPMs own deep context on one area but get pulled in by multiple teams asking the same questions repeatedly - no personal knowledge layer to delegate from\nseveral merchant escalations come in via social media and email but aren't properly documented - hard to identify which merchant it is, who owns it, and when it was flagged",
+    solution: "per-PM AI agent with persistent context across all projects worked on - not KT docs or POCs, but a live knowledge layer that answers 'what has this team tried, what worked, what didn't'\nslack thread summariser and dashboard that surfaces what's active across integration experiments, merchant experience, and hardware - so anyone can get context without interrupting the PM\ncrawler plugin that monitors merchant-facing forums, social media, and email channels for escalation signals - auto-identifies the merchant, flags it internally, and routes it to the right ops person with enough context to act",
     refs: []
   },
   {
