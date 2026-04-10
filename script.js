@@ -29,8 +29,10 @@ function switchTab(index) {
     const hero = document.querySelector(`#${pageIds[index]} .page-hero`)
                || document.getElementById(pageIds[index]);
     if (hero) {
-      // Use explicit offsetTop so scroll is reliable during animation
-      window.scrollTo({ top: hero.offsetTop, behavior: 'instant' });
+      // getBoundingClientRect gives viewport-relative position; add scrollY for absolute doc position
+      const rect = hero.getBoundingClientRect();
+      const absTop = window.scrollY + rect.top;
+      window.scrollTo({ top: Math.max(0, absTop - 57), behavior: 'instant' });
     }
 
     document.querySelectorAll('.tab-pill').forEach((pill) => {
