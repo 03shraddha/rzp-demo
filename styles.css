@@ -1117,6 +1117,44 @@ body.dark .stat-chip     { background: var(--color-bg-secondary); }
 .comparison-table td:nth-child(3) { color: var(--color-accent); font-weight: 500; }
 .comparison-table tr:hover td { background: var(--color-bg-secondary); }
 
+/* Terminal comparison table */
+.term-table-wrap {
+  background: var(--term-bg);
+  border: 1px solid var(--term-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  display: inline-block;
+  box-shadow: var(--term-shadow);
+}
+.term-table {
+  border-collapse: collapse;
+  font-family: var(--term-font);
+  font-size: 14px;
+}
+.term-table th {
+  padding: 10px 20px;
+  text-align: left;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--term-text-secondary);
+  background: var(--term-bg-alt);
+  border-bottom: 1px solid var(--term-border);
+}
+.term-table td {
+  padding: 11px 20px;
+  border-bottom: 1px solid var(--term-border);
+  line-height: 1.5;
+  white-space: nowrap;
+}
+.term-table tr:last-child td { border-bottom: none; }
+.term-table tr:hover td { background: rgba(255,255,255,0.03); }
+.term-table__feature { color: var(--term-text-secondary); }
+.term-table__native  { color: var(--term-text-primary); }
+.term-table__native--no { color: var(--term-amber); }
+.term-table__mine    { color: var(--term-green); }
+
 /* Who benefits grid */
 .who-grid { display: flex; flex-wrap: wrap; gap: 10px; max-width: 760px; margin: 0 auto; }
 .who-tag { font-size: 15px; font-weight: 500; color: var(--color-accent); background: color-mix(in srgb, var(--color-accent) 10%, transparent); border: 1px solid color-mix(in srgb, var(--color-accent) 25%, transparent); border-radius: 999px; padding: 6px 16px; line-height: 1.4; }

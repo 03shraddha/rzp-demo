@@ -362,6 +362,62 @@
         </div>
       </div>
 
+      <!-- Section 7: what exists vs what i built on top -->
+      <div class="page-section">
+        <div class="section-label reveal">what exists vs what i built on top</div>
+        <div class="term-table-wrap reveal">
+          <div class="term-chrome">
+            <div class="term-chrome__dots">
+              <span class="term-chrome__dot term-chrome__dot--red"></span>
+              <span class="term-chrome__dot term-chrome__dot--yellow"></span>
+              <span class="term-chrome__dot term-chrome__dot--green"></span>
+            </div>
+            <span class="term-chrome__title">comparison.sh</span>
+          </div>
+          <table class="term-table">
+            <colgroup>
+              <col style="width:260px">
+              <col style="width:230px">
+              <col style="width:240px">
+            </colgroup>
+            <thead>
+              <tr>
+                <th></th>
+                <th>razorpay native</th>
+                <th>this project</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="reveal" style="--i:0">
+                <td class="term-table__feature">notifies customer via SMS and email</td>
+                <td class="term-table__native">yes — toggle in dashboard, no code</td>
+                <td class="term-table__mine">yes — Twilio SMS + Gmail</td>
+              </tr>
+              <tr class="reveal" style="--i:1">
+                <td class="term-table__feature">generates a fresh payment link</td>
+                <td class="term-table__native">yes — via retargeting campaign</td>
+                <td class="term-table__mine">yes — api call on webhook</td>
+              </tr>
+              <tr class="reveal" style="--i:2">
+                <td class="term-table__feature">alerts the ops team on Slack</td>
+                <td class="term-table__native term-table__native--no">no</td>
+                <td class="term-table__mine">yes — posts to #payment-ops</td>
+              </tr>
+              <tr class="reveal" style="--i:3">
+                <td class="term-table__feature">triggers in under 2 seconds</td>
+                <td class="term-table__native term-table__native--no">no — retargeting is delayed</td>
+                <td class="term-table__mine">yes — fires on webhook instantly</td>
+              </tr>
+              <tr class="reveal" style="--i:4">
+                <td class="term-table__feature">customizable by developers in code</td>
+                <td class="term-table__native term-table__native--no">no — UI only, no code access</td>
+                <td class="term-table__mine">yes — edit the code directly</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
       <!-- Section 3: The Pipeline -->
       <div class="page-section">
         <div class="section-label reveal">what happens next</div>
@@ -486,46 +542,6 @@
         </div>
       </div>
 
-      <!-- Section 7: what exists vs what i built on top -->
-      <div class="page-section">
-        <div class="section-label reveal">what exists vs what i built on top</div>
-        <table class="comparison-table">
-          <thead>
-            <tr>
-              <th></th>
-              <th>razorpay native</th>
-              <th>this project</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr class="reveal" style="--i:0">
-              <td>customer SMS + email</td>
-              <td>yes (dashboard, no code)</td>
-              <td>yes (Twilio + Gmail SMTP)</td>
-            </tr>
-            <tr class="reveal" style="--i:1">
-              <td>fresh payment link</td>
-              <td>yes (retargeting flow)</td>
-              <td>yes (api call on webhook)</td>
-            </tr>
-            <tr class="reveal" style="--i:2">
-              <td>slack team alert</td>
-              <td>no</td>
-              <td>yes (#payment-ops)</td>
-            </tr>
-            <tr class="reveal" style="--i:3">
-              <td>fires in under 2s</td>
-              <td>no</td>
-              <td>yes (webhook, not retargeting)</td>
-            </tr>
-            <tr class="reveal" style="--i:4">
-              <td>developer-customizable</td>
-              <td>no</td>
-              <td>yes (code, not dashboard)</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
 
     </section><!-- /#page-payments -->
 
