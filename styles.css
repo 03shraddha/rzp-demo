@@ -777,16 +777,25 @@ body.card-view #table-container {
 
 /* Small pill tag above hero title */
 .page-tag {
-  display: inline-block;
-  font-size: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
   font-weight: 600;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.07em;
   text-transform: uppercase;
-  color: var(--color-accent);
-  background: rgba(0, 122, 255, 0.08);
+  color: #6b7280;
+  background: rgba(107, 114, 128, 0.08);
+  border: 1px solid rgba(107, 114, 128, 0.18);
   padding: 4px 12px;
   border-radius: 100px;
   margin-bottom: 20px;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.page-tag--github:hover {
+  opacity: 0.75;
 }
 
 /* Fluid type: 28px to 46px; min-height reserves space for typewriter cursor */
