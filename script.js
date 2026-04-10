@@ -191,7 +191,7 @@ function typewriterPageDocs() {
 function typewriterPagePayments() {
   const title = document.getElementById('payments-hero-title');
   if (!title) return;
-  const text = 'every failed payment is revenue walking out the door';
+  const text = 'every failed payment is revenue walking out the door. this workflow brings them back';
   title.textContent = '';
   const cursor = document.createElement('span');
   cursor.className = 'typewriter-cursor';
