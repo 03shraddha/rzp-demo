@@ -46,7 +46,7 @@ function switchTab(index) {
         });
       });
     }
-  }, 130);
+  }, 220);
 }
 
 // ── Scroll spy — updates active tab as user scrolls ────────

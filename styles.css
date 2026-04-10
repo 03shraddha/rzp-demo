@@ -189,17 +189,17 @@ body.dark .tab-pill.active {
 .pages-container {
   display: block;
   transform-origin: center center;
-  transition: opacity 0.13s ease, transform 0.13s ease;
+  transition: opacity 0.22s cubic-bezier(0.4, 0, 0.2, 1), transform 0.22s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .pages-container.flip-exit {
   opacity: 0;
-  transform: perspective(700px) rotateY(-6deg) scale(0.97);
+  transform: perspective(900px) rotateY(-10deg) translateX(-16px) scale(0.97);
 }
 
 .pages-container.flip-enter {
   opacity: 0;
-  transform: perspective(700px) rotateY(6deg) scale(0.97);
+  transform: perspective(900px) rotateY(10deg) translateX(16px) scale(0.97);
   transition: none;
 }
 
@@ -771,6 +771,7 @@ body.card-view #table-container {
   overflow: visible;
   display: flex;
   flex-direction: column;
+  align-items: center;
   justify-content: center;
   scroll-margin-top: 57px;
   padding: 20px 24px 40px;
@@ -1666,14 +1667,7 @@ body.dark .page-hero__title {
   padding: 40px 24px;
 }
 
-/* ── 12. Page Hero — compact, no full-viewport fill ── */
-.page-hero {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  padding: 64px 24px 56px;
-}
+
 /* AGENT 5: VISUAL DECLUTTER + POLISH */
 
 /* ── Change 1: Reason blocks — borderless with left accent ─────── */
@@ -2991,10 +2985,12 @@ body.dark .arch-arrow       { color: var(--term-green); }
 
 /* ── Google Validation Banner ───────────────────────────────── */
 .validation-banner {
+  width: 100%;
   background: linear-gradient(135deg, rgba(66, 133, 244, 0.04) 0%, rgba(52, 168, 83, 0.04) 100%);
   border-bottom: 1px solid rgba(66, 133, 244, 0.12);
   padding: 11px 0;
   flex-shrink: 0;
+  margin-bottom: 40px; /* space between banner and hero text */
 }
 .validation-banner__inner {
   max-width: 1100px;
