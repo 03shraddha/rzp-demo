@@ -68,7 +68,8 @@ window.ENTRIES = [
     company: "Razorpay",
     problem: "every standup required manual sql pulls from the data team — no self-serve analytics\nheavy documentation overhead and manual QA left little time for actual product decisions",
     solution: "now pulls weekly metrics and blocker data himself via an analytics agent, no dependency on data team\nnext step is browser automation and automated test coverage to replace manual QA",
-    refs: []
+    refs: [],
+    ideasNote: "the analytics agent and doc automation ideas here overlap with patterns covered in other entries"
   },
   {
     id: "entry-7",

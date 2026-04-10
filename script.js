@@ -388,7 +388,7 @@ const renderAll = (entries) => {
     detailRow.dataset.id = entry.id;
     const refsHTML = (entry.refs && entry.refs.length)
       ? entry.refs.map(r => `<a href="${r.url}" target="_blank" rel="noopener noreferrer" class="ref-link">${r.label}</a>`).join('')
-      : '<span style="color:var(--color-text-tertiary);font-size:13px">no links yet</span>';
+      : `<span style="color:var(--color-text-tertiary);font-size:13px">${entry.ideasNote || 'no links yet'}</span>`;
 
     detailRow.innerHTML = `
       <td colspan="4">
