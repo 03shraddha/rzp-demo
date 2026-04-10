@@ -160,7 +160,7 @@ function initTabs() {
 function typewriterPageDocs() {
   const title = document.getElementById('docs-hero-title');
   if (!title) return;
-  const text = 'what if your ai agent always had the right docs?';
+  const text = '10m+ businesses. $150b+ processed annually. ai agents now write that integration code and hallucinate field names when docs aren\'t built for agents';
   title.textContent = '';
   const cursor = document.createElement('span');
   cursor.className = 'typewriter-cursor';
