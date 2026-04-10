@@ -1655,17 +1655,16 @@ body.dark .page-hero__title {
 
 /* ── 11. Page Section Padding ────────────────────────────────── */
 .page-section {
-  padding: 52px 24px;
+  padding: 40px 24px;
 }
 
-/* ── 12. Page Hero — fill viewport so next section starts below fold ── */
+/* ── 12. Page Hero — compact, no full-viewport fill ── */
 .page-hero {
-  min-height: calc(100vh - 109px); /* 52px topbar + 57px tabnav */
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  padding: 48px 24px;
+  justify-content: flex-start;
+  padding: 64px 24px 56px;
 }
 /* AGENT 5: VISUAL DECLUTTER + POLISH */
 
@@ -1684,7 +1683,7 @@ body.dark .page-hero__title {
   box-shadow: none;
 }
 .reason-block + .reason-block {
-  margin-top: 48px; /* more space between reasons */
+  margin-top: 36px;
 }
 
 /* ── Change 2: FAQ cards — remove border, use subtle background only ── */
@@ -1702,7 +1701,7 @@ body.dark .faq-card {
 /* ── Change 3: Page sections — remove top border, use centered divider ── */
 .page-section {
   border-top: none;
-  padding: 52px 24px;
+  padding: 40px 24px;
   position: relative;
 }
 /* Subtle centered narrow divider line between sections */
