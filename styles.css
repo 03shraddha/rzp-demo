@@ -799,7 +799,7 @@ body.card-view #table-container {
   opacity: 0.75;
 }
 
-/* Fluid type: 28px to 46px; min-height reserves space for typewriter cursor */
+/* min-height reserves space so subtitle/meta don't shift during typewriter */
 .page-hero__title {
   font-size: clamp(16px, 1.8vw, 24px);
   font-weight: 800;
@@ -809,6 +809,10 @@ body.card-view #table-container {
   margin-bottom: 16px;
   min-height: 1.1em;
 }
+
+/* Per-title min-heights: reserve full text height before typewriter starts */
+#docs-hero-title     { min-height: 140px; } /* ~4 lines at max font size */
+#payments-hero-title { min-height: 70px;  } /* ~2 lines at max font size */
 
 .page-hero__subtitle {
   font-size: 18px;
