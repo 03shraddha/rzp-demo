@@ -158,9 +158,36 @@ function initTabs() {
 // Typewriter for Page 1 (Razorpay Docs MCP) hero title
 // Types each line then inserts a <br>, once through, then fades cursor.
 function typewriterPageDocs() {
-  // Hook lines removed — just reveal the meta line immediately
-  const meta = document.querySelector('#page-docs .page-hero__meta');
-  if (meta) meta.classList.add('reveal--visible');
+  const title = document.getElementById('docs-project-title');
+  if (!title) return;
+  const text = 'all of razorpay docs, agent-ready via model context protocol (mcp)';
+  title.textContent = '';
+  const cursor = document.createElement('span');
+  cursor.className = 'typewriter-cursor';
+  cursor.textContent = '|';
+  title.appendChild(cursor);
+
+  let i = 0;
+  function typeNext() {
+    if (i < text.length) {
+      title.insertBefore(document.createTextNode(text[i]), cursor);
+      i++;
+      setTimeout(typeNext, 45);
+    } else {
+      // Done — fade out cursor, then reveal meta line
+      setTimeout(() => {
+        cursor.style.animation = 'none';
+        cursor.style.opacity = '0';
+        cursor.style.transition = 'opacity 0.3s';
+        setTimeout(() => {
+          cursor.remove();
+          const meta = document.querySelector('#page-docs .page-hero__meta');
+          if (meta) meta.classList.add('reveal--visible');
+        }, 300);
+      }, 400);
+    }
+  }
+  setTimeout(typeNext, 200);
 }
 
 // Typewriter for Page 2 (Payment Recovery) hero title
