@@ -33,6 +33,8 @@ function switchTab(index) {
   const container = document.querySelector('.pages-container');
   // Capture scroll target NOW (layout settled at click time, before fade changes anything)
   const scrollTarget = getScrollTarget(index);
+  // Always show nav when switching tabs
+  document.querySelector('.tab-nav')?.classList.remove('tab-nav--hidden');
 
   // Phase 1: fade out
   if (container) container.classList.add('flip-exit');
@@ -163,6 +165,21 @@ function initTabs() {
 
   // Scroll spy updates active tab as user scrolls between pages
   initScrollSpy();
+
+  // Auto-hide nav on scroll down, show on scroll up
+  let lastScrollY = window.scrollY;
+  const nav = document.querySelector('.tab-nav');
+  window.addEventListener('scroll', () => {
+    const currentY = window.scrollY;
+    if (nav) {
+      if (currentY > lastScrollY + 8) {
+        nav.classList.add('tab-nav--hidden');
+      } else if (currentY < lastScrollY - 5) {
+        nav.classList.remove('tab-nav--hidden');
+      }
+    }
+    lastScrollY = currentY;
+  }, { passive: true });
 }
 
 

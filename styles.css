@@ -130,6 +130,10 @@ body {
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   padding: 10px 24px;
+  transition: transform 0.25s ease;
+}
+.tab-nav--hidden {
+  transform: translateY(-100%);
 }
 
 .tab-nav__inner {
@@ -769,18 +773,13 @@ body.card-view #table-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start; /* banner pins to top; inner centers itself */
+  justify-content: center;
   scroll-margin-top: 57px;
-  padding: 0 24px 40px;
+  padding: 20px 24px 40px;
   text-align: center;
 }
 
 .page-hero__inner {
-  flex: 1; /* take remaining height after banner */
-  display: flex;
-  flex-direction: column;
-  justify-content: center; /* vertically center the text block */
-  align-items: center;
   max-width: 680px;
   width: 100%;
   margin: 0 auto;
@@ -2974,13 +2973,11 @@ body.dark .arch-arrow       { color: var(--term-green); }
 
 /* ── Google Validation Banner ───────────────────────────────── */
 .validation-banner {
-  width: 100%;
-  align-self: stretch; /* override align-items:center on parent, stay full-width */
+  display: block; /* plain block — always full width, no flex complications */
   background: rgba(66, 133, 244, 0.06);
   border-top: 1px solid rgba(66, 133, 244, 0.15);
   border-bottom: 1px solid rgba(66, 133, 244, 0.15);
   padding: 12px 0;
-  flex-shrink: 0;
 }
 .validation-banner__inner {
   max-width: 1100px;
