@@ -70,8 +70,8 @@ window.ENTRIES = [
     role: "Product Manager",
     team: "Offline Payments - Merchant Experience",
     company: "Razorpay",
-    problem: "knowledge is trapped in slack threads and individual PM heads - full-stack offline team (POS, checkout devices, hardware, call center, field merchants) has no shared context layer, so TAT is high and multiple teams interrupt the same PM asking the same questions\nmerchant escalations via social media and email go undocumented and unrouted - no way to identify the merchant on time, who owns it, or when it was flagged",
-    solution: "per-PM AI agent with live context across all projects (not KT docs - actual working memory) paired with a slack summariser dashboard so any team can get context on integration experiments, merchant experience, and hardware without interrupting the PM\ncrawler that monitors merchant forums, social, and email for escalation signals - auto-identifies the merchant, flags it internally, and hands the ops person enough context to act immediately",
+    problem: "knowledge lives in slack threads and PM heads - no shared context across POS, hardware, call center, and field merchant teams. high TAT, constant re-interruptions\nmerchant escalations via social and email go undocumented - can't identify the merchant, owner, or timeline on time",
+    solution: "per-PM AI agent with live project memory + slack summariser dashboard - any team gets context without interrupting the PM\ncrawler that detects merchant escalations across social and email, auto-identifies the merchant, and routes to ops with full context",
     refs: []
   },
   {
