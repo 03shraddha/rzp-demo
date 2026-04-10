@@ -2788,6 +2788,26 @@ body.dark .faq-card__a {
   color: var(--term-text-secondary);
 }
 
+/* ── .faq-card--dark (forced dark card regardless of theme) ─── */
+.faq-card--dark {
+  background: var(--term-bg) !important;
+  border-color: var(--term-border) !important;
+  box-shadow: none !important;
+}
+.faq-card--dark:hover {
+  border-color: rgba(63, 185, 80, 0.2) !important;
+}
+.faq-card--dark .term-chrome {
+  background: var(--term-bg-alt) !important;
+}
+.faq-card--dark .faq-card__q {
+  color: var(--term-text-primary) !important;
+}
+.faq-card--dark .faq-card__a,
+.faq-card--dark .faq-list li {
+  color: var(--term-text-secondary) !important;
+}
+
 /* ── .channel-card ──────────────────────────────────────────── */
 .channel-card {
   background: var(--color-surface);
