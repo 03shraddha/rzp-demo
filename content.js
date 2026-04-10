@@ -51,8 +51,8 @@ window.ENTRIES = [
     role: "Product Manager",
     team: "Cross Border Payments",
     company: "Razorpay",
-    problem: "cross-border flows require per-corridor compliance work (FX, invoicing, KYC) - no unified layer, high integration overhead for each new market\ninternational builders default to Stripe at the point of creation - Razorpay has no footprint in AI dev tools or no-code platforms where apps are built",
-    solution: "FX optimization + auto-generated compliant invoicing embedded at payment moments - contextual upsell with zero dev lift for merchants going global\none-click Razorpay integration modules for AI dev environments and no-code builders - become the default payments layer at the point of creation",
+    problem: "cross-border flows require per-corridor compliance work (FX, invoicing, KYC) - no unified layer, high integration overhead for each new market\ninternational builders default to Stripe at the point of creation - no Razorpay footprint in AI dev tools or no-code platforms where apps are built",
+    solution: "mystery shop active razorpay payment links to surface suspicious product listings before they become a compliance or brand risk\nown 'best payment gateway india' in search - when smes google payment options, razorpay should rank first, not appear as one option among many",
     refs: []
   },
   {

@@ -9,19 +9,17 @@
 let currentTab = 0;
 const tabsVisited = new Set([0]); // tab 0 is active on load
 
-// Absolute scroll targets per tab — computed once at load (scrollY=0)
-// so getBoundingClientRect().top equals the document Y position
 const PAGE_IDS = ['page-docs', 'page-payments', 'page-aimap'];
-const pageScrollTargets = [0, 0, 0]; // filled in initPageScrollTargets()
 
-function initPageScrollTargets() {
-  PAGE_IDS.forEach((id, i) => {
-    const section = document.getElementById(id);
-    if (!section) return;
-    // page-docs and page-payments have .page-hero; page-aimap has .hero
-    const anchor = section.querySelector('.page-hero') || section.querySelector('.hero') || section;
-    pageScrollTargets[i] = Math.max(0, anchor.getBoundingClientRect().top - 57);
-  });
+// Returns the scroll-Y needed to show tab `index` just below the fixed nav.
+// Called at click time so layout is fully settled and scrollY is current.
+function getScrollTarget(index) {
+  const section = document.getElementById(PAGE_IDS[index]);
+  if (!section) return 0;
+  const anchor = section.querySelector('.page-hero')
+               || section.querySelector('.hero')
+               || section;
+  return Math.max(0, window.scrollY + anchor.getBoundingClientRect().top - 57);
 }
 
 // ── Core: switch to a tab by index ─────────────────────────
@@ -33,14 +31,15 @@ function switchTab(index) {
   if (index < 0 || index > 2) return;
 
   const container = document.querySelector('.pages-container');
+  // Capture scroll target NOW (layout settled at click time, before fade changes anything)
+  const scrollTarget = getScrollTarget(index);
 
   // Phase 1: fade out
   if (container) container.classList.add('flip-exit');
 
   setTimeout(() => {
-    // Scroll while hidden using precomputed targets (reliable, no runtime layout dependency)
     currentTab = index;
-    window.scrollTo({ top: pageScrollTargets[index], behavior: 'instant' });
+    window.scrollTo({ top: scrollTarget, behavior: 'instant' });
 
     document.querySelectorAll('.tab-pill').forEach((pill) => {
       pill.classList.toggle('active', Number(pill.dataset.tab) === index);
@@ -794,9 +793,6 @@ function typewriterHero() {
 // ---------------------------------------------------------------------------
 
 document.addEventListener('DOMContentLoaded', () => {
-  // 0. precompute scroll targets while scrollY=0 (must run before any scroll)
-  initPageScrollTargets();
-
   // 1. restore saved theme preference
   if (localStorage.getItem('theme') === 'dark') {
     document.body.classList.add('dark');
