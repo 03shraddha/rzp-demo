@@ -801,10 +801,10 @@ body.card-view #table-container {
 
 /* Fluid type: 28px to 46px; min-height reserves space for typewriter cursor */
 .page-hero__title {
-  font-size: clamp(20px, 2.6vw, 34px);
-  font-weight: 700;
+  font-size: clamp(16px, 1.8vw, 24px);
+  font-weight: 800;
   letter-spacing: -0.02em;
-  line-height: 1.35;
+  line-height: 1.4;
   color: var(--color-text-primary);
   margin-bottom: 16px;
   min-height: 1.1em;
@@ -1591,9 +1591,9 @@ body.dark .outcome-box      { background: rgba(0, 122, 255, 0.08); border-color:
 
 /* ── 1. Page Hero Title — bolder, bigger, gradient text ──────── */
 .page-hero__title {
-  font-size: clamp(43px, 6.6vw, 77px);
+  font-size: clamp(16px, 1.8vw, 24px);
   font-weight: 800;
-  letter-spacing: -0.04em;
+  letter-spacing: -0.02em;
   background: linear-gradient(135deg, var(--color-text-primary) 0%, var(--color-text-secondary) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
