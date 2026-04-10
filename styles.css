@@ -820,7 +820,6 @@ body.card-view #table-container {
 }
 
 /* Per-title min-heights: reserve full text height before typewriter starts */
-#docs-hero-title     { min-height: 260px; } /* 3 lines at large font size */
 #payments-hero-title { min-height: 160px; } /* ~2 lines at large font size */
 
 .page-hero__subtitle {

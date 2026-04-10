@@ -158,52 +158,9 @@ function initTabs() {
 // Typewriter for Page 1 (Razorpay Docs MCP) hero title
 // Types each line then inserts a <br>, once through, then fades cursor.
 function typewriterPageDocs() {
-  const title = document.getElementById('docs-hero-title');
-  if (!title) return;
-  const lines = [
-    '10m+ businesses',
-    '$150b+ processed annually',
-    'ai agents now write that integration code',
-    'and hallucinate field names when docs aren\'t built for agents',
-  ];
-  title.textContent = '';
-  const cursor = document.createElement('span');
-  cursor.className = 'typewriter-cursor';
-  cursor.textContent = '|';
-  title.appendChild(cursor);
-
-  let lineIndex = 0;
-  let charIndex = 0;
-
-  function typeLine() {
-    const line = lines[lineIndex];
-    if (charIndex < line.length) {
-      title.insertBefore(document.createTextNode(line[charIndex]), cursor);
-      charIndex++;
-      setTimeout(typeLine, 45);
-    } else {
-      lineIndex++;
-      charIndex = 0;
-      if (lineIndex < lines.length) {
-        // insert line break then continue next line
-        title.insertBefore(document.createElement('br'), cursor);
-        setTimeout(typeLine, 80);
-      } else {
-        // all lines done — fade out cursor, then reveal meta line
-        setTimeout(() => {
-          cursor.style.animation = 'none';
-          cursor.style.opacity = '0';
-          cursor.style.transition = 'opacity 0.3s';
-          setTimeout(() => {
-            cursor.remove();
-            const meta = document.querySelector('#page-docs .page-hero__meta');
-            if (meta) meta.classList.add('reveal--visible');
-          }, 300);
-        }, 400);
-      }
-    }
-  }
-  setTimeout(typeLine, 200);
+  // Hook lines removed — just reveal the meta line immediately
+  const meta = document.querySelector('#page-docs .page-hero__meta');
+  if (meta) meta.classList.add('reveal--visible');
 }
 
 // Typewriter for Page 2 (Payment Recovery) hero title
