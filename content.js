@@ -51,7 +51,7 @@ window.ENTRIES = [
     role: "Product Manager",
     team: "Cross Border Payments",
     company: "Razorpay",
-    problem: "cross-border flows require per-corridor compliance work (RBI guidelines, GST invoicing, KYC) handled manually - one failed audit can shut down a merchant's international access\ninternational builders default to Stripe at the point of creation - no Razorpay footprint in AI dev tools or no-code platforms where india-facing apps are built",
+    problem: "cross-border flows require per-corridor compliance work (RBI guidelines, GST invoicing, KYC) handled manually - one failed audit can shut down a merchant's international access\ninternational builders default to Stripe at the point of creation - no Razorpay footprint in AI dev tools or no-code platforms where apps are built",
     solution: "mystery shop merchant storefronts on active razorpay cross-border links - auto-flag restricted categories and non-compliant listings before RBI or payment networks do\nown 'best payment gateway india' in search - when indian smes google payment options, razorpay should rank first, not appear as one option among many",
     refs: []
   },
