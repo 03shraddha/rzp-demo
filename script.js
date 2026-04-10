@@ -16,22 +16,37 @@ const tabsVisited = new Set([0]); // tab 0 is active on load
  */
 function switchTab(index) {
   if (index < 0 || index > 2) return;
-  currentTab = index;
 
+  const container = document.querySelector('.pages-container');
   const pageIds = ['page-docs', 'page-payments', 'page-aimap'];
-  // Scroll to .page-hero of the target page, fall back to the page element itself
-  const hero = document.querySelector(`#${pageIds[index]} .page-hero`)
-             || document.getElementById(pageIds[index]);
-  if (hero) {
-    hero.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }
 
-  document.querySelectorAll('.tab-pill').forEach((pill) => {
-    pill.classList.toggle('active', Number(pill.dataset.tab) === index);
-  });
+  // Phase 1: flip out
+  if (container) container.classList.add('flip-exit');
 
-  moveIndicator(index);
-  onTabEnter(index);
+  setTimeout(() => {
+    // Switch content while hidden
+    currentTab = index;
+    const hero = document.querySelector(`#${pageIds[index]} .page-hero`)
+               || document.getElementById(pageIds[index]);
+    if (hero) hero.scrollIntoView({ behavior: 'instant', block: 'start' });
+
+    document.querySelectorAll('.tab-pill').forEach((pill) => {
+      pill.classList.toggle('active', Number(pill.dataset.tab) === index);
+    });
+    moveIndicator(index);
+    onTabEnter(index);
+
+    // Phase 2: flip in from opposite side
+    if (container) {
+      container.classList.remove('flip-exit');
+      container.classList.add('flip-enter');
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          container.classList.remove('flip-enter');
+        });
+      });
+    }
+  }, 130);
 }
 
 // ── Scroll spy — updates active tab as user scrolls ────────
@@ -742,7 +757,7 @@ function typewriterHero() {
         setTimeout(() => cursor.remove(), 300);
 
         // type subtitle as two lines separated by \n (rendered as <br>)
-        const subtitleFull = 'i\'d embed across teams when i join and figure out what\'s actually blocking them\nx is where all the tech bros build in public, that\'s where i live and pull ideas from';
+        const subtitleFull = 'i\'d embed across teams to find what\'s actually blocking them\nx is where i live — that\'s where the ideas come from';
         subtitle.innerHTML = '';
         subtitle.style.opacity = '1';
         subtitle.style.transform = 'translateY(0)';
