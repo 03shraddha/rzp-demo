@@ -163,7 +163,8 @@ function typewriterPageDocs() {
   const lines = [
     '10m+ businesses',
     '$150b+ processed annually',
-    'ai agents now write that integration code and hallucinate field names when docs aren\'t built for agents',
+    'ai agents now write that integration code',
+    'and hallucinate field names when docs aren\'t built for agents',
   ];
   title.textContent = '';
   const cursor = document.createElement('span');
