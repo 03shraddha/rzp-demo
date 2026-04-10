@@ -2071,7 +2071,7 @@ select {
 
 .tab-nav {
   position: fixed;
-  top: 52px;
+  top: 0;
   z-index: 99;
   background: var(--color-bg);
   border-bottom: 1px solid var(--color-border);
