@@ -3050,7 +3050,7 @@ body.dark .arch-arrow       { color: var(--term-green); }
 /* ── Google Validation Banner ───────────────────────────────── */
 .validation-banner {
   background: var(--color-bg);
-  padding: 10px 24px;
+  padding: 28px 24px 10px;
   display: flex;
   justify-content: center;
 }
