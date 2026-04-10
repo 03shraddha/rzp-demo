@@ -16,94 +16,52 @@ const tabsVisited = new Set([0]); // tab 0 is active on load
  */
 function switchTab(index) {
   if (index < 0 || index > 2) return;
-  if (index === currentTab) return;
-
-  const pages = document.querySelectorAll('.page');
-
-  // Scale-breath: outgoing page shrinks slightly as it exits
-  const outgoingPage = pages[currentTab];
-  if (outgoingPage) {
-    outgoingPage.classList.add('page--exiting');
-    setTimeout(() => outgoingPage.classList.remove('page--exiting'), 220);
-  }
-
-  // Scale-breath: incoming page starts small, springs back via double-rAF trick
-  const incomingPage = pages[index];
-  if (incomingPage) {
-    incomingPage.classList.add('page--entering');
-    requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
-        incomingPage.classList.remove('page--entering');
-      });
-    });
-  }
-
   currentTab = index;
 
-  // Slide the pages-container (spring easing is in CSS)
-  const pagesContainer = document.querySelector('.pages-container');
-  if (pagesContainer) {
-    pagesContainer.style.transform = `translateX(calc(-${index} * 100vw))`;
+  const pageIds = ['page-docs', 'page-payments', 'page-aimap'];
+  // Scroll to .page-hero of the target page, fall back to the page element itself
+  const hero = document.querySelector(`#${pageIds[index]} .page-hero`)
+             || document.getElementById(pageIds[index]);
+  if (hero) {
+    hero.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
-  // Update pill active state
   document.querySelectorAll('.tab-pill').forEach((pill) => {
     pill.classList.toggle('active', Number(pill.dataset.tab) === index);
   });
 
-  // Move underline indicator to active pill
   moveIndicator(index);
-
-  // Fire per-tab entry callback
   onTabEnter(index);
 }
 
-// ── Keyboard navigation ─────────────────────────────────────
+// ── Scroll spy — updates active tab as user scrolls ────────
 /**
- * Left/right arrow keys move between tabs.
+ * Watches each .page entering the top half of the viewport and
+ * updates the active tab pill accordingly.
  */
-function initKeyboardNav() {
-  document.addEventListener('keydown', (e) => {
-    // Only hijack arrow keys when overlay is not open
-    if (document.getElementById('add-overlay').classList.contains('overlay--open')) return;
-    if (e.key === 'ArrowRight') {
-      switchTab(Math.min(currentTab + 1, 2));
-    } else if (e.key === 'ArrowLeft') {
-      switchTab(Math.max(currentTab - 1, 0));
-    }
+function initScrollSpy() {
+  const targets = [
+    document.querySelector('#page-docs .page-hero'),
+    document.querySelector('#page-payments .page-hero'),
+    document.getElementById('page-aimap'),
+  ];
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      const index = targets.indexOf(entry.target);
+      if (index === -1 || index === currentTab) return;
+      currentTab = index;
+      document.querySelectorAll('.tab-pill').forEach((pill) => {
+        pill.classList.toggle('active', Number(pill.dataset.tab) === index);
+      });
+      moveIndicator(index);
+      onTabEnter(index);
+    });
+  }, {
+    rootMargin: '-109px 0px -50% 0px',
+    threshold: 0,
   });
-}
-
-// ── Touch / swipe navigation ────────────────────────────────
-/**
- * Swipe left = next tab, swipe right = previous tab.
- * Requires >= 50px horizontal delta and < 100px vertical delta.
- */
-function initTouchNav() {
-  let touchStartX = 0;
-  let touchStartY = 0;
-
-  document.addEventListener('touchstart', (e) => {
-    touchStartX = e.changedTouches[0].clientX;
-    touchStartY = e.changedTouches[0].clientY;
-  }, { passive: true });
-
-  document.addEventListener('touchend', (e) => {
-    const deltaX = e.changedTouches[0].clientX - touchStartX;
-    const deltaY = e.changedTouches[0].clientY - touchStartY;
-
-    // Ignore swipes that are more vertical than horizontal
-    if (Math.abs(deltaY) >= 100) return;
-    if (Math.abs(deltaX) < 50) return;
-
-    if (deltaX < 0) {
-      // Swipe left — next tab
-      switchTab(Math.min(currentTab + 1, 2));
-    } else {
-      // Swipe right — previous tab
-      switchTab(Math.max(currentTab - 1, 0));
-    }
-  }, { passive: true });
+  targets.forEach((t) => t && observer.observe(t));
 }
 
 // ── Tab enter callback ──────────────────────────────────────
@@ -168,12 +126,6 @@ function initTabs() {
     });
   });
 
-  // Set initial transform to tab 0 (explicit, in case CSS isn't set)
-  const pagesContainer = document.querySelector('.pages-container');
-  if (pagesContainer) {
-    pagesContainer.style.transform = 'translateX(0)';
-  }
-
   // Inject underline indicator into .tab-pills
   const tabPills = document.querySelector('.tab-pills');
   if (tabPills && !tabPills.querySelector('.tab-indicator')) {
@@ -183,9 +135,8 @@ function initTabs() {
     requestAnimationFrame(() => moveIndicator(0));
   }
 
-  // Init navigation helpers
-  initKeyboardNav();
-  initTouchNav();
+  // Scroll spy updates active tab as user scrolls between pages
+  initScrollSpy();
 }
 
 
@@ -462,7 +413,7 @@ const renderAll = (entries) => {
     entryRow.className = 'entry-row';
     entryRow.dataset.id = entry.id;
     const badgeHTML = entry.company ? `<span class="entry-company-badge">${entry.company}</span>` : '';
-    const teamHTML  = entry.team ? ` <span style="color: var(--color-text-secondary)">· ${entry.team}</span>` : '';
+    const teamHTML  = entry.team ? `<span style="display:block;font-size:12px;color:var(--color-text-secondary);margin-top:2px">${entry.team}</span>` : '';
     const problemPreview = entry.problem ? truncate(entry.problem, 80) : '<span style="color:var(--color-text-tertiary)">coming soon</span>';
     const solutionPreview = entry.solution ? truncate(entry.solution, 80) : '<span style="color:var(--color-text-tertiary)">coming soon</span>';
 
@@ -471,7 +422,7 @@ const renderAll = (entries) => {
         <span class="entry-name">${entry.name}</span>
         ${badgeHTML}
       </td>
-      <td>${entry.role}${teamHTML}</td>
+      <td><span style="display:block;font-weight:500">${entry.role}</span>${teamHTML}</td>
       <td class="td-truncate">${problemPreview}</td>
       <td class="td-truncate">
         <div class="td-flex">

@@ -4,6 +4,22 @@
 
 window.ENTRIES = [
   {
+    id: "entry-4",
+    name: "Aryan Pareek",
+    role: "Product Manager",
+    team: "Small & Medium Enterprises",
+    company: "Razorpay",
+    problem: "fragmented merchant ops - payments, shipping, and leads all in separate tools with no unified view\nnon-tech SME owners have no way to act on their own data - no dashboard, no pincode intelligence, no lead tracking",
+    solution: "unified AI dashboard with payment geography, cancellation patterns, and Shiprocket integration to flag unserviceable pincodes at checkout\nno-code tools that centralize everything in one place - creating lock-in and cross-sell opportunities for Razorpay",
+    refs: [
+      { label: "what's driving Q1 revenue? - Claude managed agents slack bot", url: "https://platform.claude.com/cookbook/managed-agents-slack-data-bot" },
+      { label: "Shopify on X", url: "https://x.com/Shopify/status/2042335627862032754" },
+      { label: "searchstack-aeo - GitHub", url: "https://github.com/alexpospekhov/searchstack-aeo" },
+      { label: "Shopify MCP agent catalog - merchant AI tooling reference", url: "https://shopify.dev/docs/agents/catalog/mcp" },
+      { label: "Rows.com - no-code dashboard builder for non-tech teams", url: "https://rows.com/blog/post/no-code-dashboard-builder" }
+    ]
+  },
+  {
     id: "entry-1",
     name: "Ayush Singh",
     role: "Business Analyst",
@@ -27,21 +43,6 @@ window.ENTRIES = [
     refs: [
       { label: "Reflect.run - AI-powered end-to-end testing platform", url: "https://reflect.run/" },
       { label: "Momentic (YC) - AI agent for automated QA testing", url: "https://www.ycombinator.com/companies/momentic" }
-    ]
-  },
-  {
-    id: "entry-4",
-    name: "Aryan Pareek",
-    role: "Product Manager",
-    team: "Small & Medium Enterprises",
-    company: "Razorpay",
-    problem: "fragmented merchant ops - payments, shipping, and leads all in separate tools with no unified view\nnon-tech SME owners have no way to act on their own data - no dashboard, no pincode intelligence, no lead tracking",
-    solution: "unified AI dashboard with payment geography, cancellation patterns, and Shiprocket integration to flag unserviceable pincodes at checkout\nno-code tools that centralize everything in one place - creating lock-in and cross-sell opportunities for Razorpay",
-    refs: [
-      { label: "Shopify on X", url: "https://x.com/Shopify/status/2042335627862032754" },
-      { label: "searchstack-aeo - GitHub", url: "https://github.com/alexpospekhov/searchstack-aeo" },
-      { label: "Shopify MCP agent catalog - merchant AI tooling reference", url: "https://shopify.dev/docs/agents/catalog/mcp" },
-      { label: "Rows.com - no-code dashboard builder for non-tech teams", url: "https://rows.com/blog/post/no-code-dashboard-builder" }
     ]
   },
   {

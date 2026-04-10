@@ -55,14 +55,15 @@ body.dark .detail-row--open .detail-row__inner {
   padding: 0;
 }
 
-/* ── Body — overflow hidden so pages scroll internally ──────── */
+/* ── Body — scroll-snap slide layout ────────────────────────── */
 body {
   font-family: var(--font-family);
   background: var(--color-bg);
   color: var(--color-text-primary);
   transition: background var(--transition), color var(--transition);
-  overflow: hidden;
-  height: 100vh;
+  padding-top: 109px;      /* offset for fixed topbar (52px) + tab-nav (57px) */
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
 }
 
 /* ── Animations ─────────────────────────────────────────────── */
@@ -87,7 +88,7 @@ body {
    TOPBAR
    ============================================================ */
 .topbar {
-  position: sticky;
+  position: fixed;
   top: 0;
   z-index: 100;
   background: var(--color-bg);
@@ -138,7 +139,7 @@ body {
 
 /* Tab nav sits directly below the 52px topbar */
 .tab-nav {
-  position: sticky;
+  position: fixed;
   top: 52px;
   z-index: 99;
   background: var(--color-bg);
@@ -201,22 +202,22 @@ body.dark .tab-pill.active {
    PAGES CONTAINER + PAGE SECTIONS (agent1)
    ============================================================ */
 
-/* Holds all 3 pages side-by-side; JS drives translateX */
+/* Pages stacked vertically; window is the scroll container */
 .pages-container {
-  display: flex;
-  width: 300vw;
-  transform: translateX(0);
-  transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
-  will-change: transform;
+  display: block;
 }
 
-/* Individual page — scrolls internally */
+/* Individual page — no forced height; children (.page-hero, .page-section) are the snap units */
 .page {
-  width: 100vw;
-  /* fixed height so the div itself is the scroll container */
-  height: calc(100vh - 52px - 57px);
-  overflow-y: auto;
-  overflow-x: hidden;
+  display: block;
+}
+
+/* AI Map page: one tall snap section (content taller than viewport) */
+#page-aimap {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  min-height: calc(100vh - 109px);
+  scroll-margin-top: 109px;
 }
 
 
@@ -399,7 +400,7 @@ th {
 
 /* Column widths */
 th:nth-child(1), td:nth-child(1) { width: 160px; min-width: 160px; }
-th:nth-child(2), td:nth-child(2) { width: 180px; min-width: 160px; }
+th:nth-child(2), td:nth-child(2) { width: 190px; min-width: 180px; }
 
 td:last-child,
 th:last-child {
@@ -420,7 +421,7 @@ td {
   font-size: 17px;
   color: var(--color-text-primary);
   border-bottom: 1px solid var(--color-border);
-  vertical-align: middle;
+  vertical-align: top;
 }
 
 tbody tr:last-child td {
@@ -766,8 +767,16 @@ body.card-view #table-container {
    PAGE 1 CSS — Page Hero, Sections, Components (agent3)
    ============================================================ */
 
-/* Page Hero */
+/* Page Hero — full-viewport snap slide */
 .page-hero {
+  height: calc(100vh - 109px);
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  scroll-margin-top: 109px;
   padding: 20px 24px 40px;
   text-align: center;
 }
@@ -815,8 +824,16 @@ body.card-view #table-container {
   letter-spacing: 0.02em;
 }
 
-/* Page section wrapper */
+/* Page section wrapper — full-viewport snap slide */
 .page-section {
+  height: calc(100vh - 109px);
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  scroll-margin-top: 109px;
   max-width: var(--max-width);
   margin: 0 auto;
   padding: 60px 24px;
@@ -1809,15 +1826,7 @@ body.dark .faq-card {
   will-change: opacity, transform;
 }
 
-.page--exiting {
-  opacity: 0.6;
-  transform: scale(0.97);
-}
-
-.page--entering {
-  opacity: 0.6;
-  transform: scale(0.97);
-}
+/* page--exiting and page--entering no longer used in vertical scroll layout */
 
 .tab-pill {
   transition: var(--transition), transform 0.1s ease;
@@ -2098,7 +2107,7 @@ select {
    ============================================================ */
 
 .tab-nav {
-  position: sticky;
+  position: fixed;
   top: 52px;
   z-index: 99;
   background: var(--color-bg);
