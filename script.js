@@ -408,15 +408,13 @@ function typeText(element, text, speed = 18, onDone) {
 // rendering
 // ---------------------------------------------------------------------------
 
-// renders all table rows and cards from the given entries array.
-// clears both containers first, then rebuilds DOM from scratch.
+// renders all table rows from the given entries array.
+// clears the container first, then rebuilds DOM from scratch.
 const renderAll = (entries) => {
   const tbody = document.getElementById('entries-tbody');
-  const cardContainer = document.getElementById('card-container');
 
   // clear existing content before re-rendering
   tbody.innerHTML = '';
-  cardContainer.innerHTML = '';
 
   entries.forEach((entry, index) => {
     // table: entry row (summary)
@@ -483,49 +481,10 @@ const renderAll = (entries) => {
       </td>
     `;
     tbody.appendChild(detailRow);
-
-    // card
-    const card = document.createElement('div');
-    card.className = 'entry-card';
-    card.dataset.id = entry.id;
-    card.innerHTML = `
-      <div class="card-header">
-        <div>
-          <div class="card-name">${entry.name}</div>
-          <div class="card-role">${entry.role}</div>
-          <div class="card-team">${entry.team}</div>
-        </div>
-        <span class="card-company-chip">${entry.company}</span>
-      </div>
-      <div class="card-problem">${truncate(entry.problem, 100)}</div>
-      <div class="card-solution-section">
-        <div class="solution-label">ai opportunity</div>
-        ${toBullets(entry.solution)}
-        ${(entry.refs && entry.refs.length) ? `
-        <div class="solution-label" style="margin-top:14px">ideas i'd try</div>
-        <div class="card-refs">${entry.refs.map(r => `<a href="${r.url}" target="_blank" rel="noopener noreferrer" class="ref-link">${r.label}</a>`).join('')}</div>
-        ` : ''}
-      </div>
-      <div class="card-footer">
-        <span class="card-expand-tag">view solution ↓</span>
-      </div>
-    `;
-    // staggered entrance: start invisible + slightly scaled down, animate in
-    card.style.opacity = '0';
-    card.style.transform = 'translateY(16px) scale(0.97)';
-    card.style.transition = `opacity 0.4s ease ${index * 70}ms, transform 0.4s ease ${index * 70}ms`;
-    requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
-        card.style.opacity = '1';
-        card.style.transform = 'translateY(0) scale(1)';
-      });
-    });
-    cardContainer.appendChild(card);
   });
 
   // re-attach click listeners after DOM rebuild
   attachRowListeners();
-  attachCardListeners();
 };
 
 // ---------------------------------------------------------------------------
@@ -549,22 +508,6 @@ const attachRowListeners = () => {
   tbody.addEventListener('click', tbody._rowClickHandler);
 };
 
-// delegates clicks on #card-container to toggleExpand.
-const attachCardListeners = () => {
-  const cardContainer = document.getElementById('card-container');
-
-  if (cardContainer._cardClickHandler) {
-    cardContainer.removeEventListener('click', cardContainer._cardClickHandler);
-  }
-
-  cardContainer._cardClickHandler = (event) => {
-    const card = event.target.closest('.entry-card');
-    if (card) toggleExpand(card.dataset.id);
-  };
-
-  cardContainer.addEventListener('click', cardContainer._cardClickHandler);
-};
-
 // ---------------------------------------------------------------------------
 // filter
 // ---------------------------------------------------------------------------
@@ -583,58 +526,6 @@ const setFilter = (company) => {
       : window.ENTRIES.filter((e) => e.company === company);
 
   renderAll(filtered);
-};
-
-// ---------------------------------------------------------------------------
-// view toggle (table <-> card)
-// ---------------------------------------------------------------------------
-
-// toggles between table view and card view with a fade+scale transition.
-const toggleView = () => {
-  const tableContainer = document.getElementById('table-container');
-  const cardContainer  = document.getElementById('card-container');
-  const btn = document.getElementById('view-toggle');
-  const isCardView = document.body.classList.contains('card-view');
-
-  const outgoing = isCardView ? cardContainer : tableContainer;
-  const incoming = isCardView ? tableContainer : cardContainer;
-
-  // fade out the currently visible container
-  outgoing.style.opacity = '0';
-  outgoing.style.transform = 'scale(0.98)';
-  outgoing.style.transition = 'opacity 0.15s ease, transform 0.15s ease';
-
-  setTimeout(() => {
-    outgoing.style.display = 'none';
-    outgoing.style.opacity = '';
-    outgoing.style.transform = '';
-    outgoing.style.transition = '';
-
-    incoming.style.display = isCardView ? 'block' : 'grid';
-    incoming.style.opacity = '0';
-    incoming.style.transform = 'scale(0.98)';
-    incoming.style.transition = 'none';
-
-    // force reflow so the browser registers the starting state before we animate
-    incoming.getBoundingClientRect();
-
-    incoming.style.transition = 'opacity 0.25s ease, transform 0.25s ease';
-    incoming.style.opacity = '1';
-    incoming.style.transform = 'scale(1)';
-
-    document.body.classList.toggle('card-view');
-
-    btn.textContent = document.body.classList.contains('card-view')
-      ? 'table view'
-      : 'card view';
-
-    setTimeout(() => {
-      incoming.style.opacity = '';
-      incoming.style.transform = '';
-      incoming.style.transition = '';
-      incoming.style.display = '';
-    }, 300);
-  }, 160);
 };
 
 // ---------------------------------------------------------------------------
@@ -672,18 +563,6 @@ const toggleExpand = (id) => {
     }
   }
   if (entryRow) entryRow.classList.toggle('expanded');
-
-  // card view
-  const card = document.querySelector(`.entry-card[data-id="${id}"]`);
-  if (card) {
-    card.classList.toggle('expanded');
-    const tag = card.querySelector('.card-expand-tag');
-    if (tag) {
-      tag.textContent = card.classList.contains('expanded')
-        ? 'hide solution ↑'
-        : 'view solution ↓';
-    }
-  }
 };
 
 // ---------------------------------------------------------------------------
@@ -791,7 +670,6 @@ document.addEventListener('DOMContentLoaded', () => {
   renderAll(window.ENTRIES);
 
   // 4. global event listeners
-  document.getElementById('view-toggle').addEventListener('click', toggleView);
   document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
 
   // filter chips - delegated on the .filter-chips container

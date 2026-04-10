@@ -64,6 +64,7 @@ body {
   padding-top: 57px;       /* offset for fixed tab-nav */
   scroll-snap-type: y mandatory;
   overflow-y: scroll;
+  overflow-x: hidden;      /* prevent horizontal scroll from overflowing elements */
 }
 
 /* ── Animations ─────────────────────────────────────────────── */
@@ -386,8 +387,8 @@ th {
 }
 
 /* Column widths */
-th:nth-child(1), td:nth-child(1) { width: 160px; min-width: 160px; }
-th:nth-child(2), td:nth-child(2) { width: 190px; min-width: 180px; }
+th:nth-child(1), td:nth-child(1) { width: 130px; min-width: 100px; }
+th:nth-child(2), td:nth-child(2) { width: 150px; min-width: 120px; }
 
 td:last-child,
 th:last-child {
@@ -1798,6 +1799,7 @@ body.dark .faq-card {
 .stat-chips {
   display: flex;
   gap: 0;
+  flex-wrap: wrap;          /* allow chips to wrap on narrow screens */
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   overflow: hidden;
@@ -3132,4 +3134,284 @@ body.dark .validation-banner {
 .outcome-box__sub             { font-size: 17px; }
 .stat-chip                    { font-size: 16px; }
 .google-note                  { font-size: 16px; }
+
+/* ============================================================
+   MOBILE RESPONSIVE FIXES — iPhone 375px–390px
+   Generated from 5-agent audit pass
+   ============================================================ */
+
+/* ── 700px: Table padding reduction (before block-layout kicks in) ── */
+@media (max-width: 700px) {
+  table th,
+  table td {
+    padding: 10px 10px;
+    font-size: 14px;
+  }
+  .td-truncate {
+    max-width: 140px;
+  }
+  #table-container {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* ── 600px: Primary mobile breakpoint ──────────────────────── */
+@media (max-width: 600px) {
+
+  /* ── Global overflow guard ── */
+  html { overflow-x: hidden; }
+
+  /* ── App wrapper ── */
+  #app {
+    padding: 0 16px 80px;
+  }
+
+  /* ── Hero sections ── */
+  .hero {
+    padding: 40px 16px 28px;
+  }
+  .hero__subtitle {
+    font-size: 15px;
+  }
+  .hero__meta {
+    font-size: 14px;
+  }
+
+  /* ── Page sections ── */
+  .page-section {
+    padding: 32px 16px;
+  }
+  .section-label {
+    font-size: 14px;
+    letter-spacing: 0.08em;
+    margin-bottom: 24px;
+  }
+  .page-hero__subtitle {
+    font-size: 15px;
+  }
+
+  /* ── Tab navigation ── */
+  .tab-nav {
+    padding: 8px 12px;
+  }
+  .tab-pills {
+    width: 100%;
+    display: flex;
+    justify-content: stretch;
+  }
+  .tab-pill {
+    flex: 1;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 6px 8px;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-width: 0;
+  }
+  .tab-pill.active {
+    font-size: 13px;
+  }
+
+  /* ── Theme toggle ── */
+  #theme-toggle {
+    bottom: 16px;
+    right: 16px;
+    width: 40px;
+    height: 40px;
+  }
+
+  /* ── Validation banner ── */
+  .validation-banner__inner {
+    padding: 0 16px;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .validation-banner__text {
+    font-size: 14px;
+    flex-basis: 100%;
+    order: 2;
+  }
+  .validation-banner__badge-group {
+    order: 1;
+    flex-shrink: 1;
+  }
+  .validation-banner__link {
+    order: 3;
+    font-size: 13px;
+    padding: 4px 12px;
+  }
+
+  /* ── Stat chips: wrap from rigid row into pill grid ── */
+  .stat-chips {
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 10px;
+    overflow: visible;
+    background: transparent;
+    border: none;
+    justify-content: flex-start;
+    margin-top: 16px;
+  }
+  .stat-chip {
+    flex: none;
+    border: 1px solid var(--color-border) !important;
+    border-right: 1px solid var(--color-border) !important;
+    border-radius: 100px;
+    padding: 6px 14px;
+    font-size: 13px;
+    font-weight: 500;
+    background: var(--color-bg-secondary);
+    flex-direction: row;
+    gap: 0;
+  }
+
+  /* ── Typography: body elements ── */
+  .stat-chip .stat-chip__label,
+  .stat-chip { font-size: 13px; }
+  th { font-size: 13px; }
+  td { font-size: 14px; }
+  .detail-text-p { font-size: 13px; }
+  .detail-label { font-size: 14px; }
+  .tool-card__name { font-size: 15px; }
+  .tool-card__desc { font-size: 14px; }
+  .tool-card__detail { font-size: 13px; }
+  .faq-card__q { font-size: 16px; }
+  .comparison-table td { font-size: 13px; }
+  .flow-node__icon { font-size: 22px; }
+  .flow-divider { font-size: 18px; }
+  .moment-step__badge { font-size: 11px; }
+  .moment-step__icon { font-size: 24px; }
+  .notify-channel__icon { font-size: 18px; }
+  .channel-card__icon { font-size: 28px; }
+  .reliability-chip__icon { font-size: 20px; }
+  .outcome-box__flow { font-size: 17px; line-height: 1.4; }
+  .outcome-box__sub { font-size: 15px; }
+
+  /* ── Spacing ── */
+  .pipeline { padding: 24px 0; }
+  .moment-display { padding: 24px 0; }
+  .detail-grid { gap: 16px; }
+  .reasons-list { gap: 14px; }
+  #card-container { gap: 12px; }
+  .pipeline-step { gap: 12px; padding: 18px; }
+
+  /* ── Layout ── */
+  .tools-grid { grid-template-columns: 1fr; }
+  .moment-step { min-width: 0; width: 100%; padding: 16px 14px; }
+  .moment-step--wide { padding: 16px; }
+  .moment-step__label { font-size: 15px; }
+  .moment-step__sub { font-size: 13px; }
+
+  /* ── Comparison table ── */
+  .comparison-table {
+    font-size: 13px;
+    table-layout: auto;
+  }
+  .comparison-table th,
+  .comparison-table td {
+    padding: 8px 10px;
+    font-size: 13px;
+  }
+  .comparison-table th:first-child,
+  .comparison-table td:first-child {
+    width: auto;
+    min-width: 80px;
+    font-size: 12px;
+  }
+
+  /* ── Term table (code comparison) ── */
+  .term-table-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .term-table td,
+  .term-table th {
+    white-space: normal;
+    padding: 8px 12px;
+    font-size: 12px;
+  }
+
+  /* ── AI map table block layout enhancement ── */
+  tbody tr.entry-row td:first-child {
+    font-weight: 700;
+    font-size: 15px;
+    padding-top: 12px;
+    padding-bottom: 4px;
+  }
+  tbody tr.entry-row td:not(:first-child) {
+    font-size: 13px;
+    color: var(--color-text-secondary);
+  }
+  td.td-truncate {
+    white-space: normal;
+    max-width: 100%;
+    overflow: visible;
+    text-overflow: unset;
+  }
+  #table-container {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* ── Reason block ── */
+  .reason-block { padding: 20px 16px; }
+  .reason-block .term-chrome { margin: -20px -16px 16px -16px; }
+
+  /* ── Channel cards ── */
+  .channel-card { padding: 20px 16px; }
+  .channel-card .term-chrome {
+    width: calc(100% + 32px);
+    margin: -20px -16px 16px -16px;
+  }
+  .channel-card__name { font-size: 18px; }
+  .channel-card__desc { font-size: 15px; }
+
+  /* ── Outcome box ── */
+  .outcome-box { padding: 20px 16px; max-width: 100%; }
+
+  /* ── Reliability chips ── */
+  .reliability-chips { max-width: 100%; }
+  .reliability-chip__text { font-size: 16px; line-height: 1.5; }
+
+  /* ── Controls / filter bar ── */
+  .controls { gap: 10px; padding: 12px 0 16px; }
+  #view-toggle { font-size: 14px; padding: 7px 14px; }
+  .chip { font-size: 13px; padding: 5px 12px; }
+
+  /* ── Detail row expanded ── */
+  .detail-row--open .detail-row__inner { padding: 16px 12px; }
+  .detail-text, .detail-text-p { font-size: 15px; }
+  .detail-bullets li { font-size: 14px; }
+}
+
+/* ── 480px: Extra-small phones ─────────────────────────────── */
+@media (max-width: 480px) {
+
+  #app { padding: 0 12px 40px; }
+  .hero { padding: 28px 12px 20px; }
+  .page-section { padding: 24px 14px; }
+
+  .tab-pill { font-size: 11px; padding: 5px 6px; letter-spacing: -0.01em; }
+  .tab-pill.active { font-size: 11px; }
+
+  #theme-toggle { bottom: 12px; right: 12px; width: 36px; height: 36px; }
+
+  .hero__title { font-size: 32px; }
+
+  .comparison-table td,
+  .comparison-table th { font-size: 12px; padding: 6px 8px; }
+
+  .outcome-box__flow { font-size: 15px; }
+
+  .arch-flow { max-width: 100%; padding: 16px 0; }
+  .arch-step { padding: 14px 16px; }
+  .arch-step .term-chrome--compact {
+    margin: -14px -16px 12px -16px;
+    width: calc(100% + 32px);
+  }
+  .arch-step__items { grid-template-columns: 1fr; }
+}
 .comparison-table             { font-size: 17px; }
