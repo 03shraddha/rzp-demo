@@ -107,7 +107,7 @@ body {
 }
 
 .topbar__logo {
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 600;
   letter-spacing: 0.05em;
   text-transform: uppercase;
@@ -167,7 +167,7 @@ body {
 /* Individual pill buttons */
 .tab-pill {
   font-family: var(--font-family, Inter), sans-serif;
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 500;
   padding: 7px 18px;
   border-radius: 100px;
@@ -2124,7 +2124,7 @@ select {
 
 .tab-pill {
   font-family: var(--font-family, Inter), sans-serif;
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 500;
   padding: 5px 14px;
   border-radius: 20px;
@@ -2146,7 +2146,7 @@ select {
 .tab-pill.active {
   background: var(--color-text-primary);
   color: var(--color-bg);
-  font-size: 14px;
+  font-size: 18px;
   font-weight: 600;
   transform: translateY(-1px);
 }
@@ -3013,7 +3013,7 @@ body.dark .arch-arrow       { color: var(--term-green); }
   flex-shrink: 0;
 }
 .validation-banner__label {
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -3026,12 +3026,12 @@ body.dark .arch-arrow       { color: var(--term-green); }
 }
 .validation-banner__text {
   flex: 1;
-  font-size: 13px;
+  font-size: 16px;
   color: var(--color-text-secondary);
 }
 .validation-banner__link {
   flex-shrink: 0;
-  font-size: 13px;
+  font-size: 16px;
   font-weight: 500;
   color: #4285F4;
   text-decoration: none;
