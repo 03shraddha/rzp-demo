@@ -72,7 +72,10 @@ window.ENTRIES = [
     company: "Razorpay",
     problem: "knowledge lives in slack threads and PM heads - no shared context across POS, hardware, call center, and field merchant teams. high TAT, constant re-interruptions\nmerchant escalations via social and email go undocumented - can't identify the merchant, owner, or timeline on time",
     solution: "per-PM AI agent with live project memory + slack summariser dashboard - any team gets context without interrupting the PM\ncrawler that detects merchant escalations across social and email, auto-identifies the merchant, and routes to ops with full context",
-    refs: []
+    refs: [
+      { label: "Lenny Rachitsky - how to build a PM second brain with ChatGPT", url: "https://x.com/lennysan/status/2001049628641566957" },
+      { label: "Gad Benram - built JIRA + Slack for AI agents using LangGraph + MCP", url: "https://x.com/gadbenram/status/2019521641156632619" }
+    ]
   },
   {
     id: "entry-8",
