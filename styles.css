@@ -1171,6 +1171,8 @@ body.dark .stat-chip     { background: var(--color-bg-secondary); }
 .faq-card { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 24px; box-shadow: var(--shadow-sm); }
 .faq-card__q { font-size: 17px; font-weight: 600; color: var(--color-text-primary); margin-bottom: 10px; }
 .faq-card__a { font-size: 16px; color: var(--color-text-secondary); line-height: 1.65; }
+.faq-list { margin: 0; padding-left: 18px; list-style: disc; }
+.faq-list li { margin-bottom: 6px; }
 @media (max-width: 600px) { .faq-grid { grid-template-columns: 1fr; } }
 
 /* Arch step sub-items */
