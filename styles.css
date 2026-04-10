@@ -755,7 +755,7 @@ body.card-view #table-container {
   height: calc(100vh - 57px);
   scroll-snap-align: start;
   scroll-snap-stop: always;
-  overflow: hidden;
+  overflow: visible;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -812,7 +812,7 @@ body.card-view #table-container {
   height: calc(100vh - 57px);
   scroll-snap-align: start;
   scroll-snap-stop: always;
-  overflow: hidden;
+  overflow: visible;
   display: flex;
   flex-direction: column;
   justify-content: center;
