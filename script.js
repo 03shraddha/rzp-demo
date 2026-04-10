@@ -14,6 +14,9 @@ const PAGE_IDS = ['page-docs', 'page-payments', 'page-aimap'];
 // Returns the scroll-Y needed to show tab `index` just below the fixed nav.
 // Called at click time so layout is fully settled and scrollY is current.
 function getScrollTarget(index) {
+  // Tab 0 is the first section; scroll to top so the validation-banner is visible
+  if (index === 0) return 0;
+
   const section = document.getElementById(PAGE_IDS[index]);
   if (!section) return 0;
   const anchor = section.querySelector('.page-hero')
@@ -30,36 +33,17 @@ function getScrollTarget(index) {
 function switchTab(index) {
   if (index < 0 || index > 2) return;
 
-  const container = document.querySelector('.pages-container');
-  // Capture scroll target NOW (layout settled at click time, before fade changes anything)
-  const scrollTarget = getScrollTarget(index);
   // Always show nav when switching tabs
   document.querySelector('.tab-nav')?.classList.remove('tab-nav--hidden');
 
-  // Phase 1: fade out
-  if (container) container.classList.add('flip-exit');
+  currentTab = index;
+  window.scrollTo({ top: getScrollTarget(index), behavior: 'instant' });
 
-  setTimeout(() => {
-    currentTab = index;
-    window.scrollTo({ top: scrollTarget, behavior: 'instant' });
-
-    document.querySelectorAll('.tab-pill').forEach((pill) => {
-      pill.classList.toggle('active', Number(pill.dataset.tab) === index);
-    });
-    moveIndicator(index);
-    onTabEnter(index);
-
-    // Phase 2: flip in from opposite side
-    if (container) {
-      container.classList.remove('flip-exit');
-      container.classList.add('flip-enter');
-      requestAnimationFrame(() => {
-        requestAnimationFrame(() => {
-          container.classList.remove('flip-enter');
-        });
-      });
-    }
-  }, 220);
+  document.querySelectorAll('.tab-pill').forEach((pill) => {
+    pill.classList.toggle('active', Number(pill.dataset.tab) === index);
+  });
+  moveIndicator(index);
+  onTabEnter(index);
 }
 
 // ── Scroll spy — updates active tab as user scrolls ────────

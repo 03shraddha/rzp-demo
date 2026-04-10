@@ -192,16 +192,6 @@ body.dark .tab-pill.active {
 /* Pages stacked vertically; window is the scroll container */
 .pages-container {
   display: block;
-  transition: opacity 0.18s ease;
-}
-
-.pages-container.flip-exit {
-  opacity: 0;
-}
-
-.pages-container.flip-enter {
-  opacity: 0;
-  transition: none;
 }
 
 /* Individual page — no forced height; children (.page-hero, .page-section) are the snap units */
