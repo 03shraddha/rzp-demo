@@ -58,7 +58,7 @@ function initScrollSpy() {
       onTabEnter(index);
     });
   }, {
-    rootMargin: '-109px 0px -50% 0px',
+    rootMargin: '-57px 0px -50% 0px',
     threshold: 0,
   });
   targets.forEach((t) => t && observer.observe(t));
