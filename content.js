@@ -64,10 +64,10 @@ window.ENTRIES = [
     id: "entry-6",
     name: "Pranay Bagrecha",
     role: "Product Manager",
-    team: "",
+    team: "Cross-Border Payments",
     company: "Razorpay",
-    problem: "",
-    solution: "",
+    problem: "weekly standups needed manual number pulling from analytics before he could report progress and blockers\nanalyst used to write raw sql for every data pull. agents already know the schema and join keys so anyone can query without writing sql\nlot of documentation work that took up time he could spend on actual product decisions\nstill heavy reliance on manual testing across the board",
+    solution: "now pulls weekly metrics and blocker data himself using an analytics agent, no dependency on data team\nuses AI for drafting and structuring documentation at speed\neach microservice already has its own agent on the engineering side. next step is browser automation and automated test coverage to replace manual QA\ninternal view: current agents can make code changes, which is good progress, but the overall capability still feels limited",
     refs: []
   },
   {
