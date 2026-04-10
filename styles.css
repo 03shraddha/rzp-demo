@@ -1109,8 +1109,15 @@ body.dark .stat-chip     { background: var(--color-bg-secondary); }
 .google-note { display: inline-flex; align-items: center; gap: 6px; font-size: 14px; font-weight: 500; color: var(--color-accent-2); background: rgba(88, 86, 214, 0.08); border: 1px solid rgba(88, 86, 214, 0.2); padding: 4px 12px; border-radius: 100px; margin-bottom: 12px; }
 
 /* Comparison table */
-.comparison-table { width: 100%; border-collapse: collapse; margin-top: 16px; font-size: 16px; border-radius: var(--radius-md); overflow: hidden; border: 1px solid var(--color-border); }
+.comparison-table { width: 100%; table-layout: fixed; border-collapse: collapse; margin-top: 16px; font-size: 16px; border-radius: var(--radius-md); overflow: hidden; border: 1px solid var(--color-border); }
 .comparison-table th { background: var(--color-bg-secondary); padding: 10px 14px; text-align: left; font-size: 13px; font-weight: 600; color: var(--color-text-secondary); letter-spacing: 0.04em; text-transform: uppercase; border-bottom: 1px solid var(--color-border); }
+/* Column widths: feature label ~30%, two value columns share the rest equally */
+.comparison-table th:first-child,
+.comparison-table td:first-child { width: 30%; }
+.comparison-table th:nth-child(2),
+.comparison-table td:nth-child(2),
+.comparison-table th:nth-child(3),
+.comparison-table td:nth-child(3) { width: 35%; }
 .comparison-table td { padding: 10px 14px; color: var(--color-text-primary); border-bottom: 1px solid var(--color-border); line-height: 1.5; }
 .comparison-table tr:last-child td { border-bottom: none; }
 .comparison-table td:first-child { color: var(--color-text-secondary); font-weight: 500; }
