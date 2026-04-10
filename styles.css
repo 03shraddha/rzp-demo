@@ -801,7 +801,7 @@ body.card-view #table-container {
 
 /* min-height reserves space so subtitle/meta don't shift during typewriter */
 .page-hero__title {
-  font-size: clamp(38px, 6vw, 62px);
+  font-size: clamp(30px, 4.5vw, 50px);
   font-weight: 700;
   letter-spacing: -0.03em;
   line-height: 1.1;
@@ -811,7 +811,7 @@ body.card-view #table-container {
 }
 
 /* Per-title min-heights: reserve full text height before typewriter starts */
-#docs-hero-title     { min-height: 320px; } /* 3 lines at large font size */
+#docs-hero-title     { min-height: 260px; } /* 3 lines at large font size */
 #payments-hero-title { min-height: 160px; } /* ~2 lines at large font size */
 
 .page-hero__subtitle {
@@ -1593,18 +1593,11 @@ body.dark .outcome-box      { background: rgba(0, 122, 255, 0.08); border-color:
 }
 /* AGENT 2: TYPOGRAPHY + HIERARCHY OVERRIDES */
 
-/* ── 1. Page Hero Title — bolder, bigger, gradient text ──────── */
+/* ── 1. Page Hero Title — solid black ──────── */
 .page-hero__title {
-  background: linear-gradient(135deg, var(--color-text-primary) 0%, var(--color-text-secondary) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-body.dark .page-hero__title {
-  background: linear-gradient(135deg, #F5F5F7 0%, #AEAEB2 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
+  color: #000000;
+  -webkit-text-fill-color: #000000;
+  background: none;
 }
 
 /* ── 2. Page Hero Subtitle — bigger, more readable ───────────── */
