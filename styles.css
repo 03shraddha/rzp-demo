@@ -188,18 +188,15 @@ body.dark .tab-pill.active {
 /* Pages stacked vertically; window is the scroll container */
 .pages-container {
   display: block;
-  transform-origin: center center;
-  transition: opacity 0.22s cubic-bezier(0.4, 0, 0.2, 1), transform 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity 0.18s ease;
 }
 
 .pages-container.flip-exit {
   opacity: 0;
-  transform: perspective(900px) rotateY(-10deg) translateX(-16px) scale(0.97);
 }
 
 .pages-container.flip-enter {
   opacity: 0;
-  transform: perspective(900px) rotateY(10deg) translateX(16px) scale(0.97);
   transition: none;
 }
 
@@ -772,14 +769,20 @@ body.card-view #table-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start; /* banner pins to top; inner centers itself */
   scroll-margin-top: 57px;
-  padding: 20px 24px 40px;
+  padding: 0 24px 40px;
   text-align: center;
 }
 
 .page-hero__inner {
+  flex: 1; /* take remaining height after banner */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* vertically center the text block */
+  align-items: center;
   max-width: 680px;
+  width: 100%;
   margin: 0 auto;
 }
 
@@ -1795,20 +1798,6 @@ body.dark .faq-card {
   font-size: 17px;
   flex-shrink: 0;
   margin-top: 1px;
-}
-
-/* ============================================================
-   AGENT 3: Tab momentum + spring animation
-   ============================================================ */
-
-.pages-container {
-  transition: transform 0.45s cubic-bezier(0.34, 1.2, 0.64, 1);
-}
-
-.page {
-  transform-origin: center center;
-  transition: opacity 0.22s ease, transform 0.22s ease;
-  will-change: opacity, transform;
 }
 
 /* page--exiting and page--entering no longer used in vertical scroll layout */
@@ -2990,7 +2979,6 @@ body.dark .arch-arrow       { color: var(--term-green); }
   border-bottom: 1px solid rgba(66, 133, 244, 0.12);
   padding: 11px 0;
   flex-shrink: 0;
-  margin-bottom: 40px; /* space between banner and hero text */
 }
 .validation-banner__inner {
   max-width: 1100px;

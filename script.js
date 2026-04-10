@@ -28,7 +28,10 @@ function switchTab(index) {
     currentTab = index;
     const hero = document.querySelector(`#${pageIds[index]} .page-hero`)
                || document.getElementById(pageIds[index]);
-    if (hero) hero.scrollIntoView({ behavior: 'instant', block: 'start' });
+    if (hero) {
+      // Use explicit offsetTop so scroll is reliable during animation
+      window.scrollTo({ top: hero.offsetTop, behavior: 'instant' });
+    }
 
     document.querySelectorAll('.tab-pill').forEach((pill) => {
       pill.classList.toggle('active', Number(pill.dataset.tab) === index);
