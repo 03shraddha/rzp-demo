@@ -752,19 +752,15 @@ function typewriterHero() {
         cursor.style.transition = 'opacity 0.3s';
         setTimeout(() => cursor.remove(), 300);
 
-        // type subtitle as two lines separated by \n (rendered as <br>)
-        const subtitleFull = 'i\'d embed across teams to find what\'s actually blocking them\nx is where i live, that\'s where the ideas come from';
-        subtitle.innerHTML = '';
+        // fade in subtitle instantly (no typewriter)
         subtitle.style.opacity = '1';
         subtitle.style.transform = 'translateY(0)';
 
-        typeText(subtitle, subtitleFull, 28, () => {
-          // fade in meta line after subtitle finishes
-          setTimeout(() => {
-            meta.style.opacity = '1';
-            meta.style.transform = 'translateY(0)';
-          }, 200);
-        });
+        // fade in meta line after subtitle appears
+        setTimeout(() => {
+          meta.style.opacity = '1';
+          meta.style.transform = 'translateY(0)';
+        }, 500);
       }, 400);
     }
   }
