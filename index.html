@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>rzp × ai: strategy interview</title>
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Top bar with theme toggle (unchanged) -->
+  <header class="topbar">
+    <div class="topbar__inner">
+      <span class="topbar__logo">rzp × ai</span>
+      <button id="theme-toggle" aria-label="Toggle dark mode">
+        <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+        </svg>
+        <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Tab Nav -->
+  <nav class="tab-nav">
+    <div class="tab-nav__inner">
+      <div class="tab-pills">
+        <button class="tab-pill active" data-tab="0">razorpay docs mcp</button>
+        <button class="tab-pill" data-tab="1">payment recovery</button>
+        <button class="tab-pill" data-tab="2">ai opportunity map</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Pages container -->
+  <div class="pages-container">
+
+    <!-- PAGE 1: Razorpay Docs MCP -->
+    <section class="page" id="page-docs">
+
+      <!-- Google Validation Banner -->
+      <div class="validation-banner">
+        <div class="validation-banner__inner">
+          <div class="validation-banner__badge-group">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0">
+              <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+              <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+              <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/>
+              <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+            </svg>
+            <span class="validation-banner__label">proven pattern</span>
+          </div>
+          <span class="validation-banner__text">google already built a knowledge mcp for their own developer docs. same idea, same reason. i helped razorpay build theirs</span>
+          <a href="https://developers.google.com/knowledge/mcp" target="_blank" rel="noopener" class="validation-banner__link">
+            google knowledge mcp ↗
+          </a>
+        </div>
+      </div>
+
+      <!-- Section 1: Hero -->
+      <div class="page-hero">
+        <div class="page-hero__inner">
+          <div class="page-tag reveal" style="--i:0">razorpay docs mcp</div>
+          <h1 class="page-hero__title" id="docs-hero-title"></h1>
+          <p class="page-hero__subtitle reveal" style="--i:1">before every razorpay api call, the agent checks the mcp for the right field names, capture logic, and auth flows.</p>
+          <p class="page-hero__meta reveal" style="--i:2">knowledge mcp · razorpay ai strategy interview · apr 2026</p>
+        </div>
+      </div>
+
+      <!-- Section 2: What It Does -->
+      <div class="page-section">
+        <div class="section-label reveal">what it does</div>
+        <div class="tools-grid">
+          <div class="tool-card reveal" style="--i:0">
+            <div class="term-chrome">
+              <div class="term-chrome__dots">
+                <span class="term-chrome__dot term-chrome__dot--red"></span>
+                <span class="term-chrome__dot term-chrome__dot--yellow"></span>
+                <span class="term-chrome__dot term-chrome__dot--green"></span>
+              </div>
+            </div>
+            <div class="tool-card__name">search_razorpay_docs(query, product?, limit?)</div>
+            <div class="tool-card__desc reveal" style="--i:1">BM25 full-text search across 2,200+ razorpay docs. returns ranked results with url, title, heading path, snippet, and relevance score.</div>
+            <div class="tool-card__detail reveal" style="--i:2">filters by product: payments | api | x | partners | payroll | pos | webhooks | errors</div>
+          </div>
+          <div class="tool-card reveal" style="--i:1">
+            <div class="term-chrome">
+              <div class="term-chrome__dots">
+                <span class="term-chrome__dot term-chrome__dot--red"></span>
+                <span class="term-chrome__dot term-chrome__dot--yellow"></span>
+                <span class="term-chrome__dot term-chrome__dot--green"></span>
+              </div>
+            </div>
+            <div class="tool-card__name">get_razorpay_docs(urls[])</div>
+            <div class="tool-card__desc reveal" style="--i:1">fetches the complete markdown content of up to 20 docs by canonical razorpay.com/docs/... url.</div>
+            <div class="tool-card__detail reveal" style="--i:2">full doc, not a snippet. gives the agent complete context before it writes the api call</div>
+          </div>
+        </div>
+        <div class="stat-chips reveal" style="--i:2">
+          <span class="stat-chip">2,200+ docs</span>
+          <span class="stat-chip">20,000+ chunks</span>
+          <span class="stat-chip">sub-100ms lookup</span>
+          <span class="stat-chip">zero ongoing cost</span>
+          <span class="stat-chip">works offline</span>
+        </div>
+      </div>
+
+      <!-- Section 3: Why This Exists -->
+      <div class="page-section">
+        <div class="section-label reveal">why this exists</div>
+        <div class="reasons-list">
+
+          <!-- Reason 1 -->
+          <div class="reason-block reveal" style="--i:0">
+            <div class="term-chrome">
+              <div class="term-chrome__dots">
+                <span class="term-chrome__dot term-chrome__dot--red"></span>
+                <span class="term-chrome__dot term-chrome__dot--yellow"></span>
+                <span class="term-chrome__dot term-chrome__dot--green"></span>
+              </div>
+            </div>
+            <div class="reason-num">01: knowledge cutoff</div>
+            <div class="reason-title">llms have a training cutoff. razorpay ships every week.</div>
+            <div class="reason-body">
+              <ul class="reason-bullets">
+                <li class="reveal" style="--i:0">payment capture logic changes, indian government mandates update recurring payment flows</li>
+                <li class="reveal" style="--i:1">deprecated authentication workflows the llm was trained on</li>
+                <li class="reveal" style="--i:2">wrong field names and parameter order, breaks silently until production</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Reason 2 -->
+          <div class="reason-block reveal" style="--i:1">
+            <div class="term-chrome">
+              <div class="term-chrome__dots">
+                <span class="term-chrome__dot term-chrome__dot--red"></span>
+                <span class="term-chrome__dot term-chrome__dot--yellow"></span>
+                <span class="term-chrome__dot term-chrome__dot--green"></span>
+              </div>
+            </div>
+            <div class="reason-num">02: web search is not enough</div>
+            <div class="reason-title">agents can do web search. that's not good enough.</div>
+            <div class="reason-body">
+              <span class="google-note">google agrees, they built the google developer docs mcp for the same reason</span>
+              <ul class="reason-bullets">
+                <li class="reveal" style="--i:0">agent often doesn't know it needs to search. it just confidently writes wrong code</li>
+                <li class="reveal" style="--i:1">web search returns blogs, stack overflow, and razorpay docs mixed together, no ranking by authority</li>
+                <li class="reveal" style="--i:2">this mcp returns only official razorpay docs, ranked by relevance, with citable source urls</li>
+                <li class="reveal" style="--i:3">web search: high latency + high token cost + no accuracy guarantee. bm25 lookup: 1ms.</li>
+                <li class="reveal" style="--i:4">without this: non-deterministic code generation. with this: deterministic.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Reason 3 -->
+          <div class="reason-block reveal" style="--i:2">
+            <div class="term-chrome">
+              <div class="term-chrome__dots">
+                <span class="term-chrome__dot term-chrome__dot--red"></span>
+                <span class="term-chrome__dot term-chrome__dot--yellow"></span>
+                <span class="term-chrome__dot term-chrome__dot--green"></span>
+              </div>
+            </div>
+            <div class="reason-num">03: but razorpay already has an mcp</div>
+            <div class="reason-title">yes. theirs is an action mcp. this is a knowledge mcp.</div>
+            <div class="reason-body">
+              <table class="comparison-table">
+                <thead>
+                  <tr>
+                    <th></th>
+                    <th>existing razorpay mcp</th>
+                    <th>razorpay docs mcp (this)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="reveal" style="--i:0">
+                    <td>type</td>
+                    <td>action mcp</td>
+                    <td>knowledge mcp</td>
+                  </tr>
+                  <tr class="reveal" style="--i:1">
+                    <td>tools</td>
+                    <td>43 tools</td>
+                    <td>2 tools</td>
+                  </tr>
+                  <tr class="reveal" style="--i:2">
+                    <td>does what</td>
+                    <td>creates orders, issues refunds, manages payouts</td>
+                    <td>tells you how to use the api correctly</td>
+                  </tr>
+                  <tr class="reveal" style="--i:3">
+                    <td>analogy</td>
+                    <td>google maps api: sends the directions request</td>
+                    <td>google maps docs mcp: teaches you how to build navigation</td>
+                  </tr>
+                  <tr class="reveal" style="--i:4">
+                    <td>requires</td>
+                    <td>api keys, live account</td>
+                    <td>nothing. just the docs</td>
+                  </tr>
+                  <tr class="reveal" style="--i:5">
+                    <td>without it</td>
+                    <td>developer must know which of 43 apis to call, in what order, with what params</td>
+                    <td>agent invents parameters and gets it wrong</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Section 4: Architecture -->
+      <div class="page-section">
+        <div class="section-label reveal">architecture</div>
+        <div class="arch-flow">
+          <div class="arch-step reveal" style="--i:0">
+            <div class="arch-step__label">razorpay.com/docs/llms.txt</div>
+            <div class="arch-step__sub">2,200+ raw github markdown urls</div>
+          </div>
+          <div class="arch-arrow reveal" style="--i:1">↓</div>
+          <div class="arch-step reveal" style="--i:2">
+            <div class="arch-step__label">ingest.py</div>
+            <div class="arch-step__sub">fetches all docs concurrently (httpx, 20 workers)</div>
+            <div class="arch-step__items">
+              <span class="arch-step__item">splits at ## headings</span>
+              <span class="arch-step__item">tracks h1 > h2 > h3 breadcrumb per chunk</span>
+            </div>
+          </div>
+          <div class="arch-arrow reveal" style="--i:3">↓</div>
+          <div class="arch-step reveal" style="--i:4">
+            <div class="arch-step__label">duckdb (local file)</div>
+            <div class="arch-step__items">
+              <span class="arch-step__item">docs table: url, title, product, metadata</span>
+              <span class="arch-step__item">chunks table: chunk_id, content, heading_path</span>
+              <span class="arch-step__item">BM25 FTS index over chunks</span>
+            </div>
+          </div>
+          <div class="arch-arrow reveal" style="--i:5">↓</div>
+          <div class="arch-step reveal" style="--i:6">
+            <div class="arch-step__label">server.py (FastMCP: stdio or HTTP/SSE)</div>
+            <div class="arch-tools">
+              <span class="arch-tool">search_razorpay_docs(query, product?, limit?)</span>
+              <span class="arch-tool">get_razorpay_docs(urls[])</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 5: FAQ -->
+      <div class="page-section">
+        <div class="section-label reveal">faq</div>
+        <div class="faq-grid">
+          <div class="faq-card reveal" style="--i:0">
+            <div class="term-chrome">
+              <div class="term-chrome__dots">
+                <span class="term-chrome__dot term-chrome__dot--red"></span>
+                <span class="term-chrome__dot term-chrome__dot--yellow"></span>
+                <span class="term-chrome__dot term-chrome__dot--green"></span>
+              </div>
+            </div>
+            <div class="faq-card__q">what if the docs go stale?</div>
+            <div class="faq-card__a">there's a built-in python refresh command. run it before a big integration or schedule it to auto-refresh. it re-fetches from razorpay's github in under 5 minutes.</div>
+          </div>
+          <div class="faq-card reveal" style="--i:1">
+            <div class="term-chrome">
+              <div class="term-chrome__dots">
+                <span class="term-chrome__dot term-chrome__dot--red"></span>
+                <span class="term-chrome__dot term-chrome__dot--yellow"></span>
+                <span class="term-chrome__dot term-chrome__dot--green"></span>
+              </div>
+            </div>
+            <div class="faq-card__q">will the agent use this automatically?</div>
+            <div class="faq-card__a">once installed, the tool is always available. instruct the agent once: "for any razorpay integration question, use the docs mcp." it handles the rest.</div>
+          </div>
+        </div>
+      </div>
+
+    </section><!-- /#page-docs -->
+
+    <!-- PAGE 2: Payment Recovery -->
+    <section class="page" id="page-payments">
+
+      <!-- Section 1: Hero -->
+      <div class="page-hero">
+        <div class="page-hero__inner">
+          <div class="page-tag reveal" style="--i:0">payment recovery</div>
+          <h1 class="page-hero__title" id="payments-hero-title"></h1>
+          <p class="page-hero__subtitle reveal" style="--i:1">customers abandon after a failed checkout. we bring them back automatically, within seconds.</p>
+          <p class="page-hero__meta reveal" style="--i:2">razorpay webhooks + ai · razorpay ai strategy interview · apr 2026</p>
+        </div>
+      </div>
+
+      <!-- Section 2: The Moment -->
+      <div class="page-section reveal">
+        <div class="section-label">the moment it happens</div>
+        <div class="moment-display">
+          <div class="moment-row-top">
+            <div class="moment-step reveal" style="--i:0">
+              <div class="moment-step__icon">💳</div>
+              <div class="moment-step__label">customer checkout</div>
+            </div>
+            <div class="moment-arrow reveal" style="--i:1">
+              <svg width="32" height="16" viewBox="0 0 32 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <line x1="0" y1="8" x2="24" y2="8" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M22 3L29 8L22 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+              </svg>
+            </div>
+            <div class="moment-step moment-step--fail reveal" style="--i:2">
+              <div class="moment-step__badge moment-step__badge--warn">event</div>
+              <div class="moment-step__icon">⚠️</div>
+              <div class="moment-step__label">payment.failed</div>
+              <div class="moment-step__sub">upi timeout / card decline / net banking failure</div>
+            </div>
+            <div class="moment-arrow reveal" style="--i:3">
+              <svg width="32" height="16" viewBox="0 0 32 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <line x1="0" y1="8" x2="24" y2="8" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M22 3L29 8L22 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+              </svg>
+            </div>
+            <div class="moment-step moment-step--active reveal" style="--i:4">
+              <div class="moment-step__badge moment-step__badge--blue">T+0s</div>
+              <div class="moment-step__icon">📡</div>
+              <div class="moment-step__label">webhook received</div>
+              <div class="moment-step__sub">10-second SLA starts now</div>
+            </div>
+          </div>
+          <div class="moment-down-arrow reveal" style="--i:5">
+            <svg width="16" height="32" viewBox="0 0 16 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <line x1="8" y1="0" x2="8" y2="24" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M3 22L8 29L13 22" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            </svg>
+          </div>
+          <div class="moment-step moment-step--notify moment-step--wide reveal" style="--i:6">
+            <div class="moment-notify-header">
+              <span class="moment-step__badge moment-step__badge--green">recovery fired</span>
+              <span class="moment-notify-parallel">parallel dispatch</span>
+            </div>
+            <div class="moment-notify-channels">
+              <div class="notify-channel notify-channel--sms">
+                <span class="notify-channel__icon">📱</span>
+                <span class="notify-channel__name">sms</span>
+              </div>
+              <div class="notify-channel-divider"></div>
+              <div class="notify-channel notify-channel--email">
+                <span class="notify-channel__icon">📧</span>
+                <span class="notify-channel__name">email</span>
+              </div>
+              <div class="notify-channel-divider"></div>
+              <div class="notify-channel notify-channel--slack">
+                <span class="notify-channel__icon">💬</span>
+                <span class="notify-channel__name">slack</span>
+              </div>
+            </div>
+            <div class="moment-step__sub">sends an sms to the customer, an email with the payment link, and a slack ping to ops</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 3: The Pipeline -->
+      <div class="page-section">
+        <div class="section-label reveal">what happens next</div>
+        <div class="pipeline">
+          <div class="pipeline-step reveal" style="--i:0">
+            <div class="term-chrome">
+              <div class="term-chrome__dots">
+                <span class="term-chrome__dot term-chrome__dot--red"></span>
+                <span class="term-chrome__dot term-chrome__dot--yellow"></span>
+                <span class="term-chrome__dot term-chrome__dot--green"></span>
+              </div>
+            </div>
+            <div class="pipeline-step__num">01</div>
+            <div class="pipeline-step__content">
+              <div class="pipeline-step__title">confirm it's really razorpay</div>
+              <div class="pipeline-step__desc">every webhook razorpay sends comes with a signature. we check it before acting on anything. if it doesn't match, we ignore it.</div>
+              <span class="pipeline-step__tag term-badge">security first</span>
+            </div>
+          </div>
+          <div class="pipeline-connector reveal" style="--i:1"></div>
+          <div class="pipeline-step reveal" style="--i:2">
+            <div class="term-chrome">
+              <div class="term-chrome__dots">
+                <span class="term-chrome__dot term-chrome__dot--red"></span>
+                <span class="term-chrome__dot term-chrome__dot--yellow"></span>
+                <span class="term-chrome__dot term-chrome__dot--green"></span>
+              </div>
+            </div>
+            <div class="pipeline-step__num">02</div>
+            <div class="pipeline-step__content">
+              <div class="pipeline-step__title">generate a fresh payment link</div>
+              <div class="pipeline-step__desc">new 24-hour payment link via razorpay api. same order, fresh chance to complete.</div>
+              <span class="pipeline-step__tag term-badge">razorpay api</span>
+            </div>
+          </div>
+          <div class="pipeline-connector reveal" style="--i:3"></div>
+          <div class="pipeline-step reveal" style="--i:4">
+            <div class="term-chrome">
+              <div class="term-chrome__dots">
+                <span class="term-chrome__dot term-chrome__dot--red"></span>
+                <span class="term-chrome__dot term-chrome__dot--yellow"></span>
+                <span class="term-chrome__dot term-chrome__dot--green"></span>
+              </div>
+            </div>
+            <div class="pipeline-step__num">03</div>
+            <div class="pipeline-step__content">
+              <div class="pipeline-step__title">blast across all channels, in parallel</div>
+              <div class="pipeline-step__desc">SMS, email, and slack alert fire simultaneously. asyncio.gather ensures one failure never blocks the others.</div>
+              <span class="pipeline-step__tag term-badge">asyncio.gather</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 4: The Channels -->
+      <div class="page-section">
+        <div class="section-label reveal">three channels. one shot.</div>
+        <div class="channel-grid">
+          <div class="channel-card reveal" style="--i:0">
+            <div class="term-chrome">
+              <div class="term-chrome__dots">
+                <span class="term-chrome__dot term-chrome__dot--red"></span>
+                <span class="term-chrome__dot term-chrome__dot--yellow"></span>
+                <span class="term-chrome__dot term-chrome__dot--green"></span>
+              </div>
+            </div>
+            <div class="channel-card__icon">📱</div>
+            <div class="channel-card__name">SMS</div>
+            <div class="channel-card__via">via Twilio</div>
+            <div class="channel-card__desc">direct customer notification with the new payment link</div>
+          </div>
+          <div class="channel-card reveal" style="--i:1">
+            <div class="term-chrome">
+              <div class="term-chrome__dots">
+                <span class="term-chrome__dot term-chrome__dot--red"></span>
+                <span class="term-chrome__dot term-chrome__dot--yellow"></span>
+                <span class="term-chrome__dot term-chrome__dot--green"></span>
+              </div>
+            </div>
+            <div class="channel-card__icon">📧</div>
+            <div class="channel-card__name">email</div>
+            <div class="channel-card__via">via Gmail SMTP</div>
+            <div class="channel-card__desc">personalized recovery email to the customer</div>
+          </div>
+          <div class="channel-card reveal" style="--i:2">
+            <div class="term-chrome">
+              <div class="term-chrome__dots">
+                <span class="term-chrome__dot term-chrome__dot--red"></span>
+                <span class="term-chrome__dot term-chrome__dot--yellow"></span>
+                <span class="term-chrome__dot term-chrome__dot--green"></span>
+              </div>
+            </div>
+            <div class="channel-card__icon">💬</div>
+            <div class="channel-card__name">slack</div>
+            <div class="channel-card__via">internal #payment-ops</div>
+            <div class="channel-card__desc">alert for the ops team to monitor and follow up</div>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- Section 6: Reliability Design -->
+      <div class="page-section">
+        <div class="section-label reveal">built to not fail</div>
+        <div class="reliability-chips">
+          <div class="reliability-chip reveal" style="--i:0">
+            <div class="reliability-chip__icon">🔒</div>
+            <div class="reliability-chip__text">one channel failing never blocks the others</div>
+          </div>
+          <div class="reliability-chip reveal" style="--i:1">
+            <div class="reliability-chip__icon">⚡</div>
+            <div class="reliability-chip__text">all three channels fire within razorpay's 10-second webhook sla</div>
+          </div>
+          <div class="reliability-chip reveal" style="--i:2">
+            <div class="reliability-chip__icon">🧪</div>
+            <div class="reliability-chip__text">browser-based demo simulates all three failure types without real razorpay events</div>
+          </div>
+        </div>
+        <div class="outcome-box reveal" style="--i:3">
+          <div class="outcome-box__flow">payment.failed → fresh link → customer recovers</div>
+          <div class="outcome-box__sub">automated. within seconds. zero manual ops.</div>
+        </div>
+      </div>
+
+    </section><!-- /#page-payments -->
+
+    <!-- PAGE 3: AI Opportunity Map -->
+    <section class="page" id="page-aimap">
+      <div id="app">
+
+        <!-- Hero -->
+        <section class="hero">
+          <h1 class="hero__title">ai opportunity map</h1>
+          <p class="hero__subtitle">i embed across teams, find what's actually blocking them, and map it to ai already shipping at top startups. x is where all the techbros build in public, and that's where i live.</p>
+          <p class="hero__meta">razorpay ai strategy interview · apr 2026</p>
+        </section>
+
+        <!-- Controls: view toggle + filters -->
+        <div class="controls">
+          <button id="view-toggle">card view</button>
+          <div class="filter-chips">
+            <button class="chip chip--active" data-company="All">all</button>
+            <button class="chip" data-company="Razorpay">Razorpay</button>
+            <button class="chip" data-company="J.P. Morgan">J.P. Morgan</button>
+            <button class="chip" data-company="CRED">CRED</button>
+          </div>
+        </div>
+
+        <!-- Table View -->
+        <div id="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>employee</th>
+                <th>role / team</th>
+                <th>problem / pain point</th>
+                <th>ai opportunity</th>
+              </tr>
+            </thead>
+            <tbody id="entries-tbody">
+              <!-- Rows injected by script.js -->
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Card View (hidden by default) -->
+        <div id="card-container">
+          <!-- Cards injected by script.js -->
+        </div>
+
+      </div><!-- /#app -->
+    </section><!-- /#page-aimap -->
+
+  </div><!-- /.pages-container -->
+
+  <script src="content.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
