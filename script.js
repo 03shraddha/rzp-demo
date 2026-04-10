@@ -156,7 +156,7 @@ function initTabs() {
    ============================================================================= */
 
 // Typewriter for Page 1 (Razorpay Docs MCP) hero title
-// Plays exactly 2 times: type → pause → erase → pause → retype → done
+// Types once, then fades out the cursor.
 function typewriterPageDocs() {
   const title = document.getElementById('docs-hero-title');
   if (!title) return;
@@ -167,53 +167,14 @@ function typewriterPageDocs() {
   cursor.textContent = '|';
   title.appendChild(cursor);
   let i = 0;
-  let secondPass = false; // true once we start the retype
-
-  // Counts how many text characters are currently in the title (before cursor)
-  function getTypedLength() {
-    let len = 0;
-    title.childNodes.forEach((node) => {
-      if (node !== cursor && node.nodeType === Node.TEXT_NODE) len += node.textContent.length;
-    });
-    return len;
-  }
-
-  // Removes the last character from the text nodes before the cursor
-  function removeLastChar() {
-    for (let n = title.childNodes.length - 1; n >= 0; n--) {
-      const node = title.childNodes[n];
-      if (node === cursor) continue;
-      if (node.nodeType === Node.TEXT_NODE && node.textContent.length > 0) {
-        node.textContent = node.textContent.slice(0, -1);
-        // clean up empty text nodes to keep DOM tidy
-        if (node.textContent.length === 0) title.removeChild(node);
-        return;
-      }
-    }
-  }
-
-  function eraseChar() {
-    if (getTypedLength() > 0) {
-      removeLastChar();
-      setTimeout(eraseChar, 30);
-    } else {
-      // All erased — pause then start second (final) pass
-      secondPass = true;
-      i = 0;
-      setTimeout(next, 400);
-    }
-  }
 
   function next() {
     if (i < text.length) {
       title.insertBefore(document.createTextNode(text[i]), cursor);
       i++;
       setTimeout(next, 45);
-    } else if (!secondPass) {
-      // First pass done — pause, erase, then retype
-      setTimeout(eraseChar, 600);
     } else {
-      // Second pass done — fade out cursor and stop
+      // Done — fade out cursor
       setTimeout(() => {
         cursor.style.animation = 'none';
         cursor.style.opacity = '0';
@@ -226,7 +187,7 @@ function typewriterPageDocs() {
 }
 
 // Typewriter for Page 2 (Payment Recovery) hero title
-// Plays exactly 2 times: type → pause → erase → pause → retype → done
+// Types once, then fades out the cursor.
 function typewriterPagePayments() {
   const title = document.getElementById('payments-hero-title');
   if (!title) return;
@@ -237,53 +198,14 @@ function typewriterPagePayments() {
   cursor.textContent = '|';
   title.appendChild(cursor);
   let i = 0;
-  let secondPass = false; // true once we start the retype
-
-  // Counts how many text characters are currently in the title (before cursor)
-  function getTypedLength() {
-    let len = 0;
-    title.childNodes.forEach((node) => {
-      if (node !== cursor && node.nodeType === Node.TEXT_NODE) len += node.textContent.length;
-    });
-    return len;
-  }
-
-  // Removes the last character from the text nodes before the cursor
-  function removeLastChar() {
-    for (let n = title.childNodes.length - 1; n >= 0; n--) {
-      const node = title.childNodes[n];
-      if (node === cursor) continue;
-      if (node.nodeType === Node.TEXT_NODE && node.textContent.length > 0) {
-        node.textContent = node.textContent.slice(0, -1);
-        // clean up empty text nodes to keep DOM tidy
-        if (node.textContent.length === 0) title.removeChild(node);
-        return;
-      }
-    }
-  }
-
-  function eraseChar() {
-    if (getTypedLength() > 0) {
-      removeLastChar();
-      setTimeout(eraseChar, 30);
-    } else {
-      // All erased — pause then start second (final) pass
-      secondPass = true;
-      i = 0;
-      setTimeout(next, 400);
-    }
-  }
 
   function next() {
     if (i < text.length) {
       title.insertBefore(document.createTextNode(text[i]), cursor);
       i++;
       setTimeout(next, 40);
-    } else if (!secondPass) {
-      // First pass done — pause, erase, then retype
-      setTimeout(eraseChar, 600);
     } else {
-      // Second pass done — fade out cursor and stop
+      // Done — fade out cursor
       setTimeout(() => {
         cursor.style.animation = 'none';
         cursor.style.opacity = '0';
