@@ -123,9 +123,9 @@
             <div class="reason-title">llms have a training cutoff. razorpay ships every week.</div>
             <div class="reason-body">
               <ul class="reason-bullets">
-                <li class="reveal" style="--i:0">doesn't the llm already know razorpay's api?</li>
-                <li class="reveal" style="--i:1">what if it learned an auth flow that razorpay deprecated last month?</li>
-                <li class="reveal" style="--i:2">what's the worst that happens if a field name is wrong?</li>
+                <li class="reveal" style="--i:0">training data is 12 to 24 months old. razorpay ships every week.</li>
+                <li class="reveal" style="--i:1">deprecated auth flows still live in the model's memory.</li>
+                <li class="reveal" style="--i:2">wrong field names get written with the same confidence as correct ones. no warning.</li>
               </ul>
             </div>
           </div>
@@ -144,11 +144,9 @@
             <div class="reason-body">
               <span class="google-note">google agrees, they built the google developer docs mcp for the same reason</span>
               <ul class="reason-bullets">
-                <li class="reveal" style="--i:0">can't the agent just google it when it needs to?</li>
-                <li class="reveal" style="--i:1">how is web search worse than a dedicated tool?</li>
-                <li class="reveal" style="--i:2">isn't official docs + a google search good enough?</li>
-                <li class="reveal" style="--i:3">does the latency actually matter that much?</li>
-                <li class="reveal" style="--i:4">why does it matter if the output is slightly different each time?</li>
+                <li class="reveal" style="--i:0">the agent only searches when it thinks it might be wrong. it usually doesn't.</li>
+                <li class="reveal" style="--i:1">results mix blog posts, old stack overflow answers, and competitor tutorials.</li>
+                <li class="reveal" style="--i:2">the same webhook query returns 4 different code patterns. the model picks one.</li>
               </ul>
             </div>
           </div>
