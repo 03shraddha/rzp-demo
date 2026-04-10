@@ -822,17 +822,12 @@ body.card-view #table-container {
 
 /* Page section wrapper — full-viewport snap slide */
 .page-section {
-  height: calc(100vh - 57px);
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
+  /* natural height — content determines size, no clipping or overlap */
+  min-height: 60vh;
   overflow: visible;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  scroll-margin-top: 57px;
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 60px 24px;
+  padding: 80px 24px;
   border-top: 1px solid var(--color-border);
 }
 

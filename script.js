@@ -757,7 +757,7 @@ function typewriterHero() {
         setTimeout(() => cursor.remove(), 300);
 
         // type subtitle as two lines separated by \n (rendered as <br>)
-        const subtitleFull = 'i\'d embed across teams to find what\'s actually blocking them\nx is where i live — that\'s where the ideas come from';
+        const subtitleFull = 'i\'d embed across teams to find what\'s actually blocking them\nx is where i live, that\'s where the ideas come from';
         subtitle.innerHTML = '';
         subtitle.style.opacity = '1';
         subtitle.style.transform = 'translateY(0)';
