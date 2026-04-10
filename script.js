@@ -161,8 +161,8 @@ function typewriterPageDocs() {
   const title = document.getElementById('docs-hero-title');
   if (!title) return;
   const lines = [
-    '10m+ businesses.',
-    '$150b+ processed annually.',
+    '10m+ businesses',
+    '$150b+ processed annually',
     'ai agents now write that integration code and hallucinate field names when docs aren\'t built for agents',
   ];
   title.textContent = '';
@@ -206,7 +206,7 @@ function typewriterPageDocs() {
 function typewriterPagePayments() {
   const title = document.getElementById('payments-hero-title');
   if (!title) return;
-  const text = 'every failed payment is revenue walking out the door. this workflow brings them back';
+  const text = 'every failed payment is revenue walking out the door, this workflow brings them back';
   title.textContent = '';
   const cursor = document.createElement('span');
   cursor.className = 'typewriter-cursor';

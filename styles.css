@@ -801,18 +801,18 @@ body.card-view #table-container {
 
 /* min-height reserves space so subtitle/meta don't shift during typewriter */
 .page-hero__title {
-  font-size: clamp(16px, 1.8vw, 24px);
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  line-height: 1.4;
+  font-size: clamp(38px, 6vw, 62px);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
   color: var(--color-text-primary);
   margin-bottom: 16px;
   min-height: 1.1em;
 }
 
 /* Per-title min-heights: reserve full text height before typewriter starts */
-#docs-hero-title     { min-height: 140px; } /* ~4 lines at max font size */
-#payments-hero-title { min-height: 105px; } /* ~3 lines at max font size */
+#docs-hero-title     { min-height: 320px; } /* 3 lines at large font size */
+#payments-hero-title { min-height: 160px; } /* ~2 lines at large font size */
 
 .page-hero__subtitle {
   font-size: 18px;
@@ -1595,9 +1595,6 @@ body.dark .outcome-box      { background: rgba(0, 122, 255, 0.08); border-color:
 
 /* ── 1. Page Hero Title — bolder, bigger, gradient text ──────── */
 .page-hero__title {
-  font-size: clamp(16px, 1.8vw, 24px);
-  font-weight: 800;
-  letter-spacing: -0.02em;
   background: linear-gradient(135deg, var(--color-text-primary) 0%, var(--color-text-secondary) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -3060,7 +3057,6 @@ body.dark .arch-arrow       { color: var(--term-green); }
 /* ── Google Validation Banner ───────────────────────────────── */
 .validation-banner {
   background: var(--color-bg);
-  border-bottom: 1px solid var(--color-border);
   padding: 10px 24px;
   display: flex;
   justify-content: center;
