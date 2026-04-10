@@ -365,21 +365,8 @@
       <!-- Section 7: what exists vs what i built on top -->
       <div class="page-section">
         <div class="section-label reveal">what exists vs what i built on top</div>
-        <div class="term-table-wrap reveal">
-          <div class="term-chrome">
-            <div class="term-chrome__dots">
-              <span class="term-chrome__dot term-chrome__dot--red"></span>
-              <span class="term-chrome__dot term-chrome__dot--yellow"></span>
-              <span class="term-chrome__dot term-chrome__dot--green"></span>
-            </div>
-            <span class="term-chrome__title">comparison.sh</span>
-          </div>
-          <table class="term-table">
-            <colgroup>
-              <col style="width:260px">
-              <col style="width:230px">
-              <col style="width:240px">
-            </colgroup>
+        <div class="reveal">
+          <table class="comparison-table">
             <thead>
               <tr>
                 <th></th>
@@ -389,29 +376,29 @@
             </thead>
             <tbody>
               <tr class="reveal" style="--i:0">
-                <td class="term-table__feature">notifies customer via SMS and email</td>
-                <td class="term-table__native">yes — toggle in dashboard, no code</td>
-                <td class="term-table__mine">yes — Twilio SMS + Gmail</td>
+                <td>notifies customer via SMS and email</td>
+                <td>yes: toggle in dashboard, no code</td>
+                <td>yes: Twilio SMS + Gmail</td>
               </tr>
               <tr class="reveal" style="--i:1">
-                <td class="term-table__feature">generates a fresh payment link</td>
-                <td class="term-table__native">yes — via retargeting campaign</td>
-                <td class="term-table__mine">yes — api call on webhook</td>
+                <td>generates a fresh payment link</td>
+                <td>yes: via retargeting campaign</td>
+                <td>yes: api call on webhook</td>
               </tr>
               <tr class="reveal" style="--i:2">
-                <td class="term-table__feature">alerts the ops team on Slack</td>
-                <td class="term-table__native term-table__native--no">no</td>
-                <td class="term-table__mine">yes — posts to #payment-ops</td>
+                <td>alerts the ops team on Slack</td>
+                <td>no</td>
+                <td>yes: posts to #payment-ops</td>
               </tr>
               <tr class="reveal" style="--i:3">
-                <td class="term-table__feature">triggers in under 2 seconds</td>
-                <td class="term-table__native term-table__native--no">no — retargeting is delayed</td>
-                <td class="term-table__mine">yes — fires on webhook instantly</td>
+                <td>triggers in under 2 seconds</td>
+                <td>no: retargeting is delayed</td>
+                <td>yes: fires on webhook instantly</td>
               </tr>
               <tr class="reveal" style="--i:4">
-                <td class="term-table__feature">customizable by developers in code</td>
-                <td class="term-table__native term-table__native--no">no — UI only, no code access</td>
-                <td class="term-table__mine">yes — edit the code directly</td>
+                <td>customizable by developers in code</td>
+                <td>no: UI only, no code access</td>
+                <td>yes: edit the code directly</td>
               </tr>
             </tbody>
           </table>
