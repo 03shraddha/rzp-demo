@@ -2379,6 +2379,11 @@ body.dark .arch-step .term-chrome--compact {
 .tool-card__name {
   color: var(--term-green);
   font-family: var(--term-font);
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 .tool-card__desc {
