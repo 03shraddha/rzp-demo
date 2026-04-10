@@ -29,7 +29,8 @@ window.ENTRIES = [
     solution: "agentic campaign manager that auto-launches and adjusts bids in real time\nworks across Meta and Google Ads, fully autonomous once set up",
     refs: [
       { label: "@Jaredorkin - real implementation of agentic campaign management", url: "https://x.com/Jaredorkin/status/2042006561292480912" },
-      { label: "@shannholmberg - AI-driven ad optimization in practice", url: "https://x.com/shannholmberg/status/2042316671579472167" }
+      { label: "@shannholmberg - AI-driven ad optimization in practice", url: "https://x.com/shannholmberg/status/2042316671579472167" },
+      { label: "@ihtesham2005", url: "https://x.com/ihtesham2005/status/2042392207425225067" }
     ]
   },
   {

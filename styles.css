@@ -1117,6 +1117,10 @@ body.dark .stat-chip     { background: var(--color-bg-secondary); }
 .comparison-table td:nth-child(3) { color: var(--color-accent); font-weight: 500; }
 .comparison-table tr:hover td { background: var(--color-bg-secondary); }
 
+/* Who benefits grid */
+.who-grid { display: flex; flex-wrap: wrap; gap: 10px; max-width: 760px; margin: 0 auto; }
+.who-tag { font-size: 15px; font-weight: 500; color: var(--color-accent); background: color-mix(in srgb, var(--color-accent) 10%, transparent); border: 1px solid color-mix(in srgb, var(--color-accent) 25%, transparent); border-radius: 999px; padding: 6px 16px; line-height: 1.4; }
+
 /* FAQ grid */
 .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; max-width: 760px; margin: 0 auto; }
 .faq-card { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 24px; box-shadow: var(--shadow-sm); }
