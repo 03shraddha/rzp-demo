@@ -488,6 +488,47 @@
         </div>
       </div>
 
+      <!-- Section 7: what exists vs what i built on top -->
+      <div class="page-section">
+        <div class="section-label reveal">what exists vs what i built on top</div>
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th></th>
+              <th>razorpay native</th>
+              <th>this project</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="reveal" style="--i:0">
+              <td>customer SMS + email</td>
+              <td>yes (dashboard, no code)</td>
+              <td>yes (Twilio + Gmail SMTP)</td>
+            </tr>
+            <tr class="reveal" style="--i:1">
+              <td>fresh payment link</td>
+              <td>yes (retargeting flow)</td>
+              <td>yes (api call on webhook)</td>
+            </tr>
+            <tr class="reveal" style="--i:2">
+              <td>slack team alert</td>
+              <td>no</td>
+              <td>yes (#payment-ops)</td>
+            </tr>
+            <tr class="reveal" style="--i:3">
+              <td>fires in under 2s</td>
+              <td>no</td>
+              <td>yes (webhook, not retargeting)</td>
+            </tr>
+            <tr class="reveal" style="--i:4">
+              <td>developer-customizable</td>
+              <td>no</td>
+              <td>yes (code, not dashboard)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
     </section><!-- /#page-payments -->
 
     <!-- PAGE 3: AI Opportunity Map -->
