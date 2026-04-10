@@ -74,7 +74,8 @@ window.ENTRIES = [
     solution: "per-PM AI agent with live project memory + slack summariser dashboard - any team gets context without interrupting the PM\ncrawler that detects merchant escalations across social and email, auto-identifies the merchant, and routes to ops with full context",
     refs: [
       { label: "Lenny Rachitsky - how to build a PM second brain with ChatGPT", url: "https://x.com/lennysan/status/2001049628641566957" },
-      { label: "Gad Benram - built JIRA + Slack for AI agents using LangGraph + MCP", url: "https://x.com/gadbenram/status/2019521641156632619" }
+      { label: "Gad Benram - built JIRA + Slack for AI agents using LangGraph + MCP", url: "https://x.com/gadbenram/status/2019521641156632619" },
+      { label: "AethirCloud - AI infrastructure for real-time social monitoring at scale", url: "https://x.com/AethirCloud/status/2041821409006002510" }
     ]
   },
   {
