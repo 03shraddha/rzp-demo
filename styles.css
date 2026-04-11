@@ -840,7 +840,7 @@ body.card-view #table-container {
   display: inline-block;
   font-size: 16px;
   font-weight: 400;
-  color: var(--color-text-tertiary);
+  color: var(--color-text-secondary);
   letter-spacing: 0.02em;
   background: var(--color-bg-secondary);
   border: 1px solid var(--color-border);
