@@ -215,10 +215,10 @@ body.dark .tab-pill.active {
 
 .reveal {
   opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.55s cubic-bezier(0.4, 0, 0.2, 1),
-              transform 0.55s cubic-bezier(0.4, 0, 0.2, 1);
-  transition-delay: calc(var(--i, 0) * 80ms);
+  transform: translateY(40px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: calc(var(--i, 0) * 140ms);
 }
 
 .reveal--visible {
@@ -1132,6 +1132,7 @@ body.dark .stat-chip     { background: var(--color-bg-secondary); }
 .google-note { display: inline-flex; align-items: center; gap: 6px; font-size: 14px; font-weight: 500; color: var(--color-accent-2); background: rgba(88, 86, 214, 0.08); border: 1px solid rgba(88, 86, 214, 0.2); padding: 4px 12px; border-radius: 100px; margin-bottom: 12px; }
 
 .table-lead-note { margin-bottom: 16px; padding: 12px 16px; background: var(--color-bg-secondary); border-radius: var(--radius-md); }
+.table-lead-note li { font-size: 14px; }
 
 /* Comparison table */
 .comparison-table { width: 100%; table-layout: fixed; border-collapse: collapse; margin-top: 16px; font-size: 16px; border-radius: var(--radius-md); overflow: hidden; border: 1px solid var(--color-border); }
