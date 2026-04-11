@@ -849,10 +849,9 @@ body.card-view #table-container {
   text-decoration: underline;
 }
 .cite-link {
-  font-size: 13px;
+  font-size: 16px;
   font-weight: 600;
-  vertical-align: super;
-  line-height: 0;
+  vertical-align: baseline;
   margin-left: 3px;
 }
 
