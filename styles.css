@@ -1540,20 +1540,21 @@ body.dark .moment-step__badge--green { background: rgba(52, 199, 89, 0.18); colo
   display: inline-flex;
   align-items: center;
   gap: 0;
-  font-family: 'SF Mono', 'Fira Code', 'Courier New', monospace;
+  font-family: var(--term-font, 'SF Mono', 'Fira Code', monospace);
   font-size: 22px;
   font-weight: 600;
-  color: #00d26a;
-  background: #0a0f0a;
-  border: 1.5px solid #00d26a;
+  /* uses page bg so no dark box appears in light mode */
+  color: var(--term-green);
+  background: var(--color-bg);
+  border: 1.5px solid var(--term-green);
   border-radius: 6px;
   padding: 18px 36px;
   cursor: pointer;
   letter-spacing: 0.04em;
   position: relative;
   overflow: hidden;
-  transition: box-shadow 0.3s ease, border-color 0.3s ease;
-  box-shadow: 0 0 0 rgba(0, 210, 106, 0);
+  transition: box-shadow 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+  box-shadow: 0 0 0 rgba(63, 185, 80, 0);
 }
 
 /* scanline shimmer */
@@ -1565,17 +1566,17 @@ body.dark .moment-step__badge--green { background: rgba(52, 199, 89, 0.18); colo
     0deg,
     transparent,
     transparent 3px,
-    rgba(0, 210, 106, 0.03) 3px,
-    rgba(0, 210, 106, 0.03) 4px
+    rgba(63, 185, 80, 0.04) 3px,
+    rgba(63, 185, 80, 0.04) 4px
   );
   pointer-events: none;
 }
 
 /* hover glow */
 .terminal-btn:hover {
-  box-shadow: 0 0 28px rgba(0, 210, 106, 0.45), 0 0 8px rgba(0, 210, 106, 0.25);
-  border-color: #00ff80;
-  color: #00ff80;
+  box-shadow: 0 0 28px rgba(63, 185, 80, 0.35), 0 0 8px rgba(63, 185, 80, 0.2);
+  border-color: #5fd874;
+  color: #5fd874;
 }
 
 /* click flash */
@@ -1584,17 +1585,17 @@ body.dark .moment-step__badge--green { background: rgba(52, 199, 89, 0.18); colo
 }
 
 @keyframes terminal-flash {
-  0%   { background: #0a0f0a; }
-  30%  { background: rgba(0, 210, 106, 0.18); box-shadow: 0 0 48px rgba(0, 210, 106, 0.7); }
-  100% { background: #0a0f0a; }
+  0%   { background: var(--color-bg); }
+  30%  { background: rgba(63, 185, 80, 0.12); box-shadow: 0 0 48px rgba(63, 185, 80, 0.5); }
+  100% { background: var(--color-bg); }
 }
 
-.terminal-btn__prompt { color: #555; user-select: none; }
+.terminal-btn__prompt { color: var(--term-text-secondary); user-select: none; }
 .terminal-btn__text   { color: inherit; }
 
 /* blinking block cursor */
 .terminal-btn__cursor {
-  color: #00d26a;
+  color: var(--term-green);
   animation: blink 1s step-start infinite;
   margin-left: 1px;
 }
@@ -1602,13 +1603,6 @@ body.dark .moment-step__badge--green { background: rgba(52, 199, 89, 0.18); colo
 @keyframes blink {
   0%, 100% { opacity: 1; }
   50%       { opacity: 0; }
-}
-
-/* light mode override — keep it dark always for terminal feel */
-body:not(.dark) .terminal-btn {
-  background: #0a0f0a;
-  color: #00d26a;
-  border-color: #00d26a;
 }
 
 /* Dark mode — Page 2 components */
