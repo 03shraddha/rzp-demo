@@ -1533,7 +1533,9 @@ body.dark .moment-step__badge--green { background: rgba(52, 199, 89, 0.18); colo
 .demo-cta-section {
   display: flex;
   justify-content: center;
+  align-items: center;
   padding: 60px 0 20px;
+  min-height: unset !important;
 }
 
 .terminal-btn {
@@ -1541,13 +1543,13 @@ body.dark .moment-step__badge--green { background: rgba(52, 199, 89, 0.18); colo
   align-items: center;
   gap: 0;
   font-family: var(--term-font, 'SF Mono', 'Fira Code', monospace);
-  font-size: 16px;
+  font-size: 22px;
   font-weight: 600;
   color: var(--color-accent);
   background: var(--color-bg);
   border: 1.5px solid var(--color-accent);
   border-radius: 0;
-  padding: 10px 20px;
+  padding: 18px 36px;
   cursor: pointer;
   letter-spacing: 0.04em;
   position: relative;
