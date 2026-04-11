@@ -786,9 +786,9 @@ body.card-view #table-container {
   font-weight: 600;
   letter-spacing: 0.07em;
   text-transform: uppercase;
-  color: #6b7280;
-  background: rgba(107, 114, 128, 0.08);
-  border: 1px solid rgba(107, 114, 128, 0.18);
+  color: var(--color-text-secondary);
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
   padding: 8px 18px;
   border-radius: 100px;
   margin-bottom: 20px;
@@ -821,7 +821,7 @@ body.card-view #table-container {
 }
 
 /* Per-title min-heights: reserve full text height before typewriter starts */
-#payments-hero-title { min-height: 160px; } /* ~2 lines at large font size */
+#payments-hero-title { min-height: 160px; } /* ~2 lines at large font size; overridden on mobile below */
 
 .page-hero__subtitle {
   font-size: 18px;
@@ -1200,7 +1200,7 @@ body.dark .stat-chip     { background: var(--color-bg-secondary); }
 .faq-list { margin: 0; padding-left: 18px; list-style: disc; }
 .faq-list li { margin-bottom: 6px; }
 .faq-card--dark { background: var(--term-bg); border-color: var(--term-border); }
-.faq-card--dark .faq-card__q { color: #1a1a1a; }
+.faq-card--dark .faq-card__q { color: var(--term-text-primary); } /* light text on dark terminal bg */
 .faq-card--dark .faq-card__a { color: var(--term-text-secondary); }
 .faq-card--dark .term-chrome { background: var(--term-bg-alt); }
 @media (max-width: 600px) { .faq-grid { grid-template-columns: 1fr; } }
@@ -1510,6 +1510,15 @@ body.dark .outcome-box      { background: rgba(0, 122, 255, 0.08); border-color:
    RESPONSIVE — 900px
    ============================================================ */
 @media (max-width: 900px) {
+  /* Scale down tab pills for mid-range widths (tablets, landscape phones) */
+  .tab-pill {
+    font-size: 15px;
+    padding: 5px 12px;
+  }
+  .tab-pill.active {
+    font-size: 15px;
+  }
+
   #card-container {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -1605,11 +1614,11 @@ body.dark .outcome-box      { background: rgba(0, 122, 255, 0.08); border-color:
 }
 /* AGENT 2: TYPOGRAPHY + HIERARCHY OVERRIDES */
 
-/* ── 1. Page Hero Title — solid black ──────── */
+/* ── 1. Page Hero Title — adapts to light/dark ──────── */
 .page-hero__title,
 .page-hero__project-title {
-  color: #000000;
-  -webkit-text-fill-color: #000000;
+  color: var(--color-text-primary);
+  -webkit-text-fill-color: var(--color-text-primary);
   background: none;
 }
 
@@ -1862,6 +1871,13 @@ body.dark .faq-card {
   margin-top: 1px;
 }
 
+/* Dark mode: boost opacity so the faint purple is readable on black */
+body.dark .google-note {
+  background: rgba(88, 86, 214, 0.14);
+  border-color: rgba(88, 86, 214, 0.30);
+  color: #a5a3ff; /* lighter purple for dark bg contrast */
+}
+
 /* page--exiting and page--entering no longer used in vertical scroll layout */
 
 .tab-pill {
@@ -2072,10 +2088,12 @@ tr.reveal--visible {
   margin-bottom: 10px;
 }
 
-/* ── Custom Presentation Cursor ────────────────────────────────── */
+/* ── Custom Presentation Cursor — mouse only ────────────────────── */
 
-body {
-  cursor: none;
+@media (pointer: fine) {
+  body {
+    cursor: none;
+  }
 }
 
 input,
@@ -3093,7 +3111,7 @@ body.dark .arch-arrow       { color: var(--term-green); }
 .validation-banner__text {
   font-size: 14px;
   color: var(--color-text-secondary);
-  white-space: nowrap;
+  /* removed white-space: nowrap — text must wrap on mobile */
 }
 .validation-banner__link {
   flex-shrink: 0;
@@ -3117,6 +3135,18 @@ body.dark .validation-banner {
 body.dark .validation-banner__inner {
   background: rgba(66, 133, 244, 0.08);
   border-color: rgba(66, 133, 244, 0.2);
+}
+/* Ensure validation banner text is readable in dark mode */
+body.dark .validation-banner__text {
+  color: var(--color-text-secondary);
+}
+body.dark .validation-banner__label {
+  color: #74a9f8; /* lighter Google blue for dark bg contrast */
+}
+body.dark .validation-banner__link {
+  color: #74a9f8;
+  background: rgba(66, 133, 244, 0.12);
+  border-color: rgba(66, 133, 244, 0.28);
 }
 
 /* ============================================================
@@ -3202,6 +3232,14 @@ body.dark .validation-banner__inner {
   .page-hero__subtitle {
     font-size: 15px;
   }
+  /* Reduce reserved space for payments hero title on phones */
+  #payments-hero-title {
+    min-height: 80px;
+  }
+  /* Reduce page-hero padding on mobile */
+  .page-hero {
+    padding: 16px 16px 32px;
+  }
 
   /* ── Tab navigation ── */
   .tab-nav {
@@ -3236,15 +3274,21 @@ body.dark .validation-banner__inner {
   }
 
   /* ── Validation banner ── */
+  .validation-banner {
+    padding: 16px 16px 8px;
+  }
   .validation-banner__inner {
-    padding: 0 16px;
+    padding: 10px 14px;
     flex-wrap: wrap;
     gap: 10px;
+    border-radius: 12px; /* less pill, more card on mobile */
   }
   .validation-banner__text {
-    font-size: 14px;
+    font-size: 13px;
     flex-basis: 100%;
     order: 2;
+    white-space: normal; /* explicitly allow wrapping */
+    line-height: 1.5;
   }
   .validation-banner__badge-group {
     order: 1;
@@ -3321,6 +3365,16 @@ body.dark .validation-banner__inner {
   .comparison-table {
     font-size: 13px;
     table-layout: auto;
+  }
+  /* Scroll wrapper so table never forces horizontal page overflow on mobile */
+  .reason-body,
+  .page-section > .reveal > .comparison-table {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .reason-body .comparison-table,
+  .page-section .comparison-table {
+    min-width: 400px; /* allow scrolling rather than squishing */
   }
   .comparison-table th,
   .comparison-table td {
@@ -3429,8 +3483,10 @@ body.dark .validation-banner__inner {
 }
 .comparison-table             { font-size: 17px; }
 
-/* ── Custom Cursor ──────────────────────────────────────────── */
-* { cursor: none !important; }
+/* ── Custom Cursor — only on pointer/mouse devices, not touch ── */
+@media (pointer: fine) {
+  * { cursor: none !important; }
+}
 
 #custom-cursor {
   position: fixed;
