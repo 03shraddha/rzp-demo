@@ -836,6 +836,19 @@ body.card-view #table-container {
   letter-spacing: 0.02em;
 }
 
+.page-hero__social-note {
+  font-size: 13px;
+  color: var(--color-text-tertiary);
+  margin-top: 6px;
+}
+.page-hero__social-note a {
+  color: var(--color-accent);
+  text-decoration: none;
+}
+.page-hero__social-note a:hover {
+  text-decoration: underline;
+}
+
 /* Page section wrapper — full-viewport snap slide */
 .page-section {
   /* natural height — content determines size, no clipping or overlap */
@@ -1133,6 +1146,10 @@ body.dark .stat-chip     { background: var(--color-bg-secondary); }
 
 .table-lead-note { margin-bottom: 16px; padding: 12px 16px; background: var(--color-bg-secondary); border-radius: var(--radius-md); }
 .table-lead-note li { font-size: 14px; }
+
+.table-social-note { font-size: 13px; color: var(--color-text-secondary); margin: 0 0 16px 4px; }
+.table-social-note a { color: var(--color-accent); text-decoration: none; }
+.table-social-note a:hover { text-decoration: underline; }
 
 /* Comparison table */
 .comparison-table { width: 100%; table-layout: fixed; border-collapse: collapse; margin-top: 16px; font-size: 16px; border-radius: var(--radius-md); overflow: hidden; border: 1px solid var(--color-border); }
