@@ -107,6 +107,16 @@ window.ENTRIES = [
     refs: []
   },
   {
+    id: "entry-10",
+    name: "Shivank Kumar",
+    role: "Strategy Manager",
+    team: "",
+    company: "Razorpay",
+    problem: "",
+    solution: "",
+    refs: []
+  },
+  {
     id: "entry-2",
     name: "Mohammed Abdul Razzaq",
     role: "Backend Engineer",
