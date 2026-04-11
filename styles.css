@@ -1529,6 +1529,88 @@ body.dark .moment-step__badge--green { background: rgba(52, 199, 89, 0.18); colo
   color: var(--color-text-secondary);
 }
 
+/* ── Terminal Demo Button ─────────────────────────────────────── */
+.demo-cta-section {
+  display: flex;
+  justify-content: center;
+  padding: 60px 0 20px;
+}
+
+.terminal-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+  font-family: 'SF Mono', 'Fira Code', 'Courier New', monospace;
+  font-size: 22px;
+  font-weight: 600;
+  color: #00d26a;
+  background: #0a0f0a;
+  border: 1.5px solid #00d26a;
+  border-radius: 6px;
+  padding: 18px 36px;
+  cursor: pointer;
+  letter-spacing: 0.04em;
+  position: relative;
+  overflow: hidden;
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+  box-shadow: 0 0 0 rgba(0, 210, 106, 0);
+}
+
+/* scanline shimmer */
+.terminal-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 3px,
+    rgba(0, 210, 106, 0.03) 3px,
+    rgba(0, 210, 106, 0.03) 4px
+  );
+  pointer-events: none;
+}
+
+/* hover glow */
+.terminal-btn:hover {
+  box-shadow: 0 0 28px rgba(0, 210, 106, 0.45), 0 0 8px rgba(0, 210, 106, 0.25);
+  border-color: #00ff80;
+  color: #00ff80;
+}
+
+/* click flash */
+.terminal-btn--fired {
+  animation: terminal-flash 0.4s ease forwards;
+}
+
+@keyframes terminal-flash {
+  0%   { background: #0a0f0a; }
+  30%  { background: rgba(0, 210, 106, 0.18); box-shadow: 0 0 48px rgba(0, 210, 106, 0.7); }
+  100% { background: #0a0f0a; }
+}
+
+.terminal-btn__prompt { color: #555; user-select: none; }
+.terminal-btn__text   { color: inherit; }
+
+/* blinking block cursor */
+.terminal-btn__cursor {
+  color: #00d26a;
+  animation: blink 1s step-start infinite;
+  margin-left: 1px;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+/* light mode override — keep it dark always for terminal feel */
+body:not(.dark) .terminal-btn {
+  background: #0a0f0a;
+  color: #00d26a;
+  border-color: #00d26a;
+}
+
 /* Dark mode — Page 2 components */
 body.dark .pipeline-step    { background: var(--color-surface); }
 body.dark .channel-card     { background: var(--color-surface); }

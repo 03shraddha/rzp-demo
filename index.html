@@ -531,28 +531,31 @@
       </div>
 
 
-      <!-- Section 6: Reliability Design -->
-      <div class="page-section">
-        <div class="section-label reveal">built to not fail</div>
-        <div class="reliability-chips">
-          <div class="reliability-chip reveal" style="--i:0">
-            <div class="reliability-chip__icon">🔒</div>
-            <div class="reliability-chip__text">one channel failing never blocks the others</div>
-          </div>
-          <div class="reliability-chip reveal" style="--i:1">
-            <div class="reliability-chip__icon">⚡</div>
-            <div class="reliability-chip__text">all three channels fire within razorpay's 10-second webhook sla</div>
-          </div>
-          <div class="reliability-chip reveal" style="--i:2">
-            <div class="reliability-chip__icon">🧪</div>
-            <div class="reliability-chip__text">browser-based demo simulates all three failure types without real razorpay events</div>
-          </div>
-        </div>
-        <div class="outcome-box reveal" style="--i:3">
-          <div class="outcome-box__flow">payment.failed → fresh link → customer recovers</div>
-          <div class="outcome-box__sub">automated, within seconds, zero manual ops</div>
-        </div>
+      <!-- Section 6: Demo CTA -->
+      <div class="page-section demo-cta-section">
+        <button class="terminal-btn reveal" id="demoCta" onclick="document.getElementById('demoCta').classList.toggle('terminal-btn--fired')">
+          <span class="terminal-btn__prompt">$&nbsp;</span>
+          <span class="terminal-btn__text" id="demoTypeTarget"></span>
+          <span class="terminal-btn__cursor">▌</span>
+        </button>
       </div>
+
+      <script>
+        (function () {
+          const label = 'ready_for_demo.sh';
+          const el = document.getElementById('demoTypeTarget');
+          let i = 0;
+          function type() {
+            if (i <= label.length) {
+              el.textContent = label.slice(0, i);
+              i++;
+              setTimeout(type, i === 1 ? 600 : 65 + Math.random() * 40);
+            }
+          }
+          // start after a short delay so the reveal animation finishes first
+          setTimeout(type, 900);
+        })();
+      </script>
 
 
     </section><!-- /#page-payments -->
