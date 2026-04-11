@@ -839,7 +839,7 @@ body.card-view #table-container {
 .page-hero__social-note {
   font-size: 13px;
   color: var(--color-text-tertiary);
-  margin-top: 6px;
+  margin-bottom: 6px;
 }
 .page-hero__social-note a {
   color: var(--color-accent);
@@ -847,6 +847,12 @@ body.card-view #table-container {
 }
 .page-hero__social-note a:hover {
   text-decoration: underline;
+}
+.cite-link {
+  font-size: 11px;
+  vertical-align: super;
+  line-height: 0;
+  margin-left: 2px;
 }
 
 /* Page section wrapper — full-viewport snap slide */
