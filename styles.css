@@ -1543,18 +1543,17 @@ body.dark .moment-step__badge--green { background: rgba(52, 199, 89, 0.18); colo
   font-family: var(--term-font, 'SF Mono', 'Fira Code', monospace);
   font-size: 22px;
   font-weight: 600;
-  /* uses page bg so no dark box appears in light mode */
-  color: var(--term-green);
+  color: var(--color-accent);
   background: var(--color-bg);
-  border: 1.5px solid var(--term-green);
-  border-radius: 6px;
+  border: 1.5px solid var(--color-accent);
+  border-radius: 0;
   padding: 18px 36px;
   cursor: pointer;
   letter-spacing: 0.04em;
   position: relative;
   overflow: hidden;
-  transition: box-shadow 0.3s ease, border-color 0.3s ease, color 0.3s ease;
-  box-shadow: 0 0 0 rgba(63, 185, 80, 0);
+  transition: box-shadow 0.3s ease, border-color 0.3s ease, color 0.3s ease, background 0.3s ease;
+  box-shadow: 0 0 0 rgba(0, 122, 255, 0);
 }
 
 /* scanline shimmer */
@@ -1566,17 +1565,18 @@ body.dark .moment-step__badge--green { background: rgba(52, 199, 89, 0.18); colo
     0deg,
     transparent,
     transparent 3px,
-    rgba(63, 185, 80, 0.04) 3px,
-    rgba(63, 185, 80, 0.04) 4px
+    rgba(0, 122, 255, 0.04) 3px,
+    rgba(0, 122, 255, 0.04) 4px
   );
   pointer-events: none;
 }
 
 /* hover glow */
 .terminal-btn:hover {
-  box-shadow: 0 0 28px rgba(63, 185, 80, 0.35), 0 0 8px rgba(63, 185, 80, 0.2);
-  border-color: #5fd874;
-  color: #5fd874;
+  box-shadow: 0 0 28px rgba(0, 122, 255, 0.3), 0 0 8px rgba(0, 122, 255, 0.15);
+  border-color: var(--color-accent);
+  background: rgba(0, 122, 255, 0.06);
+  color: var(--color-accent);
 }
 
 /* click flash */
@@ -1586,7 +1586,7 @@ body.dark .moment-step__badge--green { background: rgba(52, 199, 89, 0.18); colo
 
 @keyframes terminal-flash {
   0%   { background: var(--color-bg); }
-  30%  { background: rgba(63, 185, 80, 0.12); box-shadow: 0 0 48px rgba(63, 185, 80, 0.5); }
+  30%  { background: rgba(0, 122, 255, 0.12); box-shadow: 0 0 48px rgba(0, 122, 255, 0.45); }
   100% { background: var(--color-bg); }
 }
 
@@ -1595,7 +1595,7 @@ body.dark .moment-step__badge--green { background: rgba(52, 199, 89, 0.18); colo
 
 /* blinking block cursor */
 .terminal-btn__cursor {
-  color: var(--term-green);
+  color: var(--color-accent);
   animation: blink 1s step-start infinite;
   margin-left: 1px;
 }
