@@ -92,12 +92,6 @@
             </div>
             <div class="reason-num">01: knowledge cutoff</div>
             <div class="reason-title">llms have a training cutoff but razorpay ships every week</div>
-            <div class="reason-body">
-              <ul class="reason-bullets">
-                <li class="reveal" style="--i:0">deprecated auth flows still live in the model's memory</li>
-                <li class="reveal" style="--i:1">wrong field names get written with the same confidence as correct ones. no warning</li>
-              </ul>
-            </div>
           </div>
 
           <!-- Reason 2 -->
@@ -113,10 +107,6 @@
             <div class="reason-title">agents can do web search, that's not good enough</div>
             <div class="reason-body">
               <span class="google-note">google agrees, they built the google developer docs mcp for the same reason</span>
-              <ul class="reason-bullets">
-                <li class="reveal" style="--i:0">results mix blog posts, old stack overflow answers, and competitor tutorials</li>
-                <li class="reveal" style="--i:1">the same webhook query returns 4 different code patterns. the model picks one</li>
-              </ul>
             </div>
           </div>
 
@@ -132,7 +122,10 @@
             <div class="reason-num">03: but razorpay already has an mcp</div>
             <div class="reason-title">both mcps are built for different moments in the workflow</div>
             <div class="reason-body">
-              <p class="table-lead-note reveal" style="--i:0">without this MCP, developers and agents face 43 tools with no guidance on which API to call, what parameters to pass, or in what order. this MCP removes that ambiguity, enforces predictable behavior, and makes integration straightforward for platforms like BookMyShow, Groww, and Zepto.</p>
+              <ul class="reason-bullets table-lead-note">
+                <li class="reveal" style="--i:0">without this MCP, developers and agents face 43 tools with no guidance on which API to call, what parameters to pass, or in what order.</li>
+                <li class="reveal" style="--i:1">this MCP removes that ambiguity, enforces predictable behavior, and makes integration straightforward for platforms like BookMyShow, Groww, and Zepto.</li>
+              </ul>
               <table class="comparison-table">
                 <thead>
                   <tr>
