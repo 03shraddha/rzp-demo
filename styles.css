@@ -3324,61 +3324,45 @@ body.dark .arch-step__item  { background: var(--term-bg-alt); border-color: var(
 body.dark .arch-tool        { color: var(--term-blue); }
 body.dark .arch-arrow       { color: var(--term-green); }
 
-/* ── Google Validation Banner ───────────────────────────────── */
-/* Stack wrapper for multiple validation banners */
+/* ── Proven Pattern Banners ─────────────────────────────────── */
 .validation-banners-stack {
   display: flex;
   flex-direction: column;
-  gap: 6px;
   padding: 28px 24px 10px;
   align-items: center;
 }
-.validation-banners-stack .validation-banner {
-  padding: 0;
+
+/* Single blue pill box containing all 3 rows */
+.validation-banners-box {
+  background: rgba(66, 133, 244, 0.04);
+  border: 1px solid rgba(66, 133, 244, 0.2);
+  border-radius: 20px;
+  overflow: hidden;
   width: 100%;
-  justify-content: center;
+  max-width: 780px;
 }
 
 .validation-banner {
-  background: var(--color-bg);
-  padding: 28px 24px 10px;
+  background: transparent;
+  padding: 0;
   display: flex;
   justify-content: center;
 }
 
-/* OpenAI brand — dark/black */
-.validation-banner__inner--openai {
-  background: rgba(0,0,0,0.03);
-  border-color: rgba(0,0,0,0.15);
+/* Divider between rows */
+.validation-banners-box .validation-banner + .validation-banner {
+  border-top: 1px solid rgba(66, 133, 244, 0.13);
 }
-.validation-banner__label--openai { color: #111; }
-.validation-banner__link--openai {
-  color: #111;
-  background: rgba(0,0,0,0.07);
-  border-color: rgba(0,0,0,0.15);
-}
-.validation-banner__link--openai:hover { background: rgba(0,0,0,0.12); }
 
-/* AWS brand — orange */
-.validation-banner__inner--aws {
-  background: rgba(255,153,0,0.05);
-  border-color: rgba(255,153,0,0.25);
-}
-.validation-banner__label--aws { color: #c47900; }
-.validation-banner__link--aws {
-  color: #c47900;
-  background: rgba(255,153,0,0.1);
-  border-color: rgba(255,153,0,0.25);
-}
-.validation-banner__link--aws:hover { background: rgba(255,153,0,0.18); }
 .validation-banner__inner {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   gap: 12px;
-  background: rgba(66, 133, 244, 0.05);
-  border: 1px solid rgba(66, 133, 244, 0.18);
-  border-radius: 100px;
-  padding: 7px 14px 7px 10px;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 11px 16px;
+  width: 100%;
 }
 .validation-banner__badge-group {
   display: flex;
@@ -3415,12 +3399,12 @@ body.dark .arch-arrow       { color: var(--term-green); }
 .validation-banner__link:hover {
   background: rgba(66, 133, 244, 0.18);
 }
-body.dark .validation-banner {
-  border-color: var(--color-border);
+body.dark .validation-banners-box {
+  background: rgba(66, 133, 244, 0.07);
+  border-color: rgba(66, 133, 244, 0.25);
 }
-body.dark .validation-banner__inner {
-  background: rgba(66, 133, 244, 0.08);
-  border-color: rgba(66, 133, 244, 0.2);
+body.dark .validation-banners-box .validation-banner + .validation-banner {
+  border-top-color: rgba(66, 133, 244, 0.18);
 }
 /* Ensure validation banner text is readable in dark mode */
 body.dark .validation-banner__text {
@@ -3560,14 +3544,16 @@ body.dark .validation-banner__link {
   }
 
   /* ── Validation banner ── */
-  .validation-banner {
-    padding: 16px 16px 8px;
+  .validation-banners-stack {
+    padding: 20px 16px 8px;
+  }
+  .validation-banners-box {
+    border-radius: 14px;
   }
   .validation-banner__inner {
     padding: 10px 14px;
     flex-wrap: wrap;
     gap: 10px;
-    border-radius: 12px; /* less pill, more card on mobile */
   }
   .validation-banner__text {
     font-size: 13px;
