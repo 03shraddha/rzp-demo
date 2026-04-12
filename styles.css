@@ -1184,17 +1184,18 @@ body.dark .stat-chip     { background: var(--color-bg-secondary); }
 .comparison-table--landscape {
   min-width: 820px; /* forces horizontal scroll rather than squishing */
   table-layout: fixed;
+  /* override base table's overflow:hidden so position:sticky on the first
+     column can anchor to .table-scroll-wrap instead of being clipped here */
+  overflow: visible;
 }
 .comparison-table--landscape th:first-child,
-.comparison-table--landscape td:first-child { width: 13%; }
+.comparison-table--landscape td:first-child { width: 14%; }
 .comparison-table--landscape th:nth-child(2),
-.comparison-table--landscape td:nth-child(2),
+.comparison-table--landscape td:nth-child(2) { width: 32%; }
 .comparison-table--landscape th:nth-child(3),
 .comparison-table--landscape td:nth-child(3),
 .comparison-table--landscape th:nth-child(4),
-.comparison-table--landscape td:nth-child(4),
-.comparison-table--landscape th:nth-child(5),
-.comparison-table--landscape td:nth-child(5) { width: 21.75%; }
+.comparison-table--landscape td:nth-child(4) { width: 27%; }
 
 /* Clip cell content — prevents text from ever bleeding into adjacent columns */
 .comparison-table--landscape td,
@@ -1228,6 +1229,22 @@ body.dark .stat-chip     { background: var(--color-bg-secondary); }
   box-shadow: 1px 0 0 var(--color-border);
 }
 
+/* Muted sub-text for "does not" entries inside table cells */
+.comparison-table--landscape td p.does-not {
+  margin: 8px 0 0 0;
+  opacity: 0.5;
+  font-size: 0.875em;
+}
+
+/* Bullet list inside a table cell (used for multi-audience "who uses it") */
+.comparison-table--landscape td ul.cell-list {
+  margin: 0;
+  padding-left: 16px;
+}
+.comparison-table--landscape td ul.cell-list li + li {
+  margin-top: 6px;
+}
+
 /* Tiered opacity — non-highlight rows fade to 40%, snap to full on hover */
 .comparison-table--landscape tbody tr:not(.highlight-row) {
   opacity: 0.4;
@@ -1240,6 +1257,10 @@ body.dark .stat-chip     { background: var(--color-bg-secondary); }
 /* Scroll-fade hint: right edge gradient tells the user there is more content */
 .table-scroll-wrap {
   position: relative;
+  overflow-x: auto;
+  /* overflow:clip on the reason-block ancestor blocks sticky; isolate it here
+     by making this element the nearest clipping ancestor instead */
+  overflow-y: clip;
 }
 .table-scroll-wrap::after {
   content: '';
