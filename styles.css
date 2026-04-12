@@ -1237,13 +1237,14 @@ body.dark .stat-chip     { background: var(--color-bg-secondary); }
 .comparison-table--landscape td p.problem-question {
   display: inline-block;
   margin: 0;
-  padding: 6px 11px;
-  background: color-mix(in srgb, var(--color-accent) 10%, var(--color-bg));
-  border: 1px solid color-mix(in srgb, var(--color-accent) 22%, transparent);
-  border-radius: 14px 14px 14px 3px; /* chat bubble tail on bottom-left */
-  font-style: italic;
-  font-size: 0.88em;
-  line-height: 1.45;
+  padding: 8px 13px;
+  background: var(--color-accent);
+  color: #fff;
+  border: none;
+  border-radius: 18px 18px 18px 4px; /* iMessage tail: sharp bottom-left corner */
+  font-style: normal;
+  font-size: 0.875em;
+  line-height: 1.5;
 }
 
 /* Muted sub-text for "does not" entries inside table cells */
