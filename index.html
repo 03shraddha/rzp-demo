@@ -419,7 +419,7 @@
 
       <!-- Section 3: The Pipeline -->
       <div class="page-section">
-        <div class="section-label reveal">what happens next</div>
+        <div class="section-label reveal">how the workflow runs</div>
         <div class="pipeline">
           <div class="pipeline-step reveal" style="--i:0">
             <div class="term-chrome">
@@ -473,7 +473,7 @@
 
       <!-- Section 4: The Channels -->
       <div class="page-section">
-        <div class="section-label reveal">three channels, one shot</div>
+        <div class="section-label reveal">three integrations, each needed its own setup</div>
         <div class="channel-grid">
           <div class="channel-card reveal" style="--i:0">
             <div class="term-chrome">
@@ -486,7 +486,7 @@
             <div class="channel-card__icon">📱</div>
             <div class="channel-card__name">SMS</div>
             <div class="channel-card__via">via Twilio</div>
-            <div class="channel-card__desc">direct customer notification with the new payment link</div>
+            <div class="channel-card__desc">abstracts away the telecom layer. you send a message to a number and Twilio handles delivery across any carrier</div>
           </div>
           <div class="channel-card reveal" style="--i:1">
             <div class="term-chrome">
@@ -499,7 +499,7 @@
             <div class="channel-card__icon">📧</div>
             <div class="channel-card__name">email</div>
             <div class="channel-card__via">via Gmail SMTP</div>
-            <div class="channel-card__desc">personalized recovery email to the customer</div>
+            <div class="channel-card__desc">required configuring Gmail to grant the app permission to send emails on my behalf, no password needed, just OAuth</div>
           </div>
           <div class="channel-card reveal" style="--i:2">
             <div class="term-chrome">
@@ -512,7 +512,7 @@
             <div class="channel-card__icon">💬</div>
             <div class="channel-card__name">slack</div>
             <div class="channel-card__via">internal #payment-ops</div>
-            <div class="channel-card__desc">alert for the ops team to monitor and follow up</div>
+            <div class="channel-card__desc">uses a webhook URL to target a specific channel. the channel and permissions are configured from the Slack side</div>
           </div>
         </div>
       </div>
