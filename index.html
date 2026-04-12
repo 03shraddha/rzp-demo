@@ -354,19 +354,22 @@
               <div class="notify-channel notify-channel--sms">
                 <span class="notify-channel__icon">📱</span>
                 <span class="notify-channel__name">sms</span>
+                <span class="notify-channel__sub">customer's phone</span>
               </div>
               <div class="notify-channel-divider"></div>
               <div class="notify-channel notify-channel--email">
                 <span class="notify-channel__icon">📧</span>
                 <span class="notify-channel__name">email</span>
+                <span class="notify-channel__sub">customer's inbox</span>
               </div>
               <div class="notify-channel-divider"></div>
               <div class="notify-channel notify-channel--slack">
                 <span class="notify-channel__icon">💬</span>
                 <span class="notify-channel__name">slack</span>
+                <span class="notify-channel__sub">merchant's ops channel</span>
               </div>
             </div>
-            <div class="moment-step__sub">sends an sms to the customer, an email with the payment link, and a slack ping to ops</div>
+            <div class="moment-step__sub">sms to the customer's phone, payment link to the customer's inbox, alert to the merchant's ops channel</div>
           </div>
         </div>
       </div>
@@ -385,9 +388,9 @@
             </thead>
             <tbody>
               <tr class="reveal" style="--i:0">
-                <td>notifies customer via SMS and email</td>
-                <td>yes: toggle in dashboard, no code</td>
-                <td>yes: Twilio SMS + Gmail</td>
+                <td>notifies customer via SMS, email, and voice call on cart drop-off</td>
+                <td>SMS + email via dashboard; voice call demoed at FTX 2026, not live yet</td>
+                <td>yes: Twilio SMS + Gmail + Twilio voice call (demoed at FTX)</td>
               </tr>
               <tr class="reveal" style="--i:1">
                 <td>generates a fresh payment link</td>
@@ -395,9 +398,9 @@
                 <td>yes: api call on webhook</td>
               </tr>
               <tr class="reveal" style="--i:2">
-                <td>alerts the ops team on Slack</td>
+                <td>alerts merchant's ops team via Slack, WhatsApp, or email</td>
                 <td>no</td>
-                <td>yes: posts to #payment-ops</td>
+                <td>yes: posts to #payment-ops (Slack, WhatsApp & email supported)</td>
               </tr>
               <tr class="reveal" style="--i:3">
                 <td>triggers in under 2 seconds</td>

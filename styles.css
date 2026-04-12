@@ -1356,6 +1356,7 @@ body.dark .moment-step__badge--green { background: rgba(52, 199, 89, 0.18); colo
 }
 .notify-channel__icon { font-size: 22px; line-height: 1; }
 .notify-channel__name { font-size: 12px; font-weight: 600; letter-spacing: 0.02em; color: var(--color-text-primary); }
+.notify-channel__sub  { font-size: 10px; color: var(--color-text-muted, #999); margin-top: 2px; }
 
 .notify-channel--sms   { background: rgba(52, 199, 89,  0.06); }
 .notify-channel--email { background: rgba(0,  122, 255,  0.06); }
