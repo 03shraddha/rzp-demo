@@ -3378,10 +3378,22 @@ body.dark .arch-arrow       { color: var(--term-green); }
   color: #4285F4;
   white-space: nowrap;
 }
+.validation-banner__content {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  flex: 1;
+  min-width: 0;
+}
 .validation-banner__text {
   font-size: 14px;
   color: var(--color-text-secondary);
-  /* removed white-space: nowrap — text must wrap on mobile */
+}
+.validation-banner__tools {
+  font-size: 11px;
+  font-family: 'SF Mono', 'Fira Code', monospace;
+  color: rgba(66, 133, 244, 0.65);
+  letter-spacing: 0.02em;
 }
 .validation-banner__link {
   flex-shrink: 0;
@@ -3555,11 +3567,13 @@ body.dark .validation-banner__link {
     flex-wrap: wrap;
     gap: 10px;
   }
-  .validation-banner__text {
-    font-size: 13px;
+  .validation-banner__content {
     flex-basis: 100%;
     order: 2;
-    white-space: normal; /* explicitly allow wrapping */
+  }
+  .validation-banner__text {
+    font-size: 13px;
+    white-space: normal;
     line-height: 1.5;
   }
   .validation-banner__badge-group {
