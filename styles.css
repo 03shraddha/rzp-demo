@@ -1238,8 +1238,8 @@ body.dark .stat-chip     { background: var(--color-bg-secondary); }
   display: inline-block;
   margin: 0;
   padding: 8px 13px;
-  background: var(--color-accent);
-  color: #fff;
+  background: var(--color-bg-secondary, #e9e9eb);
+  color: var(--color-text-secondary);
   border: none;
   border-radius: 18px 18px 18px 4px; /* iMessage tail: sharp bottom-left corner */
   font-style: normal;
