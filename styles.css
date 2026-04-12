@@ -1225,7 +1225,7 @@ body.dark .stat-chip     { background: var(--color-bg-secondary); }
 .comparison-table--landscape tr.highlight-row td:first-child {
   color: var(--color-accent);
   background: color-mix(in srgb, var(--color-accent) 6%, var(--color-bg));
-  box-shadow: 2px 0 0 var(--color-accent), inset 3px 0 0 var(--color-accent);
+  box-shadow: 1px 0 0 var(--color-border);
 }
 
 /* Tiered opacity — non-highlight rows fade to 40%, snap to full on hover */
