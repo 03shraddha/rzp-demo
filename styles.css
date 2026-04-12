@@ -3690,9 +3690,11 @@ body.dark .validation-banner__link {
 }
 .comparison-table             { font-size: 17px; }
 
-/* ── Custom Cursor — only on pointer/mouse devices, not touch ── */
+/* ── Custom Cursor — big blue arrow, pointer devices only ── */
 @media (pointer: fine) {
-  * { cursor: none !important; }
+  * {
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='36' viewBox='0 0 36 36'%3E%3Cpath d='M 6 4 L 6 28 L 12 22 L 16 32 L 20 30 L 16 20 L 24 20 Z' fill='%23007AFF' stroke='white' stroke-width='2' stroke-linejoin='round'/%3E%3C/svg%3E") 6 4, auto !important;
+  }
 }
 
 #custom-cursor {

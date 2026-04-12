@@ -1,7 +1,9 @@
 /* === FIX 1: Remove duplicate cursor block, cursor never shows on touch === */
 
-/* Hide the SVG custom-cursor element on all devices — it's unused */
-#custom-cursor {
+/* Hide all old cursor elements — replaced by CSS SVG arrow cursor */
+#custom-cursor,
+#cursor-ring,
+#cursor-dot {
   display: none !important;
 }
 
