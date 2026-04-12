@@ -3325,12 +3325,52 @@ body.dark .arch-tool        { color: var(--term-blue); }
 body.dark .arch-arrow       { color: var(--term-green); }
 
 /* ── Google Validation Banner ───────────────────────────────── */
+/* Stack wrapper for multiple validation banners */
+.validation-banners-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 28px 24px 10px;
+  align-items: center;
+}
+.validation-banners-stack .validation-banner {
+  padding: 0;
+  width: 100%;
+  justify-content: center;
+}
+
 .validation-banner {
   background: var(--color-bg);
   padding: 28px 24px 10px;
   display: flex;
   justify-content: center;
 }
+
+/* OpenAI brand — dark/black */
+.validation-banner__inner--openai {
+  background: rgba(0,0,0,0.03);
+  border-color: rgba(0,0,0,0.15);
+}
+.validation-banner__label--openai { color: #111; }
+.validation-banner__link--openai {
+  color: #111;
+  background: rgba(0,0,0,0.07);
+  border-color: rgba(0,0,0,0.15);
+}
+.validation-banner__link--openai:hover { background: rgba(0,0,0,0.12); }
+
+/* AWS brand — orange */
+.validation-banner__inner--aws {
+  background: rgba(255,153,0,0.05);
+  border-color: rgba(255,153,0,0.25);
+}
+.validation-banner__label--aws { color: #c47900; }
+.validation-banner__link--aws {
+  color: #c47900;
+  background: rgba(255,153,0,0.1);
+  border-color: rgba(255,153,0,0.25);
+}
+.validation-banner__link--aws:hover { background: rgba(255,153,0,0.18); }
 .validation-banner__inner {
   display: inline-flex;
   align-items: center;
