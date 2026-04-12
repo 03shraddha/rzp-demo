@@ -4,12 +4,20 @@
   /* Remove forced min-width that causes overflow on 375–390px iPhones.
      The 600px breakpoint in styles.css sets min-width: 400px — on a 375px
      screen that 25px excess pushes the page-level scroll indicator and causes
-     the entire page to scroll horizontally. This override removes it. */
-  .reason-body .comparison-table,
-  .page-section .comparison-table {
+     the entire page to scroll horizontally. This override removes it.
+     The :not() excludes the landscape table — it must keep min-width: 820px
+     and table-layout: fixed so it scrolls rather than collapsing columns. */
+  .reason-body .comparison-table:not(.comparison-table--landscape),
+  .page-section .comparison-table:not(.comparison-table--landscape) {
     min-width: 0;
     width: 100%;
     table-layout: auto; /* Let the browser distribute columns naturally */
+  }
+
+  /* Landscape table: always scroll, never collapse */
+  .comparison-table--landscape {
+    min-width: 820px !important;
+    table-layout: fixed !important;
   }
 
   /* Remove fixed column percentage widths — covers up to 5 columns for the

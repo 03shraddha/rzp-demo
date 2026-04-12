@@ -1196,6 +1196,12 @@ body.dark .stat-chip     { background: var(--color-bg-secondary); }
 .comparison-table--landscape th:nth-child(5),
 .comparison-table--landscape td:nth-child(5) { width: 21.75%; }
 
+/* Clip cell content — prevents text from ever bleeding into adjacent columns */
+.comparison-table--landscape td,
+.comparison-table--landscape th {
+  overflow: hidden;
+}
+
 /* Sticky first column — product name stays pinned while scrolling horizontally */
 .comparison-table--landscape th:first-child,
 .comparison-table--landscape td:first-child {
