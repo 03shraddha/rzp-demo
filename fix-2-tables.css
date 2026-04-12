@@ -12,15 +12,18 @@
     table-layout: auto; /* Let the browser distribute columns naturally */
   }
 
-  /* Remove fixed column percentage widths — the base styles use td:first-child
-     at 30% and td:nth-child(2/3) at 35%. On a 375px screen those percentages
-     cooperate with table-layout:fixed to squish content. Reset to auto. */
+  /* Remove fixed column percentage widths — covers up to 5 columns for the
+     landscape table (cols 1-5) as well as the original 3-column table. */
   .comparison-table th:first-child,
   .comparison-table td:first-child,
   .comparison-table th:nth-child(2),
   .comparison-table td:nth-child(2),
   .comparison-table th:nth-child(3),
-  .comparison-table td:nth-child(3) {
+  .comparison-table td:nth-child(3),
+  .comparison-table th:nth-child(4),
+  .comparison-table td:nth-child(4),
+  .comparison-table th:nth-child(5),
+  .comparison-table td:nth-child(5) {
     width: auto;
   }
 
@@ -46,5 +49,36 @@
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     max-width: 100%;
+  }
+}
+
+/* === Landscape table: sticky first column on all mobile widths === */
+/* The landscape table has min-width: 820px so it always scrolls on phones.
+   The sticky column must keep its background in sync with light/dark mode. */
+@media (max-width: 1099px) {
+  /* Keep sticky column backgrounds correct on scroll */
+  .comparison-table--landscape th:first-child {
+    background: var(--color-bg-secondary) !important;
+  }
+  .comparison-table--landscape td:first-child {
+    background: var(--color-bg) !important;
+  }
+  .comparison-table--landscape tr.highlight-row td:first-child {
+    background: color-mix(in srgb, var(--color-accent) 6%, var(--color-bg)) !important;
+  }
+  /* Slightly tighter padding on cells for narrow screens */
+  .comparison-table--landscape td,
+  .comparison-table--landscape th {
+    padding: 9px 11px;
+    font-size: 13px;
+  }
+}
+
+/* Scroll-snap on the wrapper for a polished swipe feel on iOS */
+@media (max-width: 768px) {
+  .table-scroll-wrap {
+    scroll-padding-left: 0;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
   }
 }

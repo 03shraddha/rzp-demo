@@ -1181,8 +1181,12 @@ body.dark .stat-chip     { background: var(--color-bg-secondary); }
 .comparison-table tr:hover td { background: var(--color-bg-secondary); }
 
 /* Landscape variant: products as rows, attributes as columns */
+.comparison-table--landscape {
+  min-width: 820px; /* forces horizontal scroll rather than squishing */
+  table-layout: fixed;
+}
 .comparison-table--landscape th:first-child,
-.comparison-table--landscape td:first-child { width: 14%; }
+.comparison-table--landscape td:first-child { width: 13%; }
 .comparison-table--landscape th:nth-child(2),
 .comparison-table--landscape td:nth-child(2),
 .comparison-table--landscape th:nth-child(3),
@@ -1190,12 +1194,54 @@ body.dark .stat-chip     { background: var(--color-bg-secondary); }
 .comparison-table--landscape th:nth-child(4),
 .comparison-table--landscape td:nth-child(4),
 .comparison-table--landscape th:nth-child(5),
-.comparison-table--landscape td:nth-child(5) { width: 21.5%; }
+.comparison-table--landscape td:nth-child(5) { width: 21.75%; }
+
+/* Sticky first column — product name stays pinned while scrolling horizontally */
+.comparison-table--landscape th:first-child,
+.comparison-table--landscape td:first-child {
+  position: sticky;
+  left: 0;
+  z-index: 2;
+  background: var(--color-bg);
+  /* use box-shadow instead of border-right so it renders correctly with border-collapse */
+  box-shadow: 1px 0 0 var(--color-border);
+}
+.comparison-table--landscape thead th:first-child {
+  background: var(--color-bg-secondary);
+  z-index: 3;
+}
+
 /* Reset the 3rd-column accent that the base table applies */
 .comparison-table--landscape td:nth-child(3) { color: var(--color-text-primary); font-weight: normal; }
-/* Highlight the docs mcp row in accent color */
+
+/* Highlight the docs mcp row — accent text + subtle left indicator on sticky cell */
 .comparison-table--landscape tr.highlight-row td { color: var(--color-accent); font-weight: 500; }
-.comparison-table--landscape tr.highlight-row td:first-child { color: var(--color-accent); }
+.comparison-table--landscape tr.highlight-row td:first-child {
+  color: var(--color-accent);
+  background: color-mix(in srgb, var(--color-accent) 6%, var(--color-bg));
+  box-shadow: 2px 0 0 var(--color-accent), inset 3px 0 0 var(--color-accent);
+}
+
+/* Scroll-fade hint: right edge gradient tells the user there is more content */
+.table-scroll-wrap {
+  position: relative;
+}
+.table-scroll-wrap::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 48px;
+  background: linear-gradient(to right, transparent, var(--color-bg));
+  pointer-events: none;
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  transition: opacity 0.25s ease;
+}
+/* Hide the fade when the table is fully visible (desktop) */
+@media (min-width: 1100px) {
+  .table-scroll-wrap::after { display: none; }
+}
 
 /* Terminal comparison table */
 .term-table-wrap {
