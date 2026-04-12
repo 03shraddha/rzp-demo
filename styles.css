@@ -1229,6 +1229,7 @@ body.dark .stat-chip     { background: var(--color-bg-secondary); }
 .faq-card__a { font-size: 16px; color: var(--color-text-secondary); line-height: 1.65; }
 .faq-list { margin: 0; padding-left: 18px; list-style: disc; }
 .faq-list li { margin-bottom: 6px; }
+.faq-text { margin: 0; }
 .faq-card--dark { background: var(--term-bg); border-color: var(--term-border); }
 .faq-card--dark .faq-card__q { color: var(--term-text-primary); } /* light text on dark terminal bg */
 .faq-card--dark .faq-card__a { color: var(--term-text-secondary); }
