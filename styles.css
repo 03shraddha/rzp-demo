@@ -2185,9 +2185,20 @@ tr.reveal--visible {
 .section-sub {
   font-size: 13px;
   color: var(--color-text-muted, #888);
-  margin-top: 6px;
+  margin-top: 24px;
   margin-bottom: 24px;
   letter-spacing: 0.02em;
+  display: inline-block;
+  background: var(--color-surface, #f5f5f5);
+  border: 1px solid var(--color-border, #e0e0e0);
+  border-radius: 999px;
+  padding: 10px 20px;
+}
+
+.section-sub a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
 .reason-title {
