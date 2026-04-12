@@ -1,0 +1,63 @@
+/* === FIX 7: 44pt minimum touch targets for all interactive elements === */
+
+:root {
+  --touch-min: 2.75rem; /* 44px at default 16px base */
+}
+
+/* Tab pills: minimum touch height */
+.tab-pill {
+  min-height: var(--touch-min);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+/* Filter chips: minimum touch size */
+.chip {
+  min-height: var(--touch-min);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+/* View toggle button */
+#view-toggle {
+  min-height: var(--touch-min);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+/* Theme toggle: restore 44px minimum at 480px breakpoint.
+   styles.css shrinks it to 36px here — override to meet Apple HIG. */
+@media (max-width: 480px) {
+  #theme-toggle {
+    width: var(--touch-min);
+    height: var(--touch-min);
+    min-width: var(--touch-min);
+    min-height: var(--touch-min);
+  }
+}
+
+/* Table entry rows: taller touch area on mobile */
+@media (max-width: 600px) {
+  tbody tr.entry-row td:first-child {
+    padding-top: clamp(0.6rem, 2vw, 0.75rem);
+    padding-bottom: clamp(0.6rem, 2vw, 0.75rem);
+  }
+}
+
+/* Remove tap flash on coarse-pointer (touch) devices for interactive elements */
+@media (pointer: coarse) {
+  .tab-pill,
+  .chip,
+  #view-toggle,
+  #theme-toggle,
+  button,
+  a {
+    -webkit-tap-highlight-color: transparent;
+  }
+}

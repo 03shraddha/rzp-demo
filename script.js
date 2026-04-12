@@ -357,13 +357,13 @@ const renderAll = (entries) => {
     const solutionPreview = entry.solution ? truncate(entry.solution, 80) : '<span style="color:var(--color-text-tertiary)">coming soon</span>';
 
     entryRow.innerHTML = `
-      <td>
+      <td data-label="Employee">
         <span class="entry-name">${entry.name}</span>
         ${badgeHTML}
       </td>
-      <td><span style="display:block;font-weight:500">${entry.role}</span>${teamHTML}</td>
-      <td class="td-truncate">${problemPreview}</td>
-      <td class="td-truncate">
+      <td data-label="Role / Team"><span style="display:block;font-weight:500">${entry.role}</span>${teamHTML}</td>
+      <td data-label="Problem" class="td-truncate">${problemPreview}</td>
+      <td data-label="Opportunity" class="td-truncate">
         <div class="td-flex">
           <span>${solutionPreview}</span>
           <svg class="chevron" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
@@ -651,7 +651,9 @@ function initFlowAnimations() {
 
 document.addEventListener('DOMContentLoaded', () => {
   initFlowAnimations();
-  initCustomCursor();
+  if (window.matchMedia('(pointer: fine)').matches) {
+    initCustomCursor();
+  }
 });
 
 /* =============================================================================
@@ -715,17 +717,19 @@ function initCustomCursor() {
 }
 
 /* ── Custom Cursor ─────────────────────────────────────────── */
-(function () {
-  const cursor = document.getElementById('custom-cursor');
-  if (!cursor) return;
+if (window.matchMedia('(pointer: fine)').matches) {
+  (function () {
+    const cursor = document.getElementById('custom-cursor');
+    if (!cursor) return;
 
-  document.addEventListener('mousemove', (e) => {
-    cursor.style.left = e.clientX + 'px';
-    cursor.style.top  = e.clientY + 'px';
-    cursor.style.opacity = '1';
-  });
+    document.addEventListener('mousemove', (e) => {
+      cursor.style.left = e.clientX + 'px';
+      cursor.style.top  = e.clientY + 'px';
+      cursor.style.opacity = '1';
+    });
 
-  // Hide when mouse leaves the window
-  document.addEventListener('mouseleave', () => { cursor.style.opacity = '0'; });
-  document.addEventListener('mouseenter', () => { cursor.style.opacity = '1'; });
-})();
+    // Hide when mouse leaves the window
+    document.addEventListener('mouseleave', () => { cursor.style.opacity = '0'; });
+    document.addEventListener('mouseenter', () => { cursor.style.opacity = '1'; });
+  })();
+}

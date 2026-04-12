@@ -1,0 +1,52 @@
+/* === FIX 8: Tab navigation for narrow iPhones === */
+
+/*
+ * INDICATOR NOTE:
+ * The JS moveIndicator() function positions .tab-indicator using
+ * pill.offsetLeft and pill.offsetWidth. These values are relative to the
+ * pill's offset parent (a positioned ancestor), NOT to the scroll position
+ * of .tab-pills. Adding overflow-x: auto below does NOT break the indicator —
+ * the CSS `left` value already maps to the full scrollable width, so the
+ * underline tracks the active pill correctly even when tabs can scroll.
+ * No JS changes are needed.
+ */
+
+/* Allow tab pills to scroll horizontally on small screens instead of squeezing */
+.tab-pills {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  /* Keep all pills on one line — never wrap to a second row */
+  flex-wrap: nowrap;
+}
+
+/* Hide the scrollbar in WebKit/Blink (Chrome, Safari, iOS) */
+.tab-pills::-webkit-scrollbar {
+  display: none;
+}
+
+/* Pills must not shrink below their natural size when the container is narrow */
+.tab-pill {
+  flex-shrink: 0;
+  /* white-space: nowrap is already set in base styles — no need to repeat */
+}
+
+/* ── 480px: Replace the unreadably-small 11px with a fluid size ── */
+@media (max-width: 480px) {
+  /* Override the hard-coded 11px / 5px 6px values from styles.css line 3581-3582 */
+  .tab-pill {
+    font-size: clamp(0.75rem, 2.8vw, 0.9375rem); /* 12px–15px, fluid */
+    padding: clamp(0.3rem, 1.2vw, 0.4rem) clamp(0.5rem, 2.5vw, 0.875rem);
+  }
+
+  .tab-pill.active {
+    font-size: clamp(0.75rem, 2.8vw, 0.9375rem);
+  }
+}
+
+/* ── 480px: Give the tab-nav inner container a bit of breathing room ── */
+@media (max-width: 480px) {
+  .tab-nav__inner {
+    padding: 0 clamp(0.5rem, 2vw, 0.75rem);
+  }
+}

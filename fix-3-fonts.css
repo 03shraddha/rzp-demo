@@ -1,0 +1,65 @@
+/* === FIX 3: Fluid font size system using CSS custom properties === */
+
+/* Define fluid font scale in :root — clamp(min, fluid, max) */
+:root {
+  --fs-xs:   clamp(0.625rem, 1.5vw, 0.6875rem);  /* 10–11px */
+  --fs-sm:   clamp(0.75rem,  2vw,   0.875rem);    /* 12–14px */
+  --fs-base: clamp(0.875rem, 2.5vw, 1rem);        /* 14–16px */
+  --fs-md:   clamp(0.9375rem, 2.7vw, 1.0625rem);  /* 15–17px */
+  --fs-lg:   clamp(1rem, 3vw, 1.125rem);          /* 16–18px */
+  --fs-xl:   clamp(1.125rem, 3.5vw, 1.375rem);    /* 18–22px */
+  --fs-2xl:  clamp(1.375rem, 5vw, 1.75rem);       /* 22–28px */
+  --fs-hero: clamp(1.875rem, 7vw, 2.5rem);        /* 30–40px */
+}
+
+/* Apply fluid variables to key section-level elements at mobile */
+@media (max-width: 600px) {
+  .section-label        { font-size: var(--fs-xl); }
+  .page-hero__subtitle  { font-size: var(--fs-lg); }
+  .page-hero__meta      { font-size: var(--fs-base); }
+  .hero__subtitle       { font-size: var(--fs-md); }
+  .hero__meta           { font-size: var(--fs-base); }
+  .tool-card__name      { font-size: var(--fs-lg); }
+  .tool-card__desc      { font-size: var(--fs-base); }
+  .tool-card__detail    { font-size: var(--fs-sm); }
+  .faq-card__q          { font-size: var(--fs-lg); }
+  .faq-card__a          { font-size: var(--fs-base); }
+  .channel-card__name   { font-size: var(--fs-xl); }
+  .channel-card__via    { font-size: var(--fs-sm); }
+  .channel-card__desc   { font-size: var(--fs-base); }
+  .reliability-chip__text { font-size: var(--fs-lg); }
+  .reason-body          { font-size: var(--fs-base); }
+  .reason-bullets li    { font-size: var(--fs-base); }
+  .pipeline-step__title { font-size: var(--fs-xl); }
+  .pipeline-step__desc  { font-size: var(--fs-base); }
+  .arch-step__label     { font-size: var(--fs-lg); }
+  .arch-step__sub       { font-size: var(--fs-sm); }
+  .moment-step__label   { font-size: var(--fs-md); }
+  .moment-step__sub     { font-size: var(--fs-sm); }
+  .moment-step__badge   { font-size: var(--fs-xs); }
+  .notify-channel__name { font-size: var(--fs-sm); }
+  .notify-channel__sub  { font-size: var(--fs-xs); }
+  .outcome-box__flow    { font-size: var(--fs-lg); }
+  .outcome-box__sub     { font-size: var(--fs-md); }
+  .stat-chip            { font-size: var(--fs-sm); }
+  .google-note          { font-size: var(--fs-base); }
+  th                    { font-size: var(--fs-sm); }
+  td                    { font-size: var(--fs-base); }
+  .comparison-table td  { font-size: var(--fs-sm); }
+  .detail-text-p        { font-size: var(--fs-sm); }
+  .detail-label         { font-size: var(--fs-base); }
+  .flow-node__icon      { font-size: var(--fs-2xl); }
+  .flow-divider         { font-size: var(--fs-lg); }
+}
+
+@media (max-width: 480px) {
+  /* Hero title: replaces hardcoded 26px at this breakpoint */
+  .hero__title,
+  .page-hero__project-title { font-size: var(--fs-hero); }
+
+  .tab-pill             { font-size: clamp(0.75rem, 2.8vw, 0.9375rem); }
+  .tab-pill.active      { font-size: clamp(0.75rem, 2.8vw, 0.9375rem); }
+  .comparison-table th,
+  .comparison-table td  { font-size: var(--fs-xs); }
+  .outcome-box__flow    { font-size: var(--fs-md); }
+}

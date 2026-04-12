@@ -1,0 +1,20 @@
+/* === FIX 1: Remove duplicate cursor block, cursor never shows on touch === */
+
+/* Hide the SVG custom-cursor element on all devices — it's unused */
+#custom-cursor {
+  display: none !important;
+}
+
+/* On touch/coarse pointer devices: ensure no cursor artifacts */
+@media (pointer: coarse) {
+  #cursor-ring,
+  #cursor-dot {
+    display: none !important;
+  }
+  * {
+    cursor: auto;
+  }
+  a, button, [role="button"], .tab-pill, .chip, #view-toggle, #fab {
+    cursor: pointer;
+  }
+}

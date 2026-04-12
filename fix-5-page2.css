@@ -1,0 +1,76 @@
+/* === FIX 5: Page 2 (Payment Recovery) mobile layout === */
+
+@media (max-width: 600px) {
+  /* Moment row: full width, stretch children */
+  .moment-row-top {
+    align-items: stretch;
+    width: 100%;
+  }
+
+  /* All moment steps: override min-width (148px causes overflow on 375px phones) */
+  .moment-step {
+    min-width: 0;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* Wide moment step: ensure full width */
+  .moment-step--wide {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* Notify channels row: stack vertically so each channel has room to breathe */
+  .moment-notify-channels {
+    flex-direction: column;
+    align-items: stretch;
+    border-radius: var(--radius-sm);
+  }
+
+  /* Channel cards: ensure no min-width leaks */
+  .channel-card {
+    min-width: 0;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* Pipeline steps: prevent content overflow */
+  .pipeline-step {
+    overflow: hidden;
+  }
+
+  .pipeline-step__desc {
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
+
+  /* Reliability chips: allow text to wrap inside each chip */
+  .reliability-chip {
+    overflow-wrap: break-word;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Hide vertical dividers between SMS / Email / Slack channels to save space */
+  .notify-channel-divider {
+    display: none;
+  }
+
+  /* Each channel row item: full width */
+  .notify-channel {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* Notify header: wrap label + badge if they don't fit side-by-side */
+  .moment-notify-header {
+    flex-wrap: wrap;
+    gap: clamp(0.25rem, 1.5vw, 0.5rem);
+  }
+
+  /* Moment display: tighter padding on extra-small screens */
+  .moment-display {
+    padding: 16px 0;
+  }
+}

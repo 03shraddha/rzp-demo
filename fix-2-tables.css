@@ -1,0 +1,50 @@
+/* === FIX 2: Comparison table overflow fix for narrow iPhones (375–390px) === */
+
+@media (max-width: 430px) {
+  /* Remove forced min-width that causes overflow on 375–390px iPhones.
+     The 600px breakpoint in styles.css sets min-width: 400px — on a 375px
+     screen that 25px excess pushes the page-level scroll indicator and causes
+     the entire page to scroll horizontally. This override removes it. */
+  .reason-body .comparison-table,
+  .page-section .comparison-table {
+    min-width: 0;
+    width: 100%;
+    table-layout: auto; /* Let the browser distribute columns naturally */
+  }
+
+  /* Remove fixed column percentage widths — the base styles use td:first-child
+     at 30% and td:nth-child(2/3) at 35%. On a 375px screen those percentages
+     cooperate with table-layout:fixed to squish content. Reset to auto. */
+  .comparison-table th:first-child,
+  .comparison-table td:first-child,
+  .comparison-table th:nth-child(2),
+  .comparison-table td:nth-child(2),
+  .comparison-table th:nth-child(3),
+  .comparison-table td:nth-child(3) {
+    width: auto;
+  }
+
+  /* Also override the min-width: 80px on the first column set at ~line 3505 */
+  .comparison-table th:first-child,
+  .comparison-table td:first-child {
+    min-width: 0;
+  }
+
+  /* Allow long words to break rather than force the cell wider */
+  .comparison-table td,
+  .comparison-table th {
+    word-break: break-word;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+  }
+
+  /* Ensure wrapper elements still allow horizontal scroll as a safety valve
+     if content is still wider than the viewport after the above changes.
+     .reason-body wraps table 1; .page-section > .reveal wraps table 2. */
+  .reason-body,
+  .page-section > .reveal {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    max-width: 100%;
+  }
+}

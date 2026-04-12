@@ -1,0 +1,115 @@
+/* === FIX 4: Page 1 (Razorpay Docs MCP) mobile layout ===
+   Targets iPhones at 375–430px.
+   Companion to styles.css — do NOT edit styles.css directly.
+*/
+
+@media (max-width: 600px) {
+
+  /* ── Terminal chrome: allow horizontal scroll so long titles don't
+        push the parent container wider than the viewport ── */
+  .term-chrome {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    max-width: 100%;
+  }
+
+  /* ── Reason blocks: clip any overflowing terminal chrome children ── */
+  .reason-block {
+    overflow: hidden;
+  }
+
+  /* ── Tools grid: tighten gap on narrow screens
+        (columns already collapse to 1fr at 600px via styles.css) ── */
+  .tools-grid {
+    gap: clamp(0.5rem, 2vw, 1rem);
+  }
+
+  /* ── FAQ cards: reduce padding to avoid overflow on 375px ── */
+  .faq-card {
+    padding: clamp(0.75rem, 3vw, 1.25rem);
+  }
+
+  /* ── FAQ text: ensure long words wrap rather than overflow ── */
+  .faq-card__q,
+  .faq-card__a {
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
+
+  /* ── Arch step sub-items: switch from 2-column grid to single column
+        (already done at 480px; apply one step earlier for 480–600px) ── */
+  .arch-step__items {
+    grid-template-columns: 1fr;
+    gap: clamp(0.25rem, 1.5vw, 0.5rem);
+  }
+
+  /* ── Reason bullets: scale font down slightly so long items don't
+        wrap awkwardly with the large size set in the readability pass ── */
+  .reason-bullets li {
+    font-size: clamp(15px, 4vw, 19px);
+    line-height: 1.55;
+  }
+
+  /* ── term-chrome inside arch-step: fix negative-margin bleed
+        after arch-step padding is reduced to 14px 16px at 480px.
+        Re-declare here so the 600px breakpoint is also covered. ── */
+  .arch-step .term-chrome--compact {
+    margin: -16px -16px 12px -16px;
+    width: calc(100% + 32px);
+  }
+
+  /* ── Callout box: reduce padding so it fits without side overflow ── */
+  .callout-box {
+    padding: clamp(14px, 3.5vw, 24px) clamp(12px, 3vw, 28px);
+  }
+}
+
+@media (max-width: 480px) {
+
+  /* ── Arch flow: already collapses to max-width:100% via styles.css.
+        Ensure row spacing uses a fluid value instead of 0 ── */
+  .arch-flow {
+    gap: clamp(0.25rem, 1.5vw, 0.5rem);
+  }
+
+  /* ── Arch arrow: prevent it from growing and adding unexpected height ── */
+  .arch-arrow {
+    margin: 0 auto;
+    flex-shrink: 0;
+  }
+
+  /* ── Arch step: already has overflow:hidden from styles.css terminal
+        override; clamp max-width as an extra safety net ── */
+  .arch-step {
+    max-width: 100%;
+  }
+
+  /* ── Arch step term-chrome: match the reduced 14px 16px padding ── */
+  .arch-step .term-chrome--compact {
+    margin: -14px -16px 12px -16px;
+    width: calc(100% + 32px);
+  }
+
+  /* ── Validation banner: already wraps at 600px (styles.css).
+        Tighten gap further on very small phones ── */
+  .validation-banner__inner {
+    gap: clamp(0.25rem, 1.5vw, 0.5rem);
+  }
+
+  /* ── FAQ card: further reduce padding at 480px ── */
+  .faq-card {
+    padding: clamp(0.625rem, 3vw, 0.875rem);
+  }
+
+  /* ── Reason block: match tighter padding on very small screens ── */
+  .reason-block {
+    padding: clamp(14px, 3.5vw, 20px) clamp(12px, 3vw, 16px);
+  }
+
+  /* ── Reason block term-chrome: keep chrome flush with tighter padding.
+        Uses the same negative-offset pattern as styles.css (20px 16px),
+        but re-declared to match the reduced 480px padding values. ── */
+  .reason-block .term-chrome {
+    margin: -14px -12px 16px -12px;
+  }
+}

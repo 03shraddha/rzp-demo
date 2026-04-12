@@ -1,0 +1,31 @@
+/* === FIX 10: Table scroll wrapper + structural fixes === */
+
+/* Scroll wrapper for comparison tables */
+.table-scroll-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: var(--radius-md, 0.75rem);
+  max-width: 100%;
+}
+
+/* Ensure comparison tables inside wrapper behave correctly */
+.table-scroll-wrap .comparison-table {
+  min-width: 0;
+  width: 100%;
+}
+
+/* Prevent any table from causing page-level horizontal scroll */
+.page-section table {
+  max-width: 100%;
+}
+
+@media (max-width: 600px) {
+  /* Tighten up table wrap on mobile */
+  .table-scroll-wrap {
+    margin-left: calc(-1 * clamp(0.75rem, 3vw, 1rem));
+    margin-right: calc(-1 * clamp(0.75rem, 3vw, 1rem));
+    padding-left: clamp(0.75rem, 3vw, 1rem);
+    padding-right: clamp(0.75rem, 3vw, 1rem);
+    border-radius: 0;
+  }
+}

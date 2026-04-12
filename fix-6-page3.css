@@ -1,0 +1,47 @@
+/* === FIX 6: Page 3 (AI Opportunity Map) mobile layout === */
+
+/* Filter chips: add touch momentum scrolling (overflow-x and flex-wrap already set in styles.css) */
+.filter-chips {
+  -webkit-overflow-scrolling: touch; /* smooth momentum scroll on iOS */
+  scrollbar-width: none;             /* hide scrollbar in Firefox */
+  padding-bottom: 4px;               /* small breathing room so chips don't clip */
+}
+
+/* Prevent individual chips from shrinking and triggering a wrap */
+.chip {
+  flex-shrink: 0;
+}
+
+@media (max-width: 600px) {
+  /* Show column labels before each block-layout cell.
+     Relies on data-label attributes added to each td in script.js renderAll(). */
+  tbody tr.entry-row td::before {
+    content: attr(data-label);
+    font-weight: 600;
+    font-size: var(--fs-sm, 0.8125rem);
+    display: block;
+    margin-bottom: 0.2em;
+    opacity: 0.55;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  /* Entry cards: ensure full width in single-column grid */
+  .entry-card {
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Card container: tighter gap on small iPhones */
+  #card-container {
+    grid-template-columns: 1fr;
+    gap: clamp(0.5rem, 2vw, 0.75rem);
+  }
+
+  /* View toggle: ensure comfortable tap target */
+  #view-toggle {
+    padding: clamp(0.4rem, 1.5vw, 0.6rem) clamp(0.75rem, 3vw, 1rem);
+  }
+}

@@ -1,0 +1,33 @@
+/* === FIX 9: iOS safe area insets and scroll behavior === */
+
+/* Tab nav: push down to clear iPhone notch / Dynamic Island */
+.tab-nav {
+  padding-top: env(safe-area-inset-top);
+}
+
+/* Scroll container: prevent overscroll chaining on iOS.
+   body is the scroll-snap container (scroll-snap-type: y mandatory).
+   -webkit-overflow-scrolling: touch enables momentum scrolling on iOS. */
+body {
+  overscroll-behavior-y: contain;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Theme toggle: lift above home indicator.
+   max() ensures at least 1.5rem on non-notched phones (where env() is 0). */
+#theme-toggle {
+  bottom: max(1.5rem, calc(env(safe-area-inset-bottom) + 1rem));
+}
+
+/* App container: add bottom padding so content clears the home indicator */
+#app {
+  padding-bottom: max(5rem, calc(env(safe-area-inset-bottom) + 4rem));
+}
+
+/* On mobile, account for side safe areas (landscape notch on iPhone) */
+@media (max-width: 600px) {
+  #app {
+    padding-left: max(1rem, env(safe-area-inset-left));
+    padding-right: max(1rem, env(safe-area-inset-right));
+  }
+}
