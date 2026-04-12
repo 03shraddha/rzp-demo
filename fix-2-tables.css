@@ -62,7 +62,9 @@
 
 /* === Landscape table: sticky first column on all mobile widths === */
 /* The landscape table has min-width: 820px so it always scrolls on phones.
-   The sticky column must keep its background in sync with light/dark mode. */
+   The sticky column must keep its background in sync with light/dark mode.
+   opacity on the tr would also fade the sticky cell bg, so we set background
+   on the td directly — the sticky cell sits outside the opacity stacking context. */
 @media (max-width: 1099px) {
   /* Keep sticky column backgrounds correct on scroll */
   .comparison-table--landscape th:first-child {

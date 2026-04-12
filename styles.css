@@ -1228,6 +1228,15 @@ body.dark .stat-chip     { background: var(--color-bg-secondary); }
   box-shadow: 2px 0 0 var(--color-accent), inset 3px 0 0 var(--color-accent);
 }
 
+/* Tiered opacity — non-highlight rows fade to 40%, snap to full on hover */
+.comparison-table--landscape tbody tr:not(.highlight-row) {
+  opacity: 0.4;
+  transition: opacity 0.18s ease;
+}
+.comparison-table--landscape tbody tr:not(.highlight-row):hover {
+  opacity: 1;
+}
+
 /* Scroll-fade hint: right edge gradient tells the user there is more content */
 .table-scroll-wrap {
   position: relative;
