@@ -1180,6 +1180,23 @@ body.dark .stat-chip     { background: var(--color-bg-secondary); }
 .comparison-table td:nth-child(3) { color: var(--color-accent); font-weight: 500; }
 .comparison-table tr:hover td { background: var(--color-bg-secondary); }
 
+/* Landscape variant: products as rows, attributes as columns */
+.comparison-table--landscape th:first-child,
+.comparison-table--landscape td:first-child { width: 14%; }
+.comparison-table--landscape th:nth-child(2),
+.comparison-table--landscape td:nth-child(2),
+.comparison-table--landscape th:nth-child(3),
+.comparison-table--landscape td:nth-child(3),
+.comparison-table--landscape th:nth-child(4),
+.comparison-table--landscape td:nth-child(4),
+.comparison-table--landscape th:nth-child(5),
+.comparison-table--landscape td:nth-child(5) { width: 21.5%; }
+/* Reset the 3rd-column accent that the base table applies */
+.comparison-table--landscape td:nth-child(3) { color: var(--color-text-primary); font-weight: normal; }
+/* Highlight the docs mcp row in accent color */
+.comparison-table--landscape tr.highlight-row td { color: var(--color-accent); font-weight: 500; }
+.comparison-table--landscape tr.highlight-row td:first-child { color: var(--color-accent); }
+
 /* Terminal comparison table */
 .term-table-wrap {
   background: var(--term-bg);
