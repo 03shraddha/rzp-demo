@@ -87,6 +87,16 @@ window.ENTRIES = [
     ]
   },
   {
+    id: "entry-sreyas",
+    name: "Sreyas Reddy Molugu",
+    role: "Software Developer",
+    team: "",
+    company: "Razorpay",
+    problem: "",
+    solution: "",
+    refs: []
+  },
+  {
     id: "entry-8",
     name: "Lakshmish Hegde",
     role: "Associate Manager",
