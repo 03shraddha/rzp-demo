@@ -3324,111 +3324,63 @@ body.dark .arch-step__item  { background: var(--term-bg-alt); border-color: var(
 body.dark .arch-tool        { color: var(--term-blue); }
 body.dark .arch-arrow       { color: var(--term-green); }
 
-/* ── Proven Pattern Banners ─────────────────────────────────── */
+/* ── Proven Pattern Banner ───────────────────────────────────── */
 .validation-banners-stack {
   display: flex;
-  flex-direction: column;
   padding: 28px 24px 10px;
-  align-items: center;
+  justify-content: center;
 }
 
-/* Single blue pill box containing all 3 rows */
 .validation-banners-box {
   background: rgba(66, 133, 244, 0.04);
   border: 1px solid rgba(66, 133, 244, 0.2);
   border-radius: 20px;
-  overflow: hidden;
-  width: 100%;
-  max-width: 780px;
-}
-
-.validation-banner {
-  background: transparent;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-}
-
-/* Divider between rows */
-.validation-banners-box .validation-banner + .validation-banner {
-  border-top: 1px solid rgba(66, 133, 244, 0.13);
-}
-
-.validation-banner__inner {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  background: transparent;
-  border: none;
-  border-radius: 0;
-  padding: 11px 16px;
+  max-width: 680px;
   width: 100%;
 }
-.validation-banner__badge-group {
+
+.validation-sentence {
   display: flex;
   align-items: center;
-  gap: 6px;
-  flex-shrink: 0;
-}
-.validation-banner__label {
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.07em;
-  text-transform: uppercase;
-  color: #4285F4;
-  white-space: nowrap;
-}
-.validation-banner__content {
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
-  flex: 1;
-  min-width: 0;
-}
-.validation-banner__text {
+  flex-wrap: wrap;
+  gap: 5px;
+  padding: 12px 18px;
+  margin: 0;
   font-size: 14px;
   color: var(--color-text-secondary);
+  line-height: 1.6;
 }
-.validation-banner__tools {
-  font-size: 11px;
-  font-family: 'SF Mono', 'Fira Code', monospace;
-  color: rgba(66, 133, 244, 0.65);
-  letter-spacing: 0.02em;
-}
-.validation-banner__link {
-  flex-shrink: 0;
-  font-size: 13px;
-  font-weight: 600;
-  color: #4285F4;
-  text-decoration: none;
-  background: rgba(66, 133, 244, 0.1);
-  border: 1px solid rgba(66, 133, 244, 0.25);
-  padding: 3px 11px;
-  border-radius: 100px;
-  transition: var(--transition);
+
+/* logo + name pairs stay together */
+.vb-company {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
   white-space: nowrap;
 }
-.validation-banner__link:hover {
-  background: rgba(66, 133, 244, 0.18);
+
+/* iOS-style underlined link — no pill, no background */
+.vb-link {
+  color: #4285F4;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-thickness: 1px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: rgba(66, 133, 244, 0.15);
 }
+.vb-link:hover {
+  color: #2563d4;
+}
+
 body.dark .validation-banners-box {
   background: rgba(66, 133, 244, 0.07);
   border-color: rgba(66, 133, 244, 0.25);
 }
-body.dark .validation-banners-box .validation-banner + .validation-banner {
-  border-top-color: rgba(66, 133, 244, 0.18);
-}
-/* Ensure validation banner text is readable in dark mode */
-body.dark .validation-banner__text {
-  color: var(--color-text-secondary);
-}
-body.dark .validation-banner__label {
-  color: #74a9f8; /* lighter Google blue for dark bg contrast */
-}
-body.dark .validation-banner__link {
+body.dark .vb-link {
   color: #74a9f8;
-  background: rgba(66, 133, 244, 0.12);
-  border-color: rgba(66, 133, 244, 0.28);
+}
+body.dark .vb-link:hover {
+  color: #93bfff;
 }
 
 /* ============================================================
@@ -3562,28 +3514,9 @@ body.dark .validation-banner__link {
   .validation-banners-box {
     border-radius: 14px;
   }
-  .validation-banner__inner {
+  .validation-sentence {
+    font-size: 13px;
     padding: 10px 14px;
-    flex-wrap: wrap;
-    gap: 10px;
-  }
-  .validation-banner__content {
-    flex-basis: 100%;
-    order: 2;
-  }
-  .validation-banner__text {
-    font-size: 13px;
-    white-space: normal;
-    line-height: 1.5;
-  }
-  .validation-banner__badge-group {
-    order: 1;
-    flex-shrink: 1;
-  }
-  .validation-banner__link {
-    order: 3;
-    font-size: 13px;
-    padding: 4px 12px;
   }
 
   /* ── Stat chips: wrap from rigid row into pill grid ── */
