@@ -373,7 +373,7 @@
               <div class="moment-step__badge moment-step__badge--warn">event</div>
               <div class="moment-step__icon">⚠️</div>
               <div class="moment-step__label">payment.failed</div>
-              <div class="moment-step__sub">upi timeout / card decline / net banking failure</div>
+              <div class="moment-step__sub">upi · card · net banking</div>
             </div>
           </div>
 
@@ -398,7 +398,7 @@
                 <div class="moment-step__badge moment-step__badge--warn">queued</div>
                 <div class="flow-step__icon">⏳</div>
                 <div class="moment-step__label">retargeting pipeline</div>
-                <div class="moment-step__sub">batched job, minutes to hours</div>
+                <div class="moment-step__sub">batched, hours late</div>
               </div>
 
               <div class="flow-down-arrow reveal" style="--i:5">
@@ -411,7 +411,7 @@
               <div class="flow-step flow-step--native reveal" style="--i:6">
                 <div class="flow-step__icon">📋</div>
                 <div class="moment-step__label">generic template</div>
-                <div class="moment-step__sub">same message, every customer, every failure</div>
+                <div class="moment-step__sub">identical every time</div>
               </div>
 
               <div class="flow-down-arrow reveal" style="--i:7">
@@ -424,7 +424,7 @@
               <div class="flow-step flow-step--native flow-step--outcome reveal" style="--i:8">
                 <div class="moment-step__badge moment-step__badge--warn">hours later</div>
                 <div class="moment-step__label">customer notified</div>
-                <div class="moment-step__sub">WhatsApp + SMS + email · no personalization</div>
+                <div class="moment-step__sub"><em>"your payment of &#8377;4,199 failed. please retry."</em></div>
               </div>
             </div>
 
@@ -439,7 +439,7 @@
                 <div class="moment-step__badge moment-step__badge--blue">T+0s</div>
                 <div class="flow-step__icon">📡</div>
                 <div class="moment-step__label">webhook fires</div>
-                <div class="moment-step__sub">server notified the instant razorpay registers the failure</div>
+                <div class="moment-step__sub">fires within seconds</div>
               </div>
 
               <div class="flow-down-arrow reveal" style="--i:5">
@@ -465,10 +465,31 @@
               <div class="flow-step flow-step--project flow-step--outcome reveal" style="--i:8">
                 <div class="moment-step__badge moment-step__badge--green">T+10s</div>
                 <div class="moment-step__label">parallel dispatch</div>
-                <div class="moment-step__sub">SMS · email with payment link · Slack to merchant</div>
+                <div class="moment-notify-channels" style="margin-top:6px;">
+                  <div class="notify-channel notify-channel--sms">
+                    <span class="notify-channel__icon">📱</span>
+                    <span class="notify-channel__name">sms</span>
+                  </div>
+                  <div class="notify-channel-divider"></div>
+                  <div class="notify-channel notify-channel--email">
+                    <span class="notify-channel__icon">🔗</span>
+                    <span class="notify-channel__name">payment link</span>
+                  </div>
+                  <div class="notify-channel-divider"></div>
+                  <div class="notify-channel notify-channel--slack">
+                    <span class="notify-channel__icon">💬</span>
+                    <span class="notify-channel__name">slack</span>
+                  </div>
+                </div>
+                <div class="moment-step__sub" style="margin-top:6px;">QR code sent if link fails</div>
               </div>
             </div>
 
+          </div>
+          <div class="flow-advantages reveal" style="--i:10">
+            <span class="flow-pill">open source</span>
+            <span class="flow-pill">developer-configurable</span>
+            <span class="flow-pill">extensible</span>
           </div>
         </div>
       </div>

@@ -164,3 +164,97 @@ body.dark .flow-col--project .flow-col__label { color: #5599ff; }
 @media (min-width: 601px) {
   .flow-col__label { display: none; }
 }
+
+/* ── Timing contrast: native feels slow, project feels snappy ─ */
+
+/*
+  The base reveal system uses:
+    transition-delay: calc(var(--i, 0) * 140ms)
+  We layer an extra 600ms offset onto every native step so they
+  appear noticeably later than their project counterparts.
+  We also tighten the project column's stagger multiplier to feel
+  more instant by reducing the per-step delay increment.
+*/
+
+/* 1. Native column: +600ms offset on top of the staggered base delay */
+.flow-col--native .flow-step.reveal {
+  transition-delay: calc(600ms + var(--i, 0) * 140ms);
+}
+
+/* 2. Project column: faster stagger (80ms instead of 140ms) for a snappier feel */
+.flow-col--project .flow-step.reveal {
+  transition-delay: calc(var(--i, 0) * 80ms);
+}
+
+/* 3. Dim the entire native column slightly to visually de-emphasize it */
+.flow-col--native {
+  opacity: 0.85;
+}
+
+/* ── Outcome badge animations ─────────────────────────────── */
+
+/* 4. Native outcome badge: slow amber glow that breathes (3s loop, forever) —
+      conveys "stuck, waiting" */
+@keyframes amberPulse {
+  0%, 100% {
+    box-shadow: 0 0 0px 0px rgba(255, 149, 0, 0);
+  }
+  50% {
+    box-shadow: 0 0 8px 3px rgba(255, 149, 0, 0.45);
+  }
+}
+
+.flow-step--outcome.flow-step--native .moment-step__badge {
+  animation: amberPulse 3s ease-in-out infinite;
+}
+
+/* 5. Project outcome badge: brief green shimmer on load (plays once) —
+      conveys "success, done" */
+@keyframes greenShimmer {
+  0% {
+    box-shadow: 0 0 0px 0px rgba(52, 199, 89, 0);
+    background-color: rgba(52, 199, 89, 0.15);
+  }
+  30% {
+    box-shadow: 0 0 10px 4px rgba(52, 199, 89, 0.5);
+    background-color: rgba(52, 199, 89, 0.3);
+  }
+  100% {
+    box-shadow: 0 0 0px 0px rgba(52, 199, 89, 0);
+    background-color: rgba(52, 199, 89, 0);
+  }
+}
+
+.flow-step--outcome.flow-step--project .moment-step__badge {
+  animation: greenShimmer 1.2s ease-out 1 forwards;
+}
+
+/* ── Advantages pills ─────────────────────────────────────── */
+.flow-advantages {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid var(--color-border);
+  width: 100%;
+  max-width: 560px;
+}
+
+.flow-pill {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: #0055cc;
+  background: rgba(0, 122, 255, 0.08);
+  border: 1px solid rgba(0, 122, 255, 0.18);
+  border-radius: 20px;
+  padding: 4px 12px;
+}
+
+body.dark .flow-pill {
+  color: #5599ff;
+  background: rgba(0, 122, 255, 0.14);
+  border-color: rgba(0, 122, 255, 0.3);
+}
