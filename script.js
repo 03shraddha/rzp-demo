@@ -352,7 +352,7 @@ const renderAll = (entries) => {
     entryRow.className = 'entry-row';
     entryRow.dataset.id = entry.id;
     const badgeHTML = entry.company ? `<span class="entry-company-badge">${entry.company}</span>` : '';
-    const teamHTML  = entry.team ? `<span style="display:block;font-size:12px;color:var(--color-text-secondary);margin-top:2px">${entry.team}</span>` : '';
+    const teamHTML  = entry.team ? `<span style="display:block;font-size:14px;color:var(--color-text-secondary);margin-top:2px">${entry.team}</span>` : '';
     const problemPreview = entry.problem ? truncate(entry.problem, 80) : '<span style="color:var(--color-text-tertiary)">coming soon</span>';
     const solutionPreview = entry.solution ? truncate(entry.solution, 80) : '<span style="color:var(--color-text-tertiary)">coming soon</span>';
 
@@ -361,7 +361,7 @@ const renderAll = (entries) => {
         <span class="entry-name">${entry.name}</span>
         ${badgeHTML}
       </td>
-      <td data-label="Role / Team"><span style="display:block;font-weight:500">${entry.role}</span>${teamHTML}</td>
+      <td data-label="Role / Team"><span style="display:block">${entry.role}</span>${teamHTML}</td>
       <td data-label="Problem" class="td-truncate">${problemPreview}</td>
       <td data-label="Opportunity" class="td-truncate">
         <div class="td-flex">

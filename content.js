@@ -26,7 +26,9 @@ window.ENTRIES = [
     company: "Razorpay",
     problem: "no one has time to track what Stripe, Ramp, Adyen, Cashfree, and PayU are shipping - competitor blog posts, changelogs, and feature drops go unread, so the team builds blind",
     solution: "an agent that monitors competitor blogs and changelogs (Stripe, Ramp, Adyen, Cashfree, PayU, BharatPe) weekly and surfaces a digest of what's worth implementing at Razorpay's scale",
-    refs: []
+    refs: [
+      { label: "competitor-analysis – 40rty skills", url: "https://skills.40rty.ai/skills/#customer-ops" }
+    ]
   },
   {
     id: "entry-4",
