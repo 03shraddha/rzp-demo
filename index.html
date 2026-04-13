@@ -18,6 +18,7 @@
   <link rel="stylesheet" href="fix-8-tabnav.css">
   <link rel="stylesheet" href="fix-9-safearea.css">
   <link rel="stylesheet" href="fix-10-structure.css">
+  <link rel="stylesheet" href="fix-11-flow.css">
 </head>
 <body>
 
@@ -355,6 +356,8 @@
       <div class="page-section reveal">
         <div class="section-label">the moment it happens</div>
         <div class="moment-display">
+
+          <!-- Shared: checkout → payment.failed -->
           <div class="moment-row-top">
             <div class="moment-step reveal" style="--i:0">
               <div class="moment-step__icon">💳</div>
@@ -372,50 +375,100 @@
               <div class="moment-step__label">payment.failed</div>
               <div class="moment-step__sub">upi timeout / card decline / net banking failure</div>
             </div>
-            <div class="moment-arrow reveal" style="--i:3">
-              <svg width="32" height="16" viewBox="0 0 32 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <line x1="0" y1="8" x2="24" y2="8" stroke="currentColor" stroke-width="1.5"/>
-                <path d="M22 3L29 8L22 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-              </svg>
-            </div>
-            <div class="moment-step moment-step--active reveal" style="--i:4">
-              <div class="moment-step__badge moment-step__badge--blue">T+0s</div>
-              <div class="moment-step__icon">📡</div>
-              <div class="moment-step__label">webhook received</div>
-              <div class="moment-step__sub">10-second SLA starts now</div>
+          </div>
+
+          <!-- Fork: branches into two paths -->
+          <div class="flow-fork reveal" style="--i:3">
+            <div class="flow-fork__stem"></div>
+            <div class="flow-fork__bar"></div>
+            <div class="flow-fork__labels">
+              <span class="flow-fork__label flow-fork__label--native">razorpay native</span>
+              <span class="flow-fork__label flow-fork__label--project">this project</span>
             </div>
           </div>
-          <div class="moment-down-arrow reveal" style="--i:5">
-            <svg width="16" height="32" viewBox="0 0 16 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <line x1="8" y1="0" x2="8" y2="24" stroke="currentColor" stroke-width="1.5"/>
-              <path d="M3 22L8 29L13 22" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-            </svg>
-          </div>
-          <div class="moment-step moment-step--notify moment-step--wide reveal" style="--i:6">
-            <div class="moment-notify-header">
-              <span class="moment-step__badge moment-step__badge--green">recovery fired</span>
-              <span class="moment-notify-parallel">parallel dispatch</span>
+
+          <!-- Two-column comparison -->
+          <div class="flow-compare">
+
+            <!-- Left: Razorpay native path -->
+            <div class="flow-col flow-col--native">
+              <div class="flow-col__label">razorpay native</div>
+
+              <div class="flow-step flow-step--native reveal" style="--i:4">
+                <div class="moment-step__badge moment-step__badge--warn">queued</div>
+                <div class="flow-step__icon">⏳</div>
+                <div class="moment-step__label">retargeting pipeline</div>
+                <div class="moment-step__sub">batched job — minutes to hours</div>
+              </div>
+
+              <div class="flow-down-arrow reveal" style="--i:5">
+                <svg width="12" height="24" viewBox="0 0 12 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <line x1="6" y1="0" x2="6" y2="18" stroke="currentColor" stroke-width="1.5"/>
+                  <path d="M2 16L6 22L10 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                </svg>
+              </div>
+
+              <div class="flow-step flow-step--native reveal" style="--i:6">
+                <div class="flow-step__icon">📋</div>
+                <div class="moment-step__label">generic template</div>
+                <div class="moment-step__sub">same message, every customer, every failure</div>
+              </div>
+
+              <div class="flow-down-arrow reveal" style="--i:7">
+                <svg width="12" height="24" viewBox="0 0 12 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <line x1="6" y1="0" x2="6" y2="18" stroke="currentColor" stroke-width="1.5"/>
+                  <path d="M2 16L6 22L10 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                </svg>
+              </div>
+
+              <div class="flow-step flow-step--native flow-step--outcome reveal" style="--i:8">
+                <div class="moment-step__badge moment-step__badge--warn">hours later</div>
+                <div class="moment-step__label">customer notified</div>
+                <div class="moment-step__sub">WhatsApp + SMS + email · no personalization</div>
+              </div>
             </div>
-            <div class="moment-notify-channels">
-              <div class="notify-channel notify-channel--sms">
-                <span class="notify-channel__icon">📱</span>
-                <span class="notify-channel__name">sms</span>
-                <span class="notify-channel__sub">customer's phone</span>
+
+            <!-- Divider -->
+            <div class="flow-divider"></div>
+
+            <!-- Right: This project path -->
+            <div class="flow-col flow-col--project">
+              <div class="flow-col__label">this project</div>
+
+              <div class="flow-step flow-step--project reveal" style="--i:4">
+                <div class="moment-step__badge moment-step__badge--blue">T+0s</div>
+                <div class="flow-step__icon">📡</div>
+                <div class="moment-step__label">webhook fires</div>
+                <div class="moment-step__sub">server notified the instant razorpay registers the failure</div>
               </div>
-              <div class="notify-channel-divider"></div>
-              <div class="notify-channel notify-channel--email">
-                <span class="notify-channel__icon">📧</span>
-                <span class="notify-channel__name">email</span>
-                <span class="notify-channel__sub">customer's inbox</span>
+
+              <div class="flow-down-arrow reveal" style="--i:5">
+                <svg width="12" height="24" viewBox="0 0 12 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <line x1="6" y1="0" x2="6" y2="18" stroke="currentColor" stroke-width="1.5"/>
+                  <path d="M2 16L6 22L10 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                </svg>
               </div>
-              <div class="notify-channel-divider"></div>
-              <div class="notify-channel notify-channel--slack">
-                <span class="notify-channel__icon">💬</span>
-                <span class="notify-channel__name">slack</span>
-                <span class="notify-channel__sub">merchant's ops channel</span>
+
+              <div class="flow-step flow-step--project reveal" style="--i:6">
+                <div class="flow-step__icon">✦</div>
+                <div class="moment-step__label">claude personalizes</div>
+                <div class="moment-step__sub">"Hi Priya, your Puma order dropped because your UPI app timed out"</div>
+              </div>
+
+              <div class="flow-down-arrow reveal" style="--i:7">
+                <svg width="12" height="24" viewBox="0 0 12 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <line x1="6" y1="0" x2="6" y2="18" stroke="currentColor" stroke-width="1.5"/>
+                  <path d="M2 16L6 22L10 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                </svg>
+              </div>
+
+              <div class="flow-step flow-step--project flow-step--outcome reveal" style="--i:8">
+                <div class="moment-step__badge moment-step__badge--green">T+10s</div>
+                <div class="moment-step__label">parallel dispatch</div>
+                <div class="moment-step__sub">SMS · email with payment link · Slack to merchant</div>
               </div>
             </div>
-            <div class="moment-step__sub">sms to the customer's phone, payment link to the customer's inbox, alert to the merchant's ops channel</div>
+
           </div>
         </div>
       </div>

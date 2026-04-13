@@ -1,0 +1,166 @@
+/* ============================================================
+   fix-11-flow.css — normal vs project flow comparison diagram
+   ============================================================ */
+
+/* ── Fork: visual branch from payment.failed ─────────────── */
+.flow-fork {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 560px;
+}
+
+.flow-fork__stem {
+  width: 1.5px;
+  height: 20px;
+  background: var(--color-border);
+}
+
+.flow-fork__bar {
+  width: 100%;
+  height: 1.5px;
+  background: var(--color-border);
+  position: relative;
+}
+
+/* downward nubs at each end of the bar */
+.flow-fork__bar::before,
+.flow-fork__bar::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 1.5px;
+  height: 18px;
+  background: var(--color-border);
+}
+.flow-fork__bar::before { left: 0; }
+.flow-fork__bar::after  { right: 0; }
+
+.flow-fork__labels {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding-top: 22px;
+}
+
+.flow-fork__label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.flow-fork__label--native  { color: var(--color-text-tertiary); }
+.flow-fork__label--project { color: #0055cc; }
+body.dark .flow-fork__label--project { color: #5599ff; }
+
+/* ── Two-column comparison grid ───────────────────────────── */
+.flow-compare {
+  display: grid;
+  grid-template-columns: 1fr 1px 1fr;
+  column-gap: 20px;
+  width: 100%;
+  max-width: 560px;
+  align-items: start;
+  margin-top: 8px;
+}
+
+.flow-divider {
+  background: var(--color-border);
+  width: 1px;
+  align-self: stretch;
+  margin: 0;
+}
+
+.flow-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+
+/* ── Individual step card ─────────────────────────────────── */
+.flow-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  padding: 14px 12px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  width: 100%;
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+  position: relative;
+}
+
+.flow-step__icon {
+  font-size: 22px;
+  line-height: 1;
+  margin-bottom: 2px;
+}
+
+/* native column: muted warm gray */
+.flow-step--native {
+  border-color: rgba(120, 120, 128, 0.22);
+  background: rgba(120, 120, 128, 0.03);
+}
+.flow-step--native .moment-step__label {
+  color: var(--color-text-secondary);
+}
+
+/* project column: blue accent */
+.flow-step--project {
+  border-color: rgba(0, 122, 255, 0.22);
+  background: rgba(0, 122, 255, 0.04);
+}
+
+/* outcome step overrides */
+.flow-step--outcome.flow-step--native {
+  border-color: rgba(255, 149, 0, 0.28);
+  background: rgba(255, 149, 0, 0.03);
+}
+.flow-step--outcome.flow-step--project {
+  border-color: rgba(52, 199, 89, 0.3);
+  background: rgba(52, 199, 89, 0.05);
+}
+
+/* ── Down arrow between steps ─────────────────────────────── */
+.flow-down-arrow {
+  color: var(--color-text-tertiary);
+  margin: 2px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* ── Column header label (vs label below fork bar) ─────────── */
+.flow-col__label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.flow-col--native  .flow-col__label { color: var(--color-text-tertiary); }
+.flow-col--project .flow-col__label { color: #0055cc; }
+body.dark .flow-col--project .flow-col__label { color: #5599ff; }
+
+/* ── Mobile: stack columns ────────────────────────────────── */
+@media (max-width: 600px) {
+  .flow-compare {
+    grid-template-columns: 1fr;
+    row-gap: 32px;
+  }
+  .flow-divider { display: none; }
+  .flow-fork__labels { display: none; }
+  .flow-col__label { display: block; }
+  .flow-fork__bar { max-width: 60%; }
+}
+
+@media (min-width: 601px) {
+  .flow-col__label { display: none; }
+}
