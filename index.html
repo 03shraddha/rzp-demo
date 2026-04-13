@@ -449,39 +449,39 @@
                 <td>yes: deploy it, fork it, rewire it</td>
               </tr>
               <tr class="reveal" style="--i:2">
+                <td>behavior can be changed by a developer</td>
+                <td>no: locked to dashboard settings; Agent Studio agents also locked to platform config</td>
+                <td>yes: reroute to WhatsApp tomorrow, add a second SMS 30 minutes later, change tone based on order value</td>
+              </tr>
+              <tr class="reveal" style="--i:3">
                 <td>triggers on payment failure</td>
                 <td>yes</td>
                 <td>yes</td>
               </tr>
-              <tr class="reveal" style="--i:3">
+              <tr class="reveal" style="--i:4">
                 <td>fires instantly</td>
                 <td>no: retargeting pipeline is delayed</td>
                 <td>yes: fires within seconds of the webhook event</td>
               </tr>
-              <tr class="reveal" style="--i:4">
+              <tr class="reveal" style="--i:5">
                 <td>notifies customer via SMS, email, or WhatsApp</td>
                 <td>yes, all three natively</td>
                 <td>yes: Twilio SMS + Gmail; Slack for ops team; WhatsApp can be added</td>
               </tr>
-              <tr class="reveal" style="--i:5">
+              <tr class="reveal" style="--i:6">
                 <td>outbound voice call to customer</td>
                 <td>yes, via Agent Studio (launched Sprint 2026, ElevenLabs), not a free dashboard toggle</td>
                 <td>not built yet; can be added via Sarvam or ElevenLabs APIs</td>
               </tr>
-              <tr class="reveal" style="--i:6">
+              <tr class="reveal" style="--i:7">
                 <td>generates a fresh payment link</td>
                 <td>yes: via retargeting campaign</td>
                 <td>yes: api call on webhook, pre-filled, valid 24 hours</td>
               </tr>
-              <tr class="reveal" style="--i:7">
+              <tr class="reveal" style="--i:8">
                 <td>UPI QR code as fallback</td>
                 <td>no</td>
                 <td>yes: generates a single-use QR image if the payment link API call fails</td>
-              </tr>
-              <tr class="reveal" style="--i:8">
-                <td>behavior can be changed by a developer</td>
-                <td>no: locked to dashboard settings; Agent Studio agents also locked to platform config</td>
-                <td>yes: reroute to WhatsApp tomorrow, add a second SMS 30 minutes later, change tone based on order value</td>
               </tr>
             </tbody>
           </table>
