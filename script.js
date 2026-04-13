@@ -289,6 +289,13 @@ let currentFilter = 'All'; // tracks the active company filter
 // utility
 // ---------------------------------------------------------------------------
 
+// returns first + last name initials (e.g. "Sreyas Reddy Molugu" → "SM")
+const initials = (name) => {
+  const parts = name.trim().split(/\s+/);
+  if (parts.length === 1) return parts[0][0].toUpperCase();
+  return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase();
+};
+
 // truncates at the last word boundary before maxLen so it never cuts mid-word
 // for multi-line bullet text, uses just the first line as preview
 const truncate = (text, maxLen) => {
@@ -358,7 +365,7 @@ const renderAll = (entries) => {
 
     entryRow.innerHTML = `
       <td data-label="Employee">
-        <span class="entry-name">${entry.name}</span>
+        <span class="entry-name">${initials(entry.name)}</span>
         ${badgeHTML}
       </td>
       <td data-label="Role / Team"><span style="display:block;font-weight:500">${entry.role}</span>${teamHTML}</td>
