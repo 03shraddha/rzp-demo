@@ -15,7 +15,6 @@ window.ENTRIES = [
       { label: "Claude managed agents quickstart - build custom agents to monitor logs, raise Jira tickets, and run automated tests", url: "https://platform.claude.com/workspaces/default/agent-quickstart" },
       { label: "Cognition Devin 2.2 - agent that self-verifies, tests with computer use, and auto-fixes its own code", url: "https://x.com/cognition/status/2026343816521994339" },
       { label: "PagerDuty AI incident responder - automated on-call triage and resolution agent", url: "https://x.com/pagerduty/status/1983247743305814472" },
-      { label: "Rackspace LEIA - AI agent for compliance ops, cut manual processing by 150 hours per month", url: "https://x.com/Rackspace/status/2029612703401103751" },
       { label: "RBI payment gateway compliance requirements - Razorpay", url: "https://razorpay.com/blog/payment-gateway-compliance/" }
     ]
   },
