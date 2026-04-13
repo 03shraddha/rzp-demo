@@ -1184,6 +1184,7 @@ body.dark .stat-chip     { background: var(--color-bg-secondary); }
 .table-caveat { margin-top: 16px; font-size: 15px; color: var(--color-text-secondary); line-height: 1.6; border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 14px 18px; background: var(--color-bg-secondary); }
 .table-caveat p { margin: 0 0 8px 0; }
 .table-caveat p:last-child { margin-bottom: 0; }
+.caveat-star { color: var(--color-accent); margin-right: 4px; }
 
 /* Table rows dim to 40% until hovered (standard table only, not landscape variant) */
 .comparison-table:not(.comparison-table--landscape) tbody tr { opacity: 0.4; transition: opacity 0.18s ease; }
