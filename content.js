@@ -80,7 +80,7 @@ window.ENTRIES = [
     role: "Product Manager",
     team: "Cross-Border Payments",
     company: "Razorpay",
-    problem: "every standup required manual sql pulls from the data team — no self-serve analytics\nheavy documentation overhead and manual QA left little time for actual product decisions",
+    problem: "every standup required manual sql pulls from the data team, no self-serve analytics\nheavy documentation overhead and manual QA left little time for actual product decisions",
     solution: "now pulls weekly metrics and blocker data himself via an analytics agent, no dependency on data team\nnext step is browser automation and automated test coverage to replace manual QA",
     refs: [
       { label: "Reflect.run - AI-powered end-to-end testing platform", url: "https://reflect.run/" }
