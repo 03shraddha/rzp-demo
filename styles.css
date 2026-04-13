@@ -1180,7 +1180,9 @@ body.dark .stat-chip     { background: var(--color-bg-secondary); }
 .comparison-table td:nth-child(3) { color: var(--color-accent); font-weight: 500; }
 .comparison-table tr:hover td { background: var(--color-bg-secondary); }
 
-.table-preamble { font-size: 14px; color: var(--color-text-secondary); line-height: 1.6; margin-bottom: 16px; }
+.table-preamble { font-size: 15px; color: var(--color-text-secondary); line-height: 1.6; margin-bottom: 16px; border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 14px 18px; background: var(--color-bg-secondary); }
+.table-preamble p { margin: 0 0 8px 0; }
+.table-preamble p:last-child { margin-bottom: 0; }
 .table-caveat { margin-top: 16px; font-size: 15px; color: var(--color-text-secondary); line-height: 1.6; border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 14px 18px; background: var(--color-bg-secondary); }
 .table-caveat p { margin: 0 0 8px 0; }
 .table-caveat p:last-child { margin-bottom: 0; }
