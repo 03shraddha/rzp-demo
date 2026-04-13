@@ -9,8 +9,8 @@ window.ENTRIES = [
     role: "Software Developer",
     team: "Core Payments",
     company: "Razorpay",
-    problem: "every RBI or card network guideline change triggers a full manual certification cycle on FIDE - portal login, hand-run test cases, log tracing - repeated until clean\nVium raises PRs it cannot test, and on-call engineers own every production incident end to end - Grafana triage, root cause, patch, deploy - no automation anywhere in the loop",
-    solution: "four-agent certification loop: test runner connects to FIDE, log monitor watches Grafana, failure analyzer produces action points, coding agent patches and deploys - reruns until green with no engineer in the loop\non-call becomes supervisory: same agent pipeline picks up production alerts and validates every Vium PR in staging - engineers review outcomes, not incidents",
+    problem: "every RBI or card network guideline change triggers a full manual certification cycle on FIDE - portal login, hand-run test cases, log tracing - repeated until clean\nVyom raises PRs it cannot test, and on-call engineers own every production incident end to end - Grafana triage, root cause, patch, deploy - no automation anywhere in the loop",
+    solution: "four-agent certification loop: test runner connects to FIDE, log monitor watches Grafana, failure analyzer produces action points, coding agent patches and deploys - reruns until green with no engineer in the loop\non-call becomes supervisory: same agent pipeline picks up production alerts and validates every Vyom PR in staging - engineers review outcomes, not incidents",
     refs: [
       { label: "Claude managed agents quickstart - build custom agents to monitor logs, raise Jira tickets, and run automated tests", url: "https://platform.claude.com/workspaces/default/agent-quickstart" },
       { label: "Cognition Devin 2.2 - agent that self-verifies, tests with computer use, and auto-fixes its own code", url: "https://x.com/cognition/status/2026343816521994339" },
