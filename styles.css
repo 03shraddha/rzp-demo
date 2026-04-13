@@ -1180,6 +1180,11 @@ body.dark .stat-chip     { background: var(--color-bg-secondary); }
 .comparison-table td:nth-child(3) { color: var(--color-accent); font-weight: 500; }
 .comparison-table tr:hover td { background: var(--color-bg-secondary); }
 
+.table-preamble { font-size: 14px; color: var(--color-text-secondary); line-height: 1.6; margin-bottom: 16px; }
+.table-caveat { margin-top: 16px; font-size: 13px; color: var(--color-text-secondary); line-height: 1.6; }
+.table-caveat p { margin: 0 0 6px 0; }
+.table-caveat p:last-child { margin-bottom: 0; }
+
 /* Landscape variant: products as rows, attributes as columns */
 .comparison-table--landscape {
   min-width: 820px; /* forces horizontal scroll rather than squishing */
