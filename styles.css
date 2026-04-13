@@ -1181,9 +1181,13 @@ body.dark .stat-chip     { background: var(--color-bg-secondary); }
 .comparison-table tr:hover td { background: var(--color-bg-secondary); }
 
 .table-preamble { font-size: 14px; color: var(--color-text-secondary); line-height: 1.6; margin-bottom: 16px; }
-.table-caveat { margin-top: 16px; font-size: 13px; color: var(--color-text-secondary); line-height: 1.6; }
-.table-caveat p { margin: 0 0 6px 0; }
+.table-caveat { margin-top: 16px; font-size: 15px; color: var(--color-text-secondary); line-height: 1.6; border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 14px 18px; background: var(--color-bg-secondary); }
+.table-caveat p { margin: 0 0 8px 0; }
 .table-caveat p:last-child { margin-bottom: 0; }
+
+/* Table rows dim to 40% until hovered (standard table only, not landscape variant) */
+.comparison-table:not(.comparison-table--landscape) tbody tr { opacity: 0.4; transition: opacity 0.18s ease; }
+.comparison-table:not(.comparison-table--landscape) tbody tr:hover { opacity: 1; }
 
 /* Landscape variant: products as rows, attributes as columns */
 .comparison-table--landscape {
