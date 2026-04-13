@@ -4,6 +4,22 @@
 
 window.ENTRIES = [
   {
+    id: "entry-sreyas",
+    name: "Sreyas Reddy Molugu",
+    role: "Software Developer",
+    team: "Core Payments",
+    company: "Razorpay",
+    problem: "compliance certification testing on FIDE is entirely manual - engineers connect to the portal by hand, run test cases one by one, and trace logs to find failures - every RBI or card network guideline change triggers another full cycle\nRBI mandates strict transaction validity rules - a credit card approved to process payments for a defined window cannot legally continue accepting transactions after that window closes - verifying this on every code change requires a full certification run each time\non-call engineers handle every production issue manually from start to finish - latency spike or failed payment fires a page, but Grafana triage, root cause analysis, patch, and deploy via Ray all require human effort. Vium can raise PRs but cannot test the code it writes",
+    solution: "automated compliance loop: a test runner agent connects to FIDE and executes the full test suite, a log monitor agent watches Grafana and service logs in parallel, a failure analyzer agent identifies action points from failed cases, and a coding agent applies the fix and deploys via Ray - then the test runner reruns to confirm. no engineer needed in the loop\nsame pipeline handles on-call: when an alert fires, the monitor agent pulls metrics and logs, the analyzer traces root cause, the coding agent patches and deploys, and the test agent reruns to confirm - on-call becomes a supervisor not an executor\nVium integration: test runner agent runs against every Vium PR in staging before merge, removing the human verification step entirely",
+    refs: [
+      { label: "Claude managed agents quickstart - build custom agents to monitor logs, raise Jira tickets, and run automated tests", url: "https://platform.claude.com/workspaces/default/agent-quickstart" },
+      { label: "Cognition Devin 2.2 - agent that self-verifies, tests with computer use, and auto-fixes its own code", url: "https://x.com/cognition/status/2026343816521994339" },
+      { label: "PagerDuty AI incident responder - automated on-call triage and resolution agent", url: "https://x.com/pagerduty/status/1983247743305814472" },
+      { label: "Rackspace LEIA - AI agent for compliance ops, cut manual processing by 150 hours per month", url: "https://x.com/Rackspace/status/2029612703401103751" },
+      { label: "RBI payment gateway compliance requirements - Razorpay", url: "https://razorpay.com/blog/payment-gateway-compliance/" }
+    ]
+  },
+  {
     id: "entry-4",
     name: "Aryan Pareek",
     role: "Product Manager",
@@ -84,22 +100,6 @@ window.ENTRIES = [
       { label: "Lenny Rachitsky - how to build a PM second brain with ChatGPT", url: "https://x.com/lennysan/status/2001049628641566957" },
       { label: "Gad Benram - built JIRA + Slack for AI agents using LangGraph + MCP", url: "https://x.com/gadbenram/status/2019521641156632619" },
       { label: "AethirCloud - AI infrastructure for real-time social monitoring at scale", url: "https://x.com/AethirCloud/status/2041821409006002510" }
-    ]
-  },
-  {
-    id: "entry-sreyas",
-    name: "Sreyas Reddy Molugu",
-    role: "Software Developer",
-    team: "Core Payments",
-    company: "Razorpay",
-    problem: "compliance certification testing on FIDE is entirely manual - engineers connect to the portal by hand, run test cases one by one, and trace logs to find failures - every RBI or card network guideline change triggers another full cycle\nRBI mandates strict transaction validity rules - a credit card approved to process payments for a defined window cannot legally continue accepting transactions after that window closes - verifying this on every code change requires a full certification run each time\non-call engineers handle every production issue manually from start to finish - latency spike or failed payment fires a page, but Grafana triage, root cause analysis, patch, and deploy via Ray all require human effort. Vium can raise PRs but cannot test the code it writes",
-    solution: "automated compliance loop: a test runner agent connects to FIDE and executes the full test suite, a log monitor agent watches Grafana and service logs in parallel, a failure analyzer agent identifies action points from failed cases, and a coding agent applies the fix and deploys via Ray - then the test runner reruns to confirm. no engineer needed in the loop\nsame pipeline handles on-call: when an alert fires, the monitor agent pulls metrics and logs, the analyzer traces root cause, the coding agent patches and deploys, and the test agent reruns to confirm - on-call becomes a supervisor not an executor\nVium integration: test runner agent runs against every Vium PR in staging before merge, removing the human verification step entirely",
-    refs: [
-      { label: "Claude managed agents quickstart - build custom agents to monitor logs, raise Jira tickets, and run automated tests", url: "https://platform.claude.com/workspaces/default/agent-quickstart" },
-      { label: "Cognition Devin 2.2 - agent that self-verifies, tests with computer use, and auto-fixes its own code", url: "https://x.com/cognition/status/2026343816521994339" },
-      { label: "PagerDuty AI incident responder - automated on-call triage and resolution agent", url: "https://x.com/pagerduty/status/1983247743305814472" },
-      { label: "Rackspace LEIA - AI agent for compliance ops, cut manual processing by 150 hours per month", url: "https://x.com/Rackspace/status/2029612703401103751" },
-      { label: "RBI payment gateway compliance requirements - Razorpay", url: "https://razorpay.com/blog/payment-gateway-compliance/" }
     ]
   },
   {
