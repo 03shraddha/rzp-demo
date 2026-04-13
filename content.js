@@ -5,7 +5,7 @@
 window.ENTRIES = [
   {
     id: "entry-sreyas",
-    name: "Sreyas Reddy Molugu",
+    name: "SM",
     role: "Software Developer",
     team: "Core Payments",
     company: "Razorpay",
@@ -19,8 +19,18 @@ window.ENTRIES = [
     ]
   },
   {
+    id: "entry-ankit",
+    name: "AP",
+    role: "Software Developer",
+    team: "Core Payments",
+    company: "Razorpay",
+    problem: "no one has time to track what Stripe, Ramp, Adyen, Cashfree, and PayU are shipping - competitor blog posts, changelogs, and feature drops go unread, so the team builds blind",
+    solution: "an agent that monitors competitor blogs and changelogs (Stripe, Ramp, Adyen, Cashfree, PayU, BharatPe) weekly and surfaces a digest of what's worth implementing at Razorpay's scale",
+    refs: []
+  },
+  {
     id: "entry-4",
-    name: "Aryan Pareek",
+    name: "AP",
     role: "Product Manager",
     team: "Small & Medium Enterprises",
     company: "Razorpay",
@@ -36,7 +46,7 @@ window.ENTRIES = [
   },
   {
     id: "entry-1",
-    name: "Ayush Singh",
+    name: "AS",
     role: "Business Analyst",
     team: "Engage (Ads Team)",
     company: "Razorpay",
@@ -50,7 +60,7 @@ window.ENTRIES = [
   },
   {
     id: "entry-3",
-    name: "Prithvi Anil Kumar",
+    name: "PK",
     role: "Backend Engineer",
     team: "Credit Cards Team",
     company: "CRED",
@@ -62,7 +72,7 @@ window.ENTRIES = [
   },
   {
     id: "entry-5",
-    name: "Ritwik Kadu",
+    name: "RK",
     role: "Product Manager",
     team: "Cross Border Payments",
     company: "Razorpay",
@@ -76,7 +86,7 @@ window.ENTRIES = [
   },
   {
     id: "entry-6",
-    name: "Pranay Bagrecha",
+    name: "PB",
     role: "Product Manager",
     team: "Cross-Border Payments",
     company: "Razorpay",
@@ -89,7 +99,7 @@ window.ENTRIES = [
   },
   {
     id: "entry-7",
-    name: "Suyash Ratna",
+    name: "SR",
     role: "Product Manager",
     team: "Offline Payments - Merchant Experience",
     company: "Razorpay",
@@ -103,7 +113,7 @@ window.ENTRIES = [
   },
   {
     id: "entry-8",
-    name: "Lakshmish Hegde",
+    name: "LH",
     role: "Associate Manager",
     team: "Banking Product & Solutions",
     company: "Razorpay",
@@ -113,7 +123,7 @@ window.ENTRIES = [
   },
   {
     id: "entry-9",
-    name: "Deepak Sivaraman",
+    name: "DS",
     role: "Manager",
     team: "GTM Strategy",
     company: "Razorpay",
@@ -123,7 +133,7 @@ window.ENTRIES = [
   },
   {
     id: "entry-10",
-    name: "Shivank Kumar",
+    name: "SK",
     role: "Strategy Manager",
     team: "",
     company: "Razorpay",
@@ -133,7 +143,7 @@ window.ENTRIES = [
   },
   {
     id: "entry-2",
-    name: "Mohammed Abdul Razzaq",
+    name: "MR",
     role: "Backend Engineer",
     team: "Core Finance",
     company: "J.P. Morgan",
