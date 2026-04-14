@@ -19,18 +19,6 @@ window.ENTRIES = [
     ]
   },
   {
-    id: "entry-ankit",
-    name: "AP",
-    role: "Software Developer",
-    team: "Core Payments",
-    company: "Razorpay",
-    problem: "no one has time to track what Stripe, Ramp, Adyen, Cashfree, and PayU are shipping - competitor blog posts, changelogs, and feature drops go unread, so the team builds blind",
-    solution: "an agent that monitors competitor blogs and changelogs (Stripe, Ramp, Adyen, Cashfree, PayU, BharatPe) weekly and surfaces a digest of what's worth implementing at Razorpay's scale",
-    refs: [
-      { label: "competitor-analysis – 40rty skills", url: "https://skills.40rty.ai/skills/#customer-ops" }
-    ]
-  },
-  {
     id: "entry-4",
     name: "AP",
     role: "Product Manager",
@@ -136,6 +124,18 @@ window.ENTRIES = [
     solution: "centralized AI hub with LLM context summarization for fast stakeholder decisions\nasync approvals with intelligent nudges for anything still pending",
     refs: [
       { label: "r/automation - people already using AI to speed up internal approvals", url: "https://www.reddit.com/r/automation/comments/1lvhhcn/anyone_using_ai_to_help_speed_up_internal/" }
+    ]
+  },
+  {
+    id: "entry-ankit",
+    name: "AP",
+    role: "Software Developer",
+    team: "Core Payments",
+    company: "Razorpay",
+    problem: "no one has time to track what Stripe, Ramp, Adyen, Cashfree, and PayU are shipping - competitor blog posts, changelogs, and feature drops go unread, so the team builds blind",
+    solution: "an agent that monitors competitor blogs and changelogs (Stripe, Ramp, Adyen, Cashfree, PayU, BharatPe) weekly and surfaces a digest of what's worth implementing at Razorpay's scale",
+    refs: [
+      { label: "competitor-analysis – 40rty skills", url: "https://skills.40rty.ai/skills/#customer-ops" }
     ]
   }
 ];

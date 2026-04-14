@@ -302,7 +302,6 @@ const truncate = (text, maxLen) => {
 // if text has no newlines, returns it wrapped in a <p>.
 const toBullets = (text) => {
   const lines = text.split('\n').map(l => l.trim()).filter(Boolean);
-  if (lines.length <= 1) return `<p class="detail-text-p">${lines[0] || ''}</p>`;
   return `<ul class="detail-bullets">${lines.map(l => `<li>${l}</li>`).join('')}</ul>`;
 };
 
