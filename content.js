@@ -127,26 +127,6 @@ window.ENTRIES = [
     ]
   },
   {
-    id: "entry-9",
-    name: "DS",
-    role: "Manager",
-    team: "GTM Strategy",
-    company: "Razorpay",
-    problem: "",
-    solution: "",
-    refs: []
-  },
-  {
-    id: "entry-10",
-    name: "SK",
-    role: "Strategy Manager",
-    team: "",
-    company: "Razorpay",
-    problem: "",
-    solution: "",
-    refs: []
-  },
-  {
     id: "entry-2",
     name: "MR",
     role: "Backend Engineer",
