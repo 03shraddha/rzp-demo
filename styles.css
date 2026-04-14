@@ -416,6 +416,15 @@ tbody tr:last-child td {
   border-bottom: none;
 }
 
+.th-num, .td-num {
+  width: 36px;
+  min-width: 36px;
+  text-align: center;
+  color: var(--color-text-tertiary);
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+}
+
 .td-truncate {
   max-width: 280px;
 }
