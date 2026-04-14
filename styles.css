@@ -3388,6 +3388,14 @@ body.dark .arch-arrow       { color: var(--term-green); }
   white-space: nowrap;
 }
 
+/* Uniform logo sizing — height anchors all icons to the same visual size;
+   width: auto preserves each logo's natural aspect ratio */
+.vb-company svg {
+  height: 16px;
+  width: auto;
+  flex-shrink: 0;
+}
+
 /* iOS-style underlined link — no pill, no background */
 .vb-link {
   color: #4285F4;
