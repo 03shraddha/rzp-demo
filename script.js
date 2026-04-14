@@ -357,8 +357,7 @@ const renderAll = (entries) => {
     const solutionPreview = entry.solution ? truncate(entry.solution, 80) : '<span style="color:var(--color-text-tertiary)">coming soon</span>';
 
     entryRow.innerHTML = `
-      <td data-label="Employee">
-        <span class="entry-name">${entry.name}</span>
+      <td data-label="Company">
         ${badgeHTML}
       </td>
       <td data-label="Role / Team"><span style="display:block">${entry.role}</span>${teamHTML}</td>
