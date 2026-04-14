@@ -119,9 +119,12 @@ window.ENTRIES = [
     role: "Associate Manager",
     team: "Banking Product & Solutions",
     company: "Razorpay",
-    problem: "",
-    solution: "",
-    refs: []
+    problem: "not a coder, so building any internal workflow or automation needs an eng ticket to get done\nprepping for API council meetings is manual: gathering RBI updates, drafting BRDs in the right format, and pulling together upsell and cross-sell context all happen in separate places",
+    solution: "an RBI regulatory monitor agent that scrapes new circulars from rbi.org.in, diffs them against Razorpay's current banking product features, and sends a weekly digest of what needs attention\nan API council prep agent that auto-drafts BRDs in the team's standard template, pulls recent customer and bank interaction notes, and surfaces upsell and cross-sell talking points before each meeting",
+    refs: [
+      { label: "LangChain GTM agent - multi-agent system using Apollo, Exa, and BigQuery for sales and competitive research", url: "https://x.com/LangChain/status/2031055593360990358" },
+      { label: "FireGEO by Firecrawl - open source competitor monitoring across AI platforms, tracks your presence vs rivals", url: "https://x.com/firecrawl_dev/status/1945469362430967827" }
+    ]
   },
   {
     id: "entry-9",
