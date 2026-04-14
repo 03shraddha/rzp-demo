@@ -572,7 +572,7 @@
             <div class="pipeline-step__num">01</div>
             <div class="pipeline-step__content">
               <div class="pipeline-step__title">razorpay fires a payment.failed event</div>
-              <div class="pipeline-step__desc">when a charge fails, razorpay sends a POST request to the merchant webhook URL. the body contains the payment object, order ID, and event type payment.failed.</div>
+              <div class="pipeline-step__desc">when a charge fails, razorpay sends a POST request to the merchant webhook URL. the body contains the payment object, order ID, and event type payment.failed</div>
               <span class="pipeline-step__tag term-badge">payment.failed</span>
             </div>
           </div>
@@ -588,7 +588,7 @@
             <div class="pipeline-step__num">02</div>
             <div class="pipeline-step__content">
               <div class="pipeline-step__title">merchant server receives the webhook</div>
-              <div class="pipeline-step__desc">the FastAPI endpoint at /webhook reads the raw request body and extracts the X-Razorpay-Signature header. both are passed to the verifier in the next step.</div>
+              <div class="pipeline-step__desc">the FastAPI endpoint at /webhook reads the raw request body and extracts the X-Razorpay-Signature header. both are passed to the verifier in the next step</div>
               <span class="pipeline-step__tag term-badge">POST /webhook</span>
             </div>
           </div>
@@ -604,7 +604,7 @@
             <div class="pipeline-step__num">03</div>
             <div class="pipeline-step__content">
               <div class="pipeline-step__title">verify the webhook signature</div>
-              <div class="pipeline-step__desc">razorpay signs every request with HMAC-SHA256. we recompute the hash using the raw payload and shared secret, then compare. mismatch returns 400 and exits early.</div>
+              <div class="pipeline-step__desc">razorpay signs every request with HMAC-SHA256. we recompute the hash using the raw payload and shared secret, then compare. mismatch returns 400 and exits early</div>
               <span class="pipeline-step__tag term-badge">HMAC-SHA256</span>
             </div>
           </div>
@@ -620,7 +620,7 @@
             <div class="pipeline-step__num">04</div>
             <div class="pipeline-step__content">
               <div class="pipeline-step__title">create a new payment link</div>
-              <div class="pipeline-step__desc">we call POST /v1/payment_links with the original order amount, currency, and customer details. razorpay returns a short URL valid for 24 hours.</div>
+              <div class="pipeline-step__desc">we call POST /v1/payment_links with the original order amount, currency, and customer details. razorpay returns a short URL valid for 24 hours</div>
               <span class="pipeline-step__tag term-badge">POST /v1/payment_links</span>
             </div>
           </div>
@@ -636,7 +636,7 @@
             <div class="pipeline-step__num">05</div>
             <div class="pipeline-step__content">
               <div class="pipeline-step__title">dispatch to all three channels in parallel</div>
-              <div class="pipeline-step__desc">asyncio.gather runs Twilio SMS, Gmail SMTP, and Slack SDK calls concurrently. one channel failing does not block the others.</div>
+              <div class="pipeline-step__desc">asyncio.gather runs Twilio SMS, Gmail SMTP, and Slack SDK calls concurrently. one channel failing does not block the others</div>
               <span class="pipeline-step__tag term-badge">asyncio.gather</span>
             </div>
           </div>
