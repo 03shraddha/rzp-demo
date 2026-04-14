@@ -557,7 +557,7 @@
           </div>
           <div class="table-caveat">
             <p><span class="caveat-star">★</span> built this for fun. this is a merchant problem i've thought about and wanted to solve, so i built it alone in 2 days</p>
-            <p><span class="caveat-star">★</span> working prototype, not production-ready. a duplicate webhook fires the same SMS twice (no deduplication). missing: job queue, idempotency keys, per-merchant config storage, error tracking</p>
+            <p><span class="caveat-star">★</span> this is a working prototype. to take it to production, i'd want to think through: idempotency keys to prevent duplicate SMS on retried webhooks, a job queue for reliability, per-merchant config storage, and structured error tracking</p>
           </div>
         </div>
       </div>
