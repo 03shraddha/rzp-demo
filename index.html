@@ -90,7 +90,12 @@
               <a href="https://docs.stripe.com/mcp" target="_blank" rel="noopener" class="vb-link">stripe</a>
             </span>
             <span class="vb-company">
-              <a href="https://x.com/Nexuist/status/2043863461021790339?s=20" target="_blank" rel="noopener" class="vb-link">🇫🇷 french govt</a>
+              <svg width="20" height="14" viewBox="0 0 3 2" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="vertical-align:-2px;flex-shrink:0;border-radius:2px">
+                <rect width="1" height="2" fill="#002395"/>
+                <rect x="1" width="1" height="2" fill="#fff"/>
+                <rect x="2" width="1" height="2" fill="#ED2939"/>
+              </svg>
+              <a href="https://x.com/Nexuist/status/2043863461021790339?s=20" target="_blank" rel="noopener" class="vb-link">french govt</a>
             </span>
             all built docs MCPs, yes even governments
           </p>
@@ -502,8 +507,8 @@
         <div class="section-label reveal">what exists vs what i built on top</div>
         <div class="reveal">
           <div class="table-preamble">
-            <p><span class="caveat-star">★</span> Razorpay has offered native failed payment recovery since 2022: toggle on in the dashboard and it sends WhatsApp + SMS + email with a retry link</p>
-            <p><span class="caveat-star">★</span> at Sprint 2026, they leveled up <a href="https://razorpay.com/agent-studio/" target="_blank" rel="noopener">agent studio</a> with subscription recovery and abandoned cart conversion agents. <strong>so why build this at all?</strong></p>
+            <p><span class="caveat-star">★</span> Razorpay already has this: native recovery since 2022 and <a href="https://razorpay.com/agent-studio/" target="_blank" rel="noopener">agent studio</a> leveled it up at Sprint 2026 with subscription recovery and cart conversion agents. <strong>so why build this at all?</strong></p>
+            <p><span class="caveat-star">★</span> because i've genuinely thought about this as a merchant problem. this isn't about novelty, it's a different engineering approach to something Razorpay solved with a dashboard toggle. webhook-driven, code-first, and fully customizable by a developer. worth exploring if that trade-off makes sense.</p>
           </div>
           <div class="table-scroll-wrap">
           <table class="comparison-table">
@@ -557,10 +562,6 @@
               </tr>
             </tbody>
           </table>
-          </div>
-          <div class="table-caveat">
-            <p><span class="caveat-star">★</span> built this for fun. this is a merchant problem i've thought about and wanted to solve, so i built it alone in 2 days</p>
-            <p><span class="caveat-star">★</span> this is a working prototype. to take it to production, i'd want to think through: idempotency keys to prevent duplicate SMS on retried webhooks, a job queue for reliability, per-merchant config storage, and structured error tracking</p>
           </div>
         </div>
       </div>
