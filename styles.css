@@ -1279,7 +1279,6 @@ body.dark .stat-chip     { background: var(--color-bg-secondary); }
 .comparison-table--landscape td ul.does-list {
   margin: 0 0 8px 0;
   padding-left: 1.1em;
-  font-size: 0.875em;
   line-height: 1.6;
 }
 .comparison-table--landscape td ul.does-list li {
