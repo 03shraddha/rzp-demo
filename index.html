@@ -205,7 +205,7 @@
                         <li>does not surface docs to you, explain the API, or work outside OpenAI Codex</li>
                         <li>checkout wiring uses live MCP calls so that part is fresh. everything else (webhook events, error codes, auth flows, param names) comes from training data capped at aug 2025. the docs MCP fills that gap</li>
                       </ul>
-                      <p class="does-not"><strong>but why not just rely on Codex knowing rzp docs?</strong></p>
+                      <p class="does-list-label">but why not just rely on Codex knowing rzp docs?</p>
                       <ul class="does-list">
                         <li>works everywhere, not just Codex. Cursor, Claude Desktop, VS Code + Copilot are all mainstream. the docs MCP works across all of them</li>
                         <li>retrieval inside Codex is a black box. you cannot tell if it is fine-tuned, RAG'd, or hallucinated. the docs MCP makes retrieval explicit and auditable. in finance, a silently wrong webhook signature breaks payments with no trace</li>

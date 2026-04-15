@@ -1275,6 +1275,13 @@ body.dark .stat-chip     { background: var(--color-bg-secondary); }
   font-size: 0.875em;
 }
 
+/* Subheading above the "why not" bullet list */
+.comparison-table--landscape td p.does-list-label {
+  margin: 10px 0 4px 0;
+  font-weight: 600;
+  opacity: 0.6;
+}
+
 /* Bullet list for what it does / limitations breakdown */
 .comparison-table--landscape td ul.does-list {
   margin: 0 0 8px 0;
