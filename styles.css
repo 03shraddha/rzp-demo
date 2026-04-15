@@ -1275,6 +1275,17 @@ body.dark .stat-chip     { background: var(--color-bg-secondary); }
   font-size: 0.875em;
 }
 
+/* Bullet list for what it does / limitations breakdown */
+.comparison-table--landscape td ul.does-list {
+  margin: 0 0 8px 0;
+  padding-left: 1.1em;
+  font-size: 0.875em;
+  line-height: 1.6;
+}
+.comparison-table--landscape td ul.does-list li {
+  margin-bottom: 4px;
+}
+
 /* Bullet list inside a table cell (used for multi-audience "who uses it") */
 .comparison-table--landscape td ul.cell-list {
   margin: 0;

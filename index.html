@@ -97,6 +97,14 @@
               </svg>
               <a href="https://x.com/Nexuist/status/2043863461021790339?s=20" target="_blank" rel="noopener" class="vb-link">french govt</a>
             </span>
+            <span class="vb-company">
+              <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M16 2C10.5 2 6 6.5 6 12c0 3.2 1.5 6 3.8 7.8L16 30l6.2-10.2C24.5 18 26 15.2 26 12c0-5.5-4.5-10-10-10z" fill="#00C853"/>
+                <path d="M16 2c-2.8 0-5.3 1.1-7.2 2.8C10.2 6.2 12 8.9 12 12c0 2.2-.8 4.2-2 5.8L16 30l6.2-10.2C24.5 18 26 15.2 26 12c0-5.5-4.5-10-10-10z" fill="#00A040" opacity="0.7"/>
+                <ellipse cx="13" cy="16" rx="5" ry="7" transform="rotate(-20 13 16)" fill="#001a0a" opacity="0.85"/>
+              </svg>
+              <a href="https://x.com/skeptrune/status/2044101067512918422" target="_blank" rel="noopener" class="vb-link">mintlify</a>
+            </span>
             all built docs MCPs, yes even governments
           </p>
         </div>
@@ -191,9 +199,24 @@
                   </tr>
                   <tr class="reveal" style="--i:2">
                     <td>razorpay + openai codex integration</td>
-                    <td>wires up razorpay checkout flows automatically as Codex generates your app so you can build and monetize in one prompt<p class="does-not">does not: surface documentation to you, help you understand the API, or work outside of OpenAI Codex</p><p class="does-not">checkout wiring uses live mcp tool calls so that part is fresh. everything else (webhook events, error codes, auth flows, param names) comes from training data capped at aug 2025. the docs mcp fills that gap.</p></td>
+                    <td>
+                      <ul class="does-list">
+                        <li>wires up razorpay checkout flows automatically as Codex generates your app. one prompt, build and monetize</li>
+                        <li>does not surface docs to you, explain the API, or work outside OpenAI Codex</li>
+                        <li>checkout wiring uses live MCP calls so that part is fresh. everything else (webhook events, error codes, auth flows, param names) comes from training data capped at aug 2025. the docs MCP fills that gap</li>
+                      </ul>
+                      <p class="does-not"><strong>but why not just rely on Codex knowing rzp docs?</strong></p>
+                      <ul class="does-list">
+                        <li>works everywhere, not just Codex. Cursor, Claude Desktop, VS Code + Copilot are all mainstream. the docs MCP works across all of them</li>
+                        <li>retrieval inside Codex is a black box. you cannot tell if it is fine-tuned, RAG'd, or hallucinated. the docs MCP makes retrieval explicit and auditable. in finance, a silently wrong webhook signature breaks payments with no trace</li>
+                        <li>precedent: OpenAI built and officially recommends their own docs MCP even though their models are trained on their own docs. if training data were enough, they would not have built it</li>
+                      </ul>
+                    </td>
                     <td>builders creating net-new AI apps who want to go from idea to a paying product fast</td>
-                    <td><p class="problem-scenario">a solo builder prompts Codex to build a SaaS tool and wants payments live before the weekend</p><p class="problem-question">how do I go from idea to collecting money without doing a separate razorpay integration?</p></td>
+                    <td>
+                      <p class="problem-scenario">a solo builder prompts Codex to ship a SaaS tool with payments live before the weekend. checkout wires up correctly (live MCP call). then a payment fails. the builder asks Codex how to handle webhook signature verification. Codex generates code using an outdated HMAC param name from its aug 2025 training data. the webhook silently rejects every event. payments fail, no alerts fire, no way to trace why. the docs MCP would have fetched the current verification spec and caught it</p>
+                      <p class="problem-question">how do I go from idea to collecting money without doing a separate razorpay integration?</p>
+                    </td>
                   </tr>
                   <tr class="reveal" style="--i:3">
                     <td>razorpay chatGPT app</td>
