@@ -2110,8 +2110,9 @@ body.dark .faq-card {
 /* ── Change 8: Google note — real callout, not inline badge ─────── */
 .google-note {
   display: flex;
-  align-items: flex-start;
-  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 8px;
   font-size: 16px;
   font-weight: 500;
   color: var(--color-accent-2);
